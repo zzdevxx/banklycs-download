@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="site-body">
+  <!-- Atmospheric Top Glow -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
   <!-- Top Navigation Header -->
   <header class="site-header">
     <div class="header-inner container">
@@ -26,7 +29,7 @@
       <nav class="site-nav" aria-label="Navigasi Utama">
         <ul class="nav-list">
           <li><a href="#features" class="nav-link">Keunggulan</a></li>
-          <li><a href="#preview" class="nav-link">Live Preview</a></li>
+          <li><a href="#preview" class="nav-link">Live Console</a></li>
           <li><a href="#architecture" class="nav-link">Arsitektur</a></li>
           <li><a href="#download" class="nav-link">Download</a></li>
           <li><a href="#guide" class="nav-link">Cara Pakai</a></li>
@@ -42,7 +45,7 @@
           </svg>
           <span>GitHub</span>
         </a>
-        <a href="#download" class="btn btn-primary btn-sm">
+        <a href="#download" class="btn btn-primary btn-sm btn-glow">
           <span>Unduh Gratis</span>
         </a>
       </div>
@@ -56,7 +59,7 @@
         <div class="hero-content reveal-on-scroll">
           <div class="status-chip" role="status">
             <span class="status-dot pulsing-dot" aria-hidden="true"></span>
-            <span class="status-label">Master Database 24.556 Lagu Terkurasi (Zero Duplicate)</span>
+            <span class="status-label">Master Database 24.556 Lagu Terkurasi (100% Zero-Duplicate)</span>
           </div>
 
           <h1 class="hero-title">
@@ -76,7 +79,7 @@
             </a>
             <a href="#preview" class="btn btn-secondary btn-lg">
               <span class="btn-play-icon" aria-hidden="true">▶</span>
-              <span>Coba Live Simulator</span>
+              <span>Buka Live Console Simulator</span>
             </a>
           </div>
 
@@ -99,121 +102,197 @@
             </div>
           </div>
         </div>
+
+        <!-- Hero Showcase Frame: Hardware Broadcast Console Preview -->
+        <div class="hero-showcase reveal-on-scroll">
+          <div class="showcase-window">
+            <div class="showcase-window-bar">
+              <div class="window-dots" aria-hidden="true">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              <div class="window-title-tab">
+                <span class="tab-badge" aria-hidden="true">P7</span>
+                <span>ProPresenter 7 - Native Studio Console (127.0.0.1:5050)</span>
+              </div>
+              <div class="window-meta">
+                <span class="status-live-chip">
+                  <span class="pulsing-green-dot"></span>
+                  <span>ONLINE</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Inside Window: Miniature Mockup of Studio Console -->
+            <div class="showcase-preview-body">
+              <div class="mock-sidebar">
+                <div class="mock-search-box">
+                  <span class="mock-glyph">🔍</span>
+                  <span class="mock-search-txt">Sentuh Hatiku</span>
+                </div>
+                <div class="mock-song-item active">
+                  <span class="mock-song-name">Sentuh Hatiku</span>
+                  <span class="mock-cat-tag">ID</span>
+                </div>
+                <div class="mock-song-item">
+                  <span class="mock-song-name">Amazing Grace</span>
+                  <span class="mock-cat-tag">EN</span>
+                </div>
+                <div class="mock-song-item">
+                  <span class="mock-song-name">Ku Berbahagia</span>
+                  <span class="mock-cat-tag">KJ 392</span>
+                </div>
+                <div class="mock-song-item">
+                  <span class="mock-song-name">Ro Ma Ho Tu Jesus</span>
+                  <span class="mock-cat-tag">BE 179</span>
+                </div>
+              </div>
+
+              <div class="mock-stage-view">
+                <div class="mock-stage-header">
+                  <span class="mock-stage-tag">LIVE PROJECTION STAGE (1920x1080)</span>
+                  <span class="mock-cue-tag">CHORUS</span>
+                </div>
+                <div class="mock-screen">
+                  <p class="mock-lyric-line">Sentuh hatiku ubah hidupku</p>
+                  <p class="mock-lyric-line">Menjadi yang Kau mau</p>
+                </div>
+                <div class="mock-slide-thumbnails">
+                  <div class="mock-thumb"><span>BLANK</span></div>
+                  <div class="mock-thumb"><span>VERSE 1</span></div>
+                  <div class="mock-thumb active"><span>CHORUS</span></div>
+                  <div class="mock-thumb"><span>ENDING</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Key Features Section -->
+    <!-- Asymmetric Feature Showcase (Breaking Generic Card Grids) -->
     <section id="features" class="section section-dark">
       <div class="container">
         <div class="section-header reveal-on-scroll">
-          <span class="section-tag">KEUNGGULAN UTAMA</span>
-          <h2 class="section-title">Solusi Nyata Masalah Presentasi Ibadah</h2>
+          <span class="section-tag">ENGINE CRAFTSMANSHIP</span>
+          <h2 class="section-title">Rekayasa Presisi untuk Stabilitas Panggung</h2>
           <p class="section-subtitle">
-            Dibangun berdasarkan pengalaman riil di meja operator multimedia gereja: cepat, stabil, dan ramah pengguna.
+            Setiap komponen dirancang agar workstation multimedia gereja Anda tetap dingin, instan, dan bebas dari risiko force close saat kebaktian.
           </p>
         </div>
 
-        <div class="feature-grid">
-          <!-- Card 1 -->
-          <article class="feature-card reveal-on-scroll">
-            <div class="feature-icon-box icon-orange" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
-                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
-                <line x1="6" y1="6" x2="6.01" y2="6"/>
-                <line x1="6" y1="18" x2="6.01" y2="18"/>
-              </svg>
-            </div>
-            <h3 class="feature-card-title">Arsitektur Single-File SQLite</h3>
-            <p class="feature-card-text">
-              Seluruh 24.556 lagu tersimpan rapi dalam satu file database berukuran 44.20 MB. Menghilangkan 40.000 file terpisah yang selama ini memperlambat Windows NTFS dan flashdisk USB.
-            </p>
-          </article>
+        <div class="asymmetric-showcase">
+          <!-- Big Feature A: Single-File SQLite -->
+          <div class="showcase-card card-large reveal-on-scroll">
+            <div class="card-glow-accent" aria-hidden="true"></div>
+            <div class="card-content-wrap">
+              <span class="feature-kicker">ARSITEKTUR DATA BASE</span>
+              <h3 class="card-headline">Single-File SQLite 44.20 MB vs 40.000 File NTFS</h3>
+              <p class="card-body-text">
+                Menyimpan 40.000 berkas terpisah di harddisk membuat Windows NTFS lambat dan menyalin ke flashdisk USB butuh 15 menit. Banklycs mengemas seluruh 24.556 lagu ke dalam 1 file database tunggal dengan tabel virtual FTS5.
+              </p>
 
-          <!-- Card 2 -->
-          <article class="feature-card reveal-on-scroll">
-            <div class="feature-icon-box icon-blue" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-              </svg>
-            </div>
-            <h3 class="feature-card-title">Kompilasi Protobuf On-Demand</h3>
-            <p class="feature-card-text">
-              ProPresenter 7 tetap terbuka dalam waktu kurang dari 1 detik tanpa lag atau crash. Sistem hanya mengompilasi dan menyuntikkan 5 sampai 10 lagu rundown aktif ke folder Libraries panggung.
-            </p>
-          </article>
+              <!-- Interactive Disk Comparison Meter -->
+              <div class="comparison-meter-box">
+                <div class="meter-row">
+                  <div class="meter-info">
+                    <span class="meter-label">Metode Lama (40.000 Berkas .txt &amp; .pro)</span>
+                    <span class="meter-val bad tabular-num">~300 MB (15 Menit Copy USB)</span>
+                  </div>
+                  <div class="meter-track">
+                    <div class="meter-bar bad" style="width: 100%;"></div>
+                  </div>
+                </div>
 
-          <!-- Card 3 -->
-          <article class="feature-card reveal-on-scroll">
-            <div class="feature-icon-box icon-green" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="8"/>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-              </svg>
+                <div class="meter-row">
+                  <div class="meter-info">
+                    <span class="meter-label">Banklycs (1 File banklycs.db)</span>
+                    <span class="meter-val good tabular-num">44.20 MB (1 Detik Copy USB)</span>
+                  </div>
+                  <div class="meter-track">
+                    <div class="meter-bar good" style="width: 15%;"></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h3 class="feature-card-title">Pencarian FTS5 Sub-Milidetik</h3>
-            <p class="feature-card-text">
-              Ketik judul, lirik lagu, nama artis, atau nomor buku himne (seperti KJ 392 atau BE 210). Hasil pencarian muncul instan langsung dari RAM dalam kecepatan kurang dari 0.4 ms.
-            </p>
-          </article>
+          </div>
 
-          <!-- Card 4 -->
-          <article class="feature-card reveal-on-scroll">
-            <div class="feature-icon-box icon-purple" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
+          <!-- Feature B: On-Demand Protobuf Compilation -->
+          <div class="showcase-card reveal-on-scroll">
+            <div class="card-content-wrap">
+              <span class="feature-kicker kicker-blue">ON-DEMAND COMPILER</span>
+              <h3 class="card-headline">Kompilasi Protobuf &lt; 1 ms</h3>
+              <p class="card-body-text">
+                File .pro tidak disimpan menumpuk di disk. Saat tombol Inject diklik, serializer C# mengompilasi Protobuf resmi ProPresenter 7 secara in-memory langsung ke Libraries/Banks/ dan Playlists/Library.
+              </p>
+              <div class="stat-highlight-box">
+                <div class="stat-highlight-item">
+                  <span class="stat-hl-num tabular-num">0.38 ms</span>
+                  <span class="stat-hl-label">Kecepatan FTS5 RAM</span>
+                </div>
+                <div class="stat-highlight-item">
+                  <span class="stat-hl-num tabular-num">&lt; 1 Detik</span>
+                  <span class="stat-hl-label">Startup ProPresenter</span>
+                </div>
+              </div>
             </div>
-            <h3 class="feature-card-title">Standar Panggung Profesional</h3>
-            <p class="feature-card-text">
-              Maksimal 2 baris teks per slide, diawali slide kosong BLANK untuk judul, font CMGSans-Bold proporsional, dan canvas 1920x1080 yang nyaman dibaca jemaat dan pemusik.
-            </p>
-          </article>
+          </div>
 
-          <!-- Card 5 -->
-          <article class="feature-card reveal-on-scroll">
-            <div class="feature-icon-box icon-yellow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10 9 9 9 8 9"/>
-              </svg>
+          <!-- Feature C: Buku Himne Lengkap -->
+          <div class="showcase-card reveal-on-scroll">
+            <div class="card-content-wrap">
+              <span class="feature-kicker kicker-orange">KATALOG RESMI</span>
+              <h3 class="card-headline">Buku Himne &amp; Pujian Lengkap</h3>
+              <p class="card-body-text">
+                Kidung Jemaat (KJ), Buku Ende Batak (BE), Kidung Keesaan (KK), Nyanyikanlah Kidung Baru (NKB), Pelengkap Kidung Jemaat (PKJ), KLIK, NNBT, dan Kidung Pasamuwan Jawi lengkap dengan penomoran resmi.
+              </p>
+              <div class="mini-hymn-pills">
+                <span class="hymn-pill">KJ 1.127</span>
+                <span class="hymn-pill">BE 844</span>
+                <span class="hymn-pill">KK 765</span>
+                <span class="hymn-pill">KLIK 461</span>
+                <span class="hymn-pill">PKJ 399</span>
+                <span class="hymn-pill">NKB 363</span>
+              </div>
             </div>
-            <h3 class="feature-card-title">Buku Himne Gereja Lengkap</h3>
-            <p class="feature-card-text">
-              Mencakup Kidung Jemaat (KJ), Buku Ende Batak (BE), Kidung Keesaan (KK), Nyanyikanlah Kidung Baru (NKB), Pelengkap Kidung Jemaat (PKJ), KLIK, NNBT, dan Kidung Jawa.
-            </p>
-          </article>
+          </div>
 
-          <!-- Card 6 -->
-          <article class="feature-card reveal-on-scroll">
-            <div class="feature-icon-box icon-cyan" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
+          <!-- Feature D: 1-Klik Salin WhatsApp -->
+          <div class="showcase-card card-wide reveal-on-scroll">
+            <div class="card-content-wrap">
+              <span class="feature-kicker kicker-green">WORKFLOW SINKRON</span>
+              <h3 class="card-headline">Integrasi Rundown &amp; Ekspor WhatsApp Tim Musik</h3>
+              <p class="card-body-text">
+                Susun 5 sampai 8 lagu ibadah dalam rundown, lalu klik tombol Salin ke WA. Format rundown tersusun rapi otomatis siap dibagikan ke grup WhatsApp worship leader dan pemusik gereja dalam satu sentuhan.
+              </p>
+              <div class="wa-preview-bubble">
+                <div class="wa-bubble-header">
+                  <span class="wa-badge">CONTOH FORMAT WHATSAPP</span>
+                  <span class="wa-time">10:45 AM</span>
+                </div>
+                <div class="wa-bubble-body">
+                  <p><strong>*RUNDOWN LAGU IBADAH MINGGU*</strong></p>
+                  <p>1. *Sentuh Hatiku* (Jason)</p>
+                  <p>2. *Ku Berbahagia* (KJ 392)</p>
+                  <p>3. *Amazing Grace* (John Newton)</p>
+                  <p>4. *Kemenangan Terjadi Di Sini* (GMS Live)</p>
+                </div>
+              </div>
             </div>
-            <h3 class="feature-card-title">Ekspor 1-Klik ke WhatsApp</h3>
-            <p class="feature-card-text">
-              Susun lagu ibadah dalam rundown, lalu klik tombol Salin ke WA untuk mendapatkan teks tersusun rapi yang siap dikirimkan ke grup pengurus musik dan worship leader.
-            </p>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Interactive Simulator Section with Live Stage Screen -->
+    <!-- Interactive Simulator Section: Broadcast Studio Console -->
     <section id="preview" class="section">
       <div class="container">
         <div class="section-header reveal-on-scroll">
           <span class="section-tag">SIMULATOR INTERAKTIF</span>
-          <h2 class="section-title">Coba Langsung Studio Console di Browser</h2>
+          <h2 class="section-title">Uji Langsung Studio Console di Browser</h2>
           <p class="section-subtitle">
-            Uji coba pencarian cepat, proyeksikan lirik ke layar panggung simulasi secara realtime, dan susun rundown ibadah.
+            Cari lagu, tayangkan bait lirik ke monitor panggung virtual, dan susun rundown ibadah dengan data autentik Banklycs.
           </p>
         </div>
 
@@ -250,9 +329,21 @@
             </div>
 
             <div class="sim-tb-right">
+              <!-- Audio VU Meter Simulation -->
+              <div class="sim-vu-meter" title="Simulasi Audio Monitor Panggung" aria-hidden="true">
+                <span class="vu-bar vu-1"></span>
+                <span class="vu-bar vu-2"></span>
+                <span class="vu-bar vu-3"></span>
+                <span class="vu-bar vu-4"></span>
+                <span class="vu-bar vu-5"></span>
+              </div>
+
+              <!-- Live Broadcast Clock -->
+              <div class="sim-clock" id="sim-clock" title="Waktu Siaran Panggung">10:45:00 AM</div>
+
               <div class="sim-status">
                 <span class="status-dot pulsing-dot"></span>
-                <span>Ready</span>
+                <span>Pro7 Ready</span>
               </div>
             </div>
           </div>
@@ -288,7 +379,7 @@
                   <button id="sim-copy-wa-btn" class="btn btn-outline btn-sm w-full">
                     <span>Salin ke WhatsApp</span>
                   </button>
-                  <button id="sim-fake-inject-btn" class="btn btn-primary btn-sm w-full">
+                  <button id="sim-fake-inject-btn" class="btn btn-primary btn-sm w-full btn-glow">
                     <span>Simulasi Inject Pro7</span>
                   </button>
                 </div>
@@ -306,11 +397,12 @@
                       <span>LIVE PROJECTION</span>
                     </span>
                     <span class="stage-slide-meta" id="stage-slide-meta">Slide #1 (BLANK)</span>
+                    <span class="stage-res-tag">1920x1080 @ 60Hz</span>
                   </div>
                   <div class="stage-monitor-controls">
                     <button id="stage-prev-btn" class="stage-ctrl-btn" title="Slide Sebelumnya (Arrow Left)">◀ Prev</button>
                     <button id="stage-next-btn" class="stage-ctrl-btn" title="Slide Berikutnya (Arrow Right / Space)">Next ▶</button>
-                    <button id="stage-clear-btn" class="stage-ctrl-btn btn-clear-screen" title="Layar Hitam">Clear Black</button>
+                    <button id="stage-clear-btn" class="stage-ctrl-btn btn-clear-screen" title="Layar Hitam (Esc)">Clear Black</button>
                   </div>
                 </div>
 
@@ -332,7 +424,7 @@
                   <h3 class="sim-inspector-title" id="sim-inspector-title">Pilih lagu dari daftar sebelah kiri</h3>
                   <p class="sim-inspector-artist" id="sim-inspector-artist">Klik kartu slide di bawah untuk memproyeksikan langsung ke layar panggung</p>
                 </div>
-                <button id="sim-add-btn" class="btn btn-primary btn-sm" disabled>
+                <button id="sim-add-btn" class="btn btn-primary btn-sm btn-glow" disabled>
                   <span>+ Tambah ke Rundown</span>
                 </button>
               </div>
@@ -355,14 +447,14 @@
       </div>
     </section>
 
-    <!-- Architecture & Comparison Section -->
+    <!-- Architecture & Interactive Pipeline Flow -->
     <section id="architecture" class="section section-dark">
       <div class="container">
         <div class="section-header reveal-on-scroll">
           <span class="section-tag">ARSITEKTUR &amp; PERFORMA</span>
-          <h2 class="section-title">Perbandingan Metode Lama vs Banklycs</h2>
+          <h2 class="section-title">Jalur Data Kompilasi Realtime On-Demand</h2>
           <p class="section-subtitle">
-            Mengapa arsitektur single-file SQLite dan on-demand Protobuf jauh lebih stabil untuk komputer ibadah gereja.
+            Alur data terenkapsulasi dari SQLite vault menuju presentasi panggung tanpa hambatan file locking.
           </p>
         </div>
 
@@ -375,7 +467,7 @@
               <div class="node-body">
                 <span class="node-step">TAHAP 1</span>
                 <h4 class="node-title">SQLite Master Vault</h4>
-                <p class="node-desc">24.556 lagu dalam 1 file 44 MB. Bebas bloat NTFS.</p>
+                <p class="node-desc">24.556 lagu dalam 1 file 44.20 MB. PRAGMA integrity ok.</p>
               </div>
             </div>
 
@@ -391,7 +483,7 @@
               <div class="node-body">
                 <span class="node-step">TAHAP 2</span>
                 <h4 class="node-title">C# Native RAM Engine</h4>
-                <p class="node-desc">Load ~170 ms ke RAM, pencarian FTS5 &lt; 0.4 ms.</p>
+                <p class="node-desc">Katalog terload ~170 ms ke RAM, kueri FTS5 &lt; 0.4 ms.</p>
               </div>
             </div>
 
@@ -472,53 +564,6 @@
                 <strong>Nol Dependensi (Zero Setup):</strong> Menggunakan engine native C# .NET 8 self-contained dengan SQLite tertanam tanpa butuh instalasi Python.
               </li>
             </ul>
-          </div>
-        </div>
-
-        <!-- Category Distribution Matrix -->
-        <div class="category-breakdown reveal-on-scroll">
-          <h3 class="breakdown-title">Distribusi 24.556 Lagu Terkurasi (100% Zero-Duplicate)</h3>
-          <div class="category-chips">
-            <div class="cat-chip">
-              <span class="cat-chip-name">Praise &amp; Worship Indonesia (ID)</span>
-              <span class="cat-chip-val tabular-num">14.586 lagu</span>
-            </div>
-            <div class="cat-chip">
-              <span class="cat-chip-name">English Contemporary &amp; Hymns (EN)</span>
-              <span class="cat-chip-val tabular-num">5.961 lagu</span>
-            </div>
-            <div class="cat-chip">
-              <span class="cat-chip-name">Kidung Jemaat (KJ)</span>
-              <span class="cat-chip-val tabular-num">1.127 lagu</span>
-            </div>
-            <div class="cat-chip">
-              <span class="cat-chip-name">Buku Ende HKBP (BE)</span>
-              <span class="cat-chip-val tabular-num">844 lagu</span>
-            </div>
-            <div class="cat-chip">
-              <span class="cat-chip-name">Kidung Keesaan (KK)</span>
-              <span class="cat-chip-val tabular-num">765 lagu</span>
-            </div>
-            <div class="cat-chip">
-              <span class="cat-chip-name">Kumpulan Lagu Ibadah Kreatif (KLIK)</span>
-              <span class="cat-chip-val tabular-num">461 lagu</span>
-            </div>
-            <div class="cat-chip">
-              <span class="cat-chip-name">Pelengkap Kidung Jemaat (PKJ)</span>
-              <span class="cat-chip-val tabular-num">399 lagu</span>
-            </div>
-            <div class="cat-chip">
-              <span class="cat-chip-name">Nyanyikanlah Kidung Baru (NKB)</span>
-              <span class="cat-chip-val tabular-num">363 lagu</span>
-            </div>
-            <div class="cat-chip">
-              <span class="cat-chip-name">Nyanyian Baru Bagi Tuhan (NNBT)</span>
-              <span class="cat-chip-val tabular-num">46 lagu</span>
-            </div>
-            <div class="cat-chip">
-              <span class="cat-chip-name">Kidung Pasamuwan Jawi (JAWA)</span>
-              <span class="cat-chip-val tabular-num">4 lagu</span>
-            </div>
           </div>
         </div>
       </div>

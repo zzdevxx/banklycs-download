@@ -185,6 +185,7 @@
 
   // Initialization
   function init() {
+    setupLiveClock();
     setupScrollReveals();
     setupAnimatedCounters();
     loadSavedRundown();
@@ -195,6 +196,25 @@
     if (SAMPLE_SONGS.length > 0) {
       selectSong(SAMPLE_SONGS[0]);
     }
+  }
+
+  // Live Broadcast Clock
+  function setupLiveClock() {
+    const clockEl = document.getElementById('sim-clock');
+    if (!clockEl) return;
+
+    function update() {
+      const now = new Date();
+      clockEl.textContent = now.toLocaleTimeString('en-US', {
+        hour12: true,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+    }
+
+    update();
+    setInterval(update, 1000);
   }
 
   // Scroll Reveal Animations
@@ -394,7 +414,7 @@
       } else if (e.key === 'ArrowLeft') {
         e.preventDefault();
         advanceSlide(-1);
-      } else if (e.key === 'Escape') {
+      } else if (e.key === 'Escape' || e.key === 'b' || e.key === 'B') {
         toggleClearBlack();
       }
     });
