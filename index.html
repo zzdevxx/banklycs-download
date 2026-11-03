@@ -6,11 +6,37 @@
   <title>Banklycs: Database 24.556 Lagu &amp; Injektor ProPresenter 7</title>
   <meta name="description" content="Katalog 24.556 lagu rohani dan himne gereja siap tayang untuk ProPresenter 7. Format SQLite single-file 44 MB dengan pencarian FTS5 dan kompilasi Protobuf on-demand.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23f38020'/><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='52' font-weight='900' fill='%23000'>P7</text></svg>">
+
+  <!-- High-Caliber Typography: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="site-body">
-  <!-- Atmospheric Top Glow -->
+  <!-- Atmospheric Stage Light & Dot Grid Texture -->
   <div class="ambient-glow" aria-hidden="true"></div>
+  <div class="grid-texture-overlay" aria-hidden="true"></div>
+
+  <!-- Top Broadcast Ticker -->
+  <aside class="broadcast-ticker" aria-label="Status Siaran Langsung">
+    <div class="container ticker-container">
+      <div class="ticker-content">
+        <span class="ticker-badge"><span class="pulsing-green-dot"></span> LIVE VAULT</span>
+        <span class="ticker-text">Master Database 24.556 Lagu Rohani Terkurasi</span>
+        <span class="ticker-sep" aria-hidden="true">•</span>
+        <span class="ticker-text">Single-File SQLite 44.20 MB</span>
+        <span class="ticker-sep" aria-hidden="true">•</span>
+        <span class="ticker-text">Kompilasi Protobuf &lt; 1 ms On-Demand</span>
+        <span class="ticker-sep" aria-hidden="true">•</span>
+        <span class="ticker-text">Nol Dependensi Python</span>
+      </div>
+      <div class="ticker-actions">
+        <a href="#preview" class="ticker-link">Coba Simulator Panggung &rarr;</a>
+      </div>
+    </div>
+  </aside>
 
   <!-- Top Navigation Header -->
   <header class="site-header">
@@ -105,64 +131,66 @@
 
         <!-- Hero Showcase Frame: Hardware Broadcast Console Preview -->
         <div class="hero-showcase reveal-on-scroll">
-          <div class="showcase-window">
-            <div class="showcase-window-bar">
-              <div class="window-dots" aria-hidden="true">
-                <span class="dot-red"></span>
-                <span class="dot-yellow"></span>
-                <span class="dot-green"></span>
-              </div>
-              <div class="window-title-tab">
-                <span class="tab-badge" aria-hidden="true">P7</span>
-                <span>ProPresenter 7 - Native Studio Console (127.0.0.1:5050)</span>
-              </div>
-              <div class="window-meta">
-                <span class="status-live-chip">
-                  <span class="pulsing-green-dot"></span>
-                  <span>ONLINE</span>
-                </span>
-              </div>
-            </div>
-
-            <!-- Inside Window: Miniature Mockup of Studio Console -->
-            <div class="showcase-preview-body">
-              <div class="mock-sidebar">
-                <div class="mock-search-box">
-                  <span class="mock-glyph">🔍</span>
-                  <span class="mock-search-txt">Sentuh Hatiku</span>
+          <div class="showcase-perspective">
+            <div class="showcase-window">
+              <div class="showcase-window-bar">
+                <div class="window-dots" aria-hidden="true">
+                  <span class="dot-red"></span>
+                  <span class="dot-yellow"></span>
+                  <span class="dot-green"></span>
                 </div>
-                <div class="mock-song-item active">
-                  <span class="mock-song-name">Sentuh Hatiku</span>
-                  <span class="mock-cat-tag">ID</span>
+                <div class="window-title-tab">
+                  <span class="tab-badge" aria-hidden="true">P7</span>
+                  <span>ProPresenter 7 Studio Console (Native C# .NET 8 / Port 5050)</span>
                 </div>
-                <div class="mock-song-item">
-                  <span class="mock-song-name">Amazing Grace</span>
-                  <span class="mock-cat-tag">EN</span>
-                </div>
-                <div class="mock-song-item">
-                  <span class="mock-song-name">Ku Berbahagia</span>
-                  <span class="mock-cat-tag">KJ 392</span>
-                </div>
-                <div class="mock-song-item">
-                  <span class="mock-song-name">Ro Ma Ho Tu Jesus</span>
-                  <span class="mock-cat-tag">BE 179</span>
+                <div class="window-meta">
+                  <span class="status-live-chip">
+                    <span class="pulsing-green-dot"></span>
+                    <span>BROADCAST READY</span>
+                  </span>
                 </div>
               </div>
 
-              <div class="mock-stage-view">
-                <div class="mock-stage-header">
-                  <span class="mock-stage-tag">LIVE PROJECTION STAGE (1920x1080)</span>
-                  <span class="mock-cue-tag">CHORUS</span>
+              <!-- Inside Window: Miniature Mockup of Studio Console -->
+              <div class="showcase-preview-body">
+                <div class="mock-sidebar">
+                  <div class="mock-search-box">
+                    <span class="mock-glyph">🔍</span>
+                    <span class="mock-search-txt">Sentuh Hatiku</span>
+                  </div>
+                  <div class="mock-song-item active">
+                    <span class="mock-song-name">Sentuh Hatiku</span>
+                    <span class="mock-cat-tag">ID</span>
+                  </div>
+                  <div class="mock-song-item">
+                    <span class="mock-song-name">Amazing Grace</span>
+                    <span class="mock-cat-tag">EN</span>
+                  </div>
+                  <div class="mock-song-item">
+                    <span class="mock-song-name">Ku Berbahagia</span>
+                    <span class="mock-cat-tag">KJ 392</span>
+                  </div>
+                  <div class="mock-song-item">
+                    <span class="mock-song-name">Ro Ma Ho Tu Jesus</span>
+                    <span class="mock-cat-tag">BE 179</span>
+                  </div>
                 </div>
-                <div class="mock-screen">
-                  <p class="mock-lyric-line">Sentuh hatiku ubah hidupku</p>
-                  <p class="mock-lyric-line">Menjadi yang Kau mau</p>
-                </div>
-                <div class="mock-slide-thumbnails">
-                  <div class="mock-thumb"><span>BLANK</span></div>
-                  <div class="mock-thumb"><span>VERSE 1</span></div>
-                  <div class="mock-thumb active"><span>CHORUS</span></div>
-                  <div class="mock-thumb"><span>ENDING</span></div>
+
+                <div class="mock-stage-view">
+                  <div class="mock-stage-header">
+                    <span class="mock-stage-tag">STAGE OUTPUT (1920x1080 @ 60Hz)</span>
+                    <span class="mock-cue-tag">CHORUS</span>
+                  </div>
+                  <div class="mock-screen">
+                    <p class="mock-lyric-line">Sentuh hatiku ubah hidupku</p>
+                    <p class="mock-lyric-line">Menjadi yang Kau mau</p>
+                  </div>
+                  <div class="mock-slide-thumbnails">
+                    <div class="mock-thumb"><span>BLANK</span></div>
+                    <div class="mock-thumb"><span>VERSE 1</span></div>
+                    <div class="mock-thumb active"><span>CHORUS</span></div>
+                    <div class="mock-thumb"><span>ENDING</span></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -228,12 +256,13 @@
               </p>
               <div class="stat-highlight-box">
                 <div class="stat-highlight-item">
-                  <span class="stat-hl-num tabular-num">0.38 ms</span>
+                  <span class="stat-hl-num tabular-num" id="live-benchmark-val">0.38 ms</span>
                   <span class="stat-hl-label">Kecepatan FTS5 RAM</span>
                 </div>
                 <div class="stat-highlight-item">
-                  <span class="stat-hl-num tabular-num">&lt; 1 Detik</span>
-                  <span class="stat-hl-label">Startup ProPresenter</span>
+                  <button id="run-benchmark-btn" class="btn btn-outline btn-sm">
+                    <span>Uji Latensi RAM</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -248,12 +277,12 @@
                 Kidung Jemaat (KJ), Buku Ende Batak (BE), Kidung Keesaan (KK), Nyanyikanlah Kidung Baru (NKB), Pelengkap Kidung Jemaat (PKJ), KLIK, NNBT, dan Kidung Pasamuwan Jawi lengkap dengan penomoran resmi.
               </p>
               <div class="mini-hymn-pills">
-                <span class="hymn-pill">KJ 1.127</span>
-                <span class="hymn-pill">BE 844</span>
-                <span class="hymn-pill">KK 765</span>
-                <span class="hymn-pill">KLIK 461</span>
-                <span class="hymn-pill">PKJ 399</span>
-                <span class="hymn-pill">NKB 363</span>
+                <button class="hymn-pill" data-jump="KJ 392">KJ 1.127</button>
+                <button class="hymn-pill" data-jump="BE 179">BE 844</button>
+                <button class="hymn-pill" data-jump="KK">KK 765</button>
+                <button class="hymn-pill" data-jump="KLIK">KLIK 461</button>
+                <button class="hymn-pill" data-jump="PKJ 145">PKJ 399</button>
+                <button class="hymn-pill" data-jump="NKB 128">NKB 363</button>
               </div>
             </div>
           </div>
@@ -268,7 +297,7 @@
               </p>
               <div class="wa-preview-bubble">
                 <div class="wa-bubble-header">
-                  <span class="wa-badge">CONTOH FORMAT WHATSAPP</span>
+                  <span class="wa-badge">CONTOH FORMAT WHATSAPP OTOMATIS</span>
                   <span class="wa-time">10:45 AM</span>
                 </div>
                 <div class="wa-bubble-body">
@@ -292,7 +321,7 @@
           <span class="section-tag">SIMULATOR INTERAKTIF</span>
           <h2 class="section-title">Uji Langsung Studio Console di Browser</h2>
           <p class="section-subtitle">
-            Cari lagu, tayangkan bait lirik ke monitor panggung virtual, dan susun rundown ibadah dengan data autentik Banklycs.
+            Cari lagu, ganti mode monitor panggung virtual (Auditorium / Confidence / Lower Third), dan susun rundown ibadah.
           </p>
         </div>
 
@@ -302,7 +331,7 @@
             <div class="sim-tb-left">
               <div class="sim-brand">
                 <span class="sim-badge" aria-hidden="true">P7</span>
-                <span class="sim-title">ProPresenter 7 Console Simulator</span>
+                <span class="sim-title">Studio Console</span>
               </div>
               <div class="sim-search-wrap">
                 <input
@@ -340,6 +369,12 @@
 
               <!-- Live Broadcast Clock -->
               <div class="sim-clock" id="sim-clock" title="Waktu Siaran Panggung">10:45:00 AM</div>
+
+              <!-- Tactile Sound Toggle -->
+              <button id="sound-toggle-btn" class="sim-sound-btn" title="Aktifkan Suara Klik Konsol Taktil">
+                <span id="sound-icon">🔊</span>
+                <span>Sound ON</span>
+              </button>
 
               <div class="sim-status">
                 <span class="status-dot pulsing-dot"></span>
@@ -397,18 +432,26 @@
                       <span>LIVE PROJECTION</span>
                     </span>
                     <span class="stage-slide-meta" id="stage-slide-meta">Slide #1 (BLANK)</span>
-                    <span class="stage-res-tag">1920x1080 @ 60Hz</span>
                   </div>
+
+                  <!-- 3 Output Display Modes Selector -->
+                  <div class="screen-mode-selector" role="radiogroup" aria-label="Mode Layar Panggung">
+                    <button class="mode-tab active" data-mode="auditorium" role="radio" aria-checked="true" title="Auditorium LED 16:9 Full Screen">LED Layar Utama</button>
+                    <button class="mode-tab" data-mode="confidence" role="radio" aria-checked="false" title="Monitor Panggung Pemusik & Singer">Confidence Monitor</button>
+                    <button class="mode-tab" data-mode="lowerthird" role="radio" aria-checked="false" title="Overlay Live Streaming YouTube / OBS">Lower Third Stream</button>
+                  </div>
+
                   <div class="stage-monitor-controls">
                     <button id="stage-prev-btn" class="stage-ctrl-btn" title="Slide Sebelumnya (Arrow Left)">◀ Prev</button>
                     <button id="stage-next-btn" class="stage-ctrl-btn" title="Slide Berikutnya (Arrow Right / Space)">Next ▶</button>
-                    <button id="stage-clear-btn" class="stage-ctrl-btn btn-clear-screen" title="Layar Hitam (Esc)">Clear Black</button>
+                    <button id="stage-clear-btn" class="stage-ctrl-btn btn-clear-screen" title="Layar Hitam (B / Esc)">Clear Black</button>
                   </div>
                 </div>
 
-                <!-- Projection Screen 16:9 Output -->
-                <div class="stage-screen-frame">
-                  <div class="stage-screen-screen" id="stage-screen-output">
+                <!-- Projection Screen 16:9 Output Container -->
+                <div class="stage-screen-frame" id="stage-screen-frame">
+                  <div class="stage-screen-screen mode-auditorium" id="stage-screen-output">
+                    <!-- Dynamic screen content (Auditorium, Confidence, or Lower Third) -->
                     <div class="stage-screen-content fade-transition" id="stage-screen-text">
                       <p class="stage-active-line-1">Sentuh Hatiku</p>
                       <p class="stage-active-line-2">Jason</p>
@@ -439,7 +482,8 @@
                 <span class="hint-item"><kbd>/</kbd> Cari Lagu</span>
                 <span class="hint-item"><kbd>Space</kbd> atau <kbd>→</kbd> Slide Berikutnya</span>
                 <span class="hint-item"><kbd>←</kbd> Slide Sebelumnya</span>
-                <span class="hint-item"><kbd>Esc</kbd> Clear Layar</span>
+                <span class="hint-item"><kbd>B</kbd> Layar Hitam</span>
+                <span class="hint-item"><kbd>Esc</kbd> Reset</span>
               </div>
             </div>
           </div>
