@@ -178,6 +178,8 @@
 
   // Initialization
   function init() {
+    setupScrollReveals();
+    setupAnimatedCounters();
     loadSavedRundown();
     setupEventListeners();
     filterAndRenderSongs();
@@ -186,6 +188,87 @@
     if (SAMPLE_SONGS.length > 0) {
       selectSong(SAMPLE_SONGS[0]);
     }
+  }
+
+  // Scroll Reveal Animations
+  function setupScrollReveals() {
+    const reveals = document.querySelectorAll('.reveal-on-scroll');
+    if (!reveals.length) return;
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-revealed'));
+    }
+  }
+
+  // Animated Metric Numbers Counter
+  function setupAnimatedCounters() {
+    const counters = document.querySelectorAll('.count-up');
+    if (!counters.length) return;
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateNumber(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach((c) => observer.observe(c));
+    } else {
+      counters.forEach((c) => animateNumber(c));
+    }
+  }
+
+  function animateNumber(el) {
+    const target = parseFloat(el.dataset.target || '0');
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1200;
+    const startTime = performance.now();
+
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = target * (progress * (2 - progress));
+
+      let formatted = '';
+      if (decimals > 0) {
+        formatted = current.toFixed(decimals);
+      } else {
+        formatted = Math.round(current).toLocaleString('id-ID');
+      }
+
+      el.textContent = `${prefix}${formatted}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        if (decimals > 0) {
+          el.textContent = `${prefix}${target.toFixed(decimals)}${suffix}`;
+        } else {
+          el.textContent = `${prefix}${Math.round(target).toLocaleString('id-ID')}${suffix}`;
+        }
+      }
+    }
+
+    requestAnimationFrame(update);
   }
 
   // Toast Notification

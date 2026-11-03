@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banklycs: Database 24.556 Lagu &amp; Injektor ProPresenter 7</title>
-  <meta name="description" content="Katalog 24.556 lagu rohani dan himne gereja siap tayang untuk ProPresenter 7. Format SQLite single-file 44 MB dengan pencarian FTS5 dan kompilasi Protobuf on-demand.">
+  <meta name="description" content="Database 24.556 lagu rohani dan himne siap tayang untuk ProPresenter 7. Format single-file SQLite 44 MB dengan pencarian FTS5 dan kompilasi Protobuf on-demand.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23f38020'/><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='52' font-weight='900' fill='%23000'>P7</text></svg>">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="site-body">
-  <!-- Top Navigation Header -->
+  <!-- Top Ambient Spotlight & Stage Glow -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Header Navigation -->
   <header class="site-header">
     <div class="header-inner container">
       <a href="#hero" class="brand-link" aria-label="Banklycs Beranda">
@@ -42,7 +45,7 @@
           </svg>
           <span>GitHub</span>
         </a>
-        <a href="#download" class="btn btn-primary btn-sm">
+        <a href="#download" class="btn btn-primary btn-sm btn-glow">
           <span>Unduh Gratis</span>
         </a>
       </div>
@@ -53,22 +56,22 @@
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
       <div class="container hero-container">
-        <div class="hero-content">
+        <div class="hero-content reveal-on-scroll">
           <div class="status-chip" role="status">
             <span class="status-dot pulsing-dot" aria-hidden="true"></span>
             <span class="status-label">Master Database 24.556 Lagu Terkurasi (100% Zero-Duplicate)</span>
           </div>
 
           <h1 class="hero-title">
-            Katalog Lagu Rohani &amp; Himne Siap Tayang untuk ProPresenter 7
+            24.556 Lagu Rohani &amp; Himne Siap Tayang untuk ProPresenter 7
           </h1>
 
           <p class="hero-lead">
-            Dirancang khusus untuk operator proyektor dan tim multimedia gereja agar tidak perlu lagi mencari, membuka browser, atau <em>copy-paste</em> lirik terburu-buru saat kebaktian berlangsung.
+            Satu database SQLite tunggal 44 MB. Pencarian sub-milidetik, kompilasi Protobuf on-demand, dan bebas lag saat ibadah berlangsung.
           </p>
 
           <div class="hero-actions">
-            <a href="#download" class="btn btn-primary btn-lg">
+            <a href="#download" class="btn btn-primary btn-lg btn-glow">
               <svg class="icon-svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
               </svg>
@@ -76,26 +79,26 @@
             </a>
             <a href="#preview" class="btn btn-secondary btn-lg">
               <span class="btn-play-icon" aria-hidden="true">▶</span>
-              <span>Buka Live Console Simulator</span>
+              <span>Coba Live Console</span>
             </a>
           </div>
 
           <div class="stat-pills" aria-label="Metrik Utama Banklycs">
-            <div class="stat-pill">
-              <span class="stat-num tabular-num">24.556</span>
+            <div class="stat-pill glass-card">
+              <span class="stat-num tabular-num count-up" data-target="24556">0</span>
               <span class="stat-desc">Lagu Master Terkurasi</span>
             </div>
-            <div class="stat-pill">
-              <span class="stat-num tabular-num">44.20 MB</span>
+            <div class="stat-pill glass-card">
+              <span class="stat-num tabular-num count-up" data-target="44.20" data-suffix=" MB" data-decimals="2">0 MB</span>
               <span class="stat-desc">SQLite Single-File</span>
             </div>
-            <div class="stat-pill">
-              <span class="stat-num tabular-num">&lt; 1 ms</span>
+            <div class="stat-pill glass-card">
+              <span class="stat-num tabular-num count-up" data-target="1" data-prefix="&lt; " data-suffix=" ms">0 ms</span>
               <span class="stat-desc">Kompilasi On-Demand</span>
             </div>
-            <div class="stat-pill">
-              <span class="stat-num tabular-num">0 Config</span>
-              <span class="stat-desc">Dependensi Luar</span>
+            <div class="stat-pill glass-card">
+              <span class="stat-num tabular-num">100%</span>
+              <span class="stat-desc">Offline &amp; Bebas Lag</span>
             </div>
           </div>
         </div>
@@ -105,36 +108,36 @@
     <!-- Key Features Section (Asymmetric Content-Driven Layout) -->
     <section id="features" class="section section-dark">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-tag">KEUNGGULAN UTAMA</span>
-          <h2 class="section-title">Solusi Nyata Masalah Presentasi Ibadah</h2>
+          <h2 class="section-title">Solusi Praktis untuk Tim Multimedia Gereja</h2>
           <p class="section-subtitle">
-            Dibangun berdasarkan pengalaman riil di meja operator multimedia gereja: cepat, stabil, dan ramah pengguna.
+            Dirancang agar operator proyektor dan relawan multimedia dapat bekerja cepat, tenang, dan tanpa risiko crash.
           </p>
         </div>
 
         <div class="feature-asymmetric-grid">
           <!-- Main Large Feature: Single-File SQLite -->
-          <article class="feature-box box-large">
+          <article class="feature-box box-large glass-card reveal-on-scroll">
             <div class="feature-kicker-wrap">
               <span class="feature-kicker-tag kicker-orange">DATA VAULT</span>
               <span class="feature-meta-tag">44.20 MB SQLITE</span>
             </div>
-            <h3 class="feature-box-title">Arsitektur Single-File SQLite vs 40.000 File NTFS</h3>
+            <h3 class="feature-box-title">Satu File Database Tunggal, Bukan 40.000 File</h3>
             <p class="feature-box-desc">
-              Menyimpan puluhan ribu file teks dan file presentasi terpisah di harddisk membuat Windows NTFS lambat dan menyalin ke flashdisk USB butuh 15 menit. Banklycs menyimpan seluruh 24.556 lagu dalam 1 database tunggal yang rapi, cepat disalin dalam 1 detik, dan bebas dari disk bloat.
+              Menghilangkan puluhan ribu file teks dan file presentasi yang memperlambat Windows NTFS. Semua 24.556 lagu tersimpan rapi dalam satu database SQLite 44.20 MB yang dapat disalin ke flashdisk dalam 1 detik.
             </p>
             <div class="disk-compare-card">
               <div class="compare-row">
                 <span class="compare-label">Metode Lama (40.000 File Terpisah)</span>
-                <span class="compare-val bad tabular-num">~300 MB (15 Menit Transfer USB)</span>
+                <span class="compare-val bad tabular-num">~300 MB (15 Menit Salin USB)</span>
               </div>
               <div class="compare-track">
                 <div class="compare-bar bar-bad" style="width: 100%;"></div>
               </div>
               <div class="compare-row mt-3">
-                <span class="compare-label">Banklycs (1 File banklycs.db)</span>
-                <span class="compare-val good tabular-num">44.20 MB (1 Detik Transfer USB)</span>
+                <span class="compare-label">Banklycs (1 File Database)</span>
+                <span class="compare-val good tabular-num">44.20 MB (1 Detik Salin USB)</span>
               </div>
               <div class="compare-track">
                 <div class="compare-bar bar-good" style="width: 15%;"></div>
@@ -143,14 +146,14 @@
           </article>
 
           <!-- Feature 2: On-Demand Protobuf Compilation -->
-          <article class="feature-box">
+          <article class="feature-box glass-card reveal-on-scroll">
             <div class="feature-kicker-wrap">
               <span class="feature-kicker-tag kicker-blue">ON-DEMAND</span>
               <span class="feature-meta-tag">&lt; 1 MS / LAGU</span>
             </div>
-            <h3 class="feature-box-title">Kompilasi Protobuf On-Demand</h3>
+            <h3 class="feature-box-title">ProPresenter Selalu Ringan &amp; Instan</h3>
             <p class="feature-box-desc">
-              ProPresenter 7 tetap terbuka dalam waktu kurang dari 1 detik tanpa lag atau crash. Sistem hanya mengompilasi Protobuf in-memory untuk 5 sampai 10 lagu rundown aktif saat Anda mengklik Inject.
+              File presentasi tidak menumpuk di ProPresenter. Sistem hanya mengompilasi Protobuf in-memory untuk lagu rundown ibadah aktif, menjaga startup ProPresenter di bawah 1 detik tanpa lag.
             </p>
             <div class="feature-stat-row">
               <div class="feature-stat-col">
@@ -165,14 +168,14 @@
           </article>
 
           <!-- Feature 3: Complete Hymnal Books -->
-          <article class="feature-box">
+          <article class="feature-box glass-card reveal-on-scroll">
             <div class="feature-kicker-wrap">
               <span class="feature-kicker-tag kicker-cyan">BUKU HIMNE</span>
               <span class="feature-meta-tag">10 KATEGORI</span>
             </div>
-            <h3 class="feature-box-title">Buku Nyanyian &amp; Himne Lengkap</h3>
+            <h3 class="feature-box-title">Buku Himne &amp; Pujian Terlengkap</h3>
             <p class="feature-box-desc">
-              Mencakup Kidung Jemaat (KJ), Buku Ende Batak (BE), Kidung Keesaan (KK), Nyanyikanlah Kidung Baru (NKB), Pelengkap Kidung Jemaat (PKJ), KLIK, NNBT, dan Kidung Pasamuwan Jawi lengkap dengan penomoran resmi.
+              Koleksi lagu ibadah kontemporer dan kidung gereja resmi lengkap dengan nomor buku: KJ, BE, KK, NKB, PKJ, KLIK, NNBT, dan Kidung Jawa.
             </p>
             <div class="hymn-tag-list">
               <span class="hymn-badge">KJ 1.127</span>
@@ -185,17 +188,17 @@
           </article>
 
           <!-- Feature 4: WhatsApp Export -->
-          <article class="feature-box box-wide">
+          <article class="feature-box box-wide glass-card reveal-on-scroll">
             <div class="feature-kicker-wrap">
               <span class="feature-kicker-tag kicker-green">WORKFLOW SINKRON</span>
               <span class="feature-meta-tag">1-KLIK CLIPBOARD</span>
             </div>
-            <h3 class="feature-box-title">Ekspor Rundown Ibadah ke WhatsApp</h3>
+            <h3 class="feature-box-title">Susun Rundown &amp; Bagikan ke WhatsApp 1-Klik</h3>
             <p class="feature-box-desc">
-              Susun lagu ibadah minggu ini, lalu klik tombol Salin ke WA. Daftar lagu tersusun rapi dan otomatis siap dikirimkan ke grup chat pengurus musik, singers, dan worship leader dalam hitungan detik.
+              Pilih lagu ibadah minggu ini, klik Salin ke WA, dan teks rundown otomatis tersusun rapi untuk dikirimkan langsung ke grup chat pemusik dan worship leader.
             </p>
             <div class="wa-example-card">
-              <span class="wa-header-label">CONTOH FORMAT PESAN WHATSAPP:</span>
+              <span class="wa-header-label">FORMAT PESAN WHATSAPP:</span>
               <div class="wa-sample-text">
                 <p><strong>*RUNDOWN LAGU IBADAH MINGGU*</strong></p>
                 <p>1. *Sentuh Hatiku* (Jason)</p>
@@ -212,15 +215,15 @@
     <!-- Interactive Simulator Section: ProPresenter 7 Console Clone -->
     <section id="preview" class="section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-tag">SIMULATOR INTERAKTIF</span>
-          <h2 class="section-title">Coba Langsung Studio Console di Browser</h2>
+          <h2 class="section-title">Studio Console Langsung di Browser</h2>
           <p class="section-subtitle">
-            Antarmuka kloning resmi ProPresenter 7: cari lagu, tinjau slide 16:9 panggung, dan susun rundown ibadah.
+            Cari lagu di katalog, lihat slide panggung 16:9 widescreen, dan susun rundown ibadah secara realtime.
           </p>
         </div>
 
-        <div class="simulator-console">
+        <div class="simulator-console glass-panel reveal-on-scroll">
           <!-- Top Toolbar ProPresenter 7 -->
           <div class="console-toolbar">
             <div class="console-tb-left">
@@ -306,7 +309,7 @@
                   <button id="sim-copy-wa-btn" class="btn btn-outline btn-sm w-full">
                     <span>📋 Salin ke WhatsApp</span>
                   </button>
-                  <button id="sim-fake-inject-btn" class="btn btn-primary btn-sm w-full">
+                  <button id="sim-fake-inject-btn" class="btn btn-primary btn-sm w-full btn-glow">
                     <span>▶ INJECT KE PROPRESENTER</span>
                   </button>
                 </div>
@@ -321,7 +324,7 @@
                   <h3 class="slide-song-title" id="sim-inspector-title">Pilih lagu dari Library sebelah kiri</h3>
                   <p class="slide-song-artist" id="sim-inspector-artist">Klik baris lagu untuk melihat pratinjau slide panggung 16:9 widescreen</p>
                 </div>
-                <button id="sim-add-btn" class="btn btn-primary btn-sm" disabled>
+                <button id="sim-add-btn" class="btn btn-primary btn-sm btn-glow" disabled>
                   <span>+ Tambah ke Rundown</span>
                 </button>
               </div>
@@ -339,7 +342,7 @@
     <!-- Architecture & Comparison Section -->
     <section id="architecture" class="section section-dark">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-tag">ARSITEKTUR &amp; PERFORMA</span>
           <h2 class="section-title">Perbandingan Metode Lama vs Banklycs</h2>
           <p class="section-subtitle">
@@ -349,7 +352,7 @@
 
         <div class="comparison-grid">
           <!-- Col 1: Old Approach -->
-          <div class="comparison-col col-bad">
+          <div class="comparison-col col-bad glass-card reveal-on-scroll">
             <div class="col-header">
               <span class="col-badge bad">METODE LAMA (PULUHAN RIBU FILE)</span>
               <h3 class="col-title">Loose Filesystem Storage</h3>
@@ -371,7 +374,7 @@
           </div>
 
           <!-- Col 2: Banklycs Approach -->
-          <div class="comparison-col col-good">
+          <div class="comparison-col col-good glass-card reveal-on-scroll">
             <div class="col-header">
               <span class="col-badge good">METODE BANKLYCS (TERVERIFIKASI)</span>
               <h3 class="col-title">Single-File SQLite &amp; On-Demand</h3>
@@ -398,7 +401,7 @@
     <!-- Download Hub Section -->
     <section id="download" class="section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-tag">DOWNLOAD RESMI</span>
           <h2 class="section-title">Unduh Paket Rilis Banklycs</h2>
           <p class="section-subtitle">
@@ -408,7 +411,8 @@
 
         <div class="download-grid">
           <!-- Option 1: Full Release Bundle -->
-          <div class="download-card card-featured">
+          <div class="download-card card-featured glass-card reveal-on-scroll">
+            <div class="card-shimmer" aria-hidden="true"></div>
             <div class="card-tag">PALING DIREKOMENDASIKAN</div>
             <h3 class="card-title">Full Release Bundle (ZIP)</h3>
             <p class="card-desc">
@@ -419,7 +423,7 @@
               <span class="meta-item">Status: Siap Pakai (0 Config)</span>
             </div>
             <div class="card-actions">
-              <a href="https://github.com/zzdevxx/banklycs/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full">
+              <a href="https://github.com/zzdevxx/banklycs/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full btn-glow">
                 <svg class="icon-svg" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
                 </svg>
@@ -429,7 +433,7 @@
           </div>
 
           <!-- Option 2: Database Only -->
-          <div class="download-card">
+          <div class="download-card glass-card reveal-on-scroll">
             <h3 class="card-title">Database Sah Saja (banklycs.db)</h3>
             <p class="card-desc">
               Bagi pengguna yang sudah memiliki engine Banklycs dan hanya ingin memperbarui katalog lagu master ke rilis 24.556 lagu terkurasi.
@@ -446,7 +450,7 @@
           </div>
 
           <!-- Option 3: Git Clone -->
-          <div class="download-card">
+          <div class="download-card glass-card reveal-on-scroll">
             <h3 class="card-title">Kloning Repositori Git</h3>
             <p class="card-desc">
               Untuk maintainer, teknisi gereja, atau developer yang ingin melakukan sinkronisasi otomatis menggunakan Git.
@@ -464,7 +468,7 @@
         </div>
 
         <!-- Verification & Requirements Note -->
-        <div class="verification-box">
+        <div class="verification-box glass-card reveal-on-scroll">
           <div class="req-item">
             <span class="req-title">Persyaratan Sistem:</span>
             <span>Windows 10 / 11 (64-bit), ProPresenter 7 terpasang di sistem. Tidak memerlukan instalasi Python.</span>
@@ -480,7 +484,7 @@
     <!-- Quick Start Guide Section -->
     <section id="guide" class="section section-dark">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-tag">PANDUAN OPERATOR</span>
           <h2 class="section-title">Cara Penggunaan 3 Langkah Cepat</h2>
           <p class="section-subtitle">
@@ -490,7 +494,7 @@
 
         <div class="steps-grid">
           <!-- Step 1 -->
-          <div class="step-card">
+          <div class="step-card glass-card reveal-on-scroll">
             <div class="step-number" aria-hidden="true">1</div>
             <h3 class="step-title">Jalankan START.vbs</h3>
             <p class="step-text">
@@ -499,7 +503,7 @@
           </div>
 
           <!-- Step 2 -->
-          <div class="step-card">
+          <div class="step-card glass-card reveal-on-scroll">
             <div class="step-number" aria-hidden="true">2</div>
             <h3 class="step-title">Pilih Lagu &amp; Susun Rundown</h3>
             <p class="step-text">
@@ -508,7 +512,7 @@
           </div>
 
           <!-- Step 3 -->
-          <div class="step-card">
+          <div class="step-card glass-card reveal-on-scroll">
             <div class="step-number" aria-hidden="true">3</div>
             <h3 class="step-title">Klik INJECT TO PRO7</h3>
             <p class="step-text">
@@ -522,7 +526,7 @@
     <!-- FAQ Section -->
     <section id="faq" class="section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-tag">PERTANYAAN UMUM</span>
           <h2 class="section-title">Frequently Asked Questions</h2>
           <p class="section-subtitle">
@@ -530,9 +534,9 @@
           </p>
         </div>
 
-        <div class="faq-accordion" role="region" aria-label="Pertanyaan yang Sering Diajukan">
+        <div class="faq-accordion reveal-on-scroll" role="region" aria-label="Pertanyaan yang Sering Diajukan">
           <!-- FAQ 1 -->
-          <div class="faq-item">
+          <div class="faq-item glass-card">
             <button class="faq-question" aria-expanded="false">
               <span>Apakah Banklycs memerlukan koneksi internet saat ibadah berlangsung?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
@@ -545,7 +549,7 @@
           </div>
 
           <!-- FAQ 2 -->
-          <div class="faq-item">
+          <div class="faq-item glass-card">
             <button class="faq-question" aria-expanded="false">
               <span>Bagaimana jika laptop ibadah kami tidak memiliki instalasi Python?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
@@ -558,7 +562,7 @@
           </div>
 
           <!-- FAQ 3 -->
-          <div class="faq-item">
+          <div class="faq-item glass-card">
             <button class="faq-question" aria-expanded="false">
               <span>Di mana ProPresenter 7 menyimpan lagu yang disuntikkan oleh Banklycs?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
@@ -571,7 +575,7 @@
           </div>
 
           <!-- FAQ 4 -->
-          <div class="faq-item">
+          <div class="faq-item glass-card">
             <button class="faq-question" aria-expanded="false">
               <span>Bagaimana cara menangani lagu yang memiliki judul sama tetapi isi liriknya berbeda?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
@@ -584,7 +588,7 @@
           </div>
 
           <!-- FAQ 5 -->
-          <div class="faq-item">
+          <div class="faq-item glass-card">
             <button class="faq-question" aria-expanded="false">
               <span>Apakah data rundown ibadah akan hilang jika browser tidak sengaja tertutup?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
