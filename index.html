@@ -6,38 +6,9 @@
   <title>Banklycs: Database 24.556 Lagu &amp; Injektor ProPresenter 7</title>
   <meta name="description" content="Katalog 24.556 lagu rohani dan himne gereja siap tayang untuk ProPresenter 7. Format SQLite single-file 44 MB dengan pencarian FTS5 dan kompilasi Protobuf on-demand.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23f38020'/><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='52' font-weight='900' fill='%23000'>P7</text></svg>">
-
-  <!-- High-Caliber Typography: Plus Jakarta Sans & JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="site-body">
-  <!-- Atmospheric Stage Light & Dot Grid Texture -->
-  <div class="ambient-glow" aria-hidden="true"></div>
-  <div class="grid-texture-overlay" aria-hidden="true"></div>
-
-  <!-- Top Broadcast Ticker -->
-  <aside class="broadcast-ticker" aria-label="Status Siaran Langsung">
-    <div class="container ticker-container">
-      <div class="ticker-content">
-        <span class="ticker-badge"><span class="pulsing-green-dot"></span> LIVE VAULT</span>
-        <span class="ticker-text">Master Database 24.556 Lagu Rohani Terkurasi</span>
-        <span class="ticker-sep" aria-hidden="true">•</span>
-        <span class="ticker-text">Single-File SQLite 44.20 MB</span>
-        <span class="ticker-sep" aria-hidden="true">•</span>
-        <span class="ticker-text">Kompilasi Protobuf &lt; 1 ms On-Demand</span>
-        <span class="ticker-sep" aria-hidden="true">•</span>
-        <span class="ticker-text">Nol Dependensi Python</span>
-      </div>
-      <div class="ticker-actions">
-        <a href="#preview" class="ticker-link">Coba Simulator Panggung &rarr;</a>
-      </div>
-    </div>
-  </aside>
-
   <!-- Top Navigation Header -->
   <header class="site-header">
     <div class="header-inner container">
@@ -71,7 +42,7 @@
           </svg>
           <span>GitHub</span>
         </a>
-        <a href="#download" class="btn btn-primary btn-sm btn-glow">
+        <a href="#download" class="btn btn-primary btn-sm">
           <span>Unduh Gratis</span>
         </a>
       </div>
@@ -82,7 +53,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
       <div class="container hero-container">
-        <div class="hero-content reveal-on-scroll">
+        <div class="hero-content">
           <div class="status-chip" role="status">
             <span class="status-dot pulsing-dot" aria-hidden="true"></span>
             <span class="status-label">Master Database 24.556 Lagu Terkurasi (100% Zero-Duplicate)</span>
@@ -97,7 +68,7 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#download" class="btn btn-primary btn-lg btn-glow">
+            <a href="#download" class="btn btn-primary btn-lg">
               <svg class="icon-svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
               </svg>
@@ -111,15 +82,15 @@
 
           <div class="stat-pills" aria-label="Metrik Utama Banklycs">
             <div class="stat-pill">
-              <span class="stat-num tabular-num count-up" data-target="24556">0</span>
+              <span class="stat-num tabular-num">24.556</span>
               <span class="stat-desc">Lagu Master Terkurasi</span>
             </div>
             <div class="stat-pill">
-              <span class="stat-num tabular-num count-up" data-target="44.20" data-suffix=" MB" data-decimals="2">0 MB</span>
+              <span class="stat-num tabular-num">44.20 MB</span>
               <span class="stat-desc">SQLite Single-File</span>
             </div>
             <div class="stat-pill">
-              <span class="stat-num tabular-num count-up" data-target="1" data-prefix="&lt; " data-suffix=" ms">0 ms</span>
+              <span class="stat-num tabular-num">&lt; 1 ms</span>
               <span class="stat-desc">Kompilasi On-Demand</span>
             </div>
             <div class="stat-pill">
@@ -128,362 +99,236 @@
             </div>
           </div>
         </div>
-
-        <!-- Hero Showcase Frame: Hardware Broadcast Console Preview -->
-        <div class="hero-showcase reveal-on-scroll">
-          <div class="showcase-perspective">
-            <div class="showcase-window">
-              <div class="showcase-window-bar">
-                <div class="window-dots" aria-hidden="true">
-                  <span class="dot-red"></span>
-                  <span class="dot-yellow"></span>
-                  <span class="dot-green"></span>
-                </div>
-                <div class="window-title-tab">
-                  <span class="tab-badge" aria-hidden="true">P7</span>
-                  <span>ProPresenter 7 Studio Console (Native C# .NET 8 / Port 5050)</span>
-                </div>
-                <div class="window-meta">
-                  <span class="status-live-chip">
-                    <span class="pulsing-green-dot"></span>
-                    <span>BROADCAST READY</span>
-                  </span>
-                </div>
-              </div>
-
-              <!-- Inside Window: Miniature Mockup of Studio Console -->
-              <div class="showcase-preview-body">
-                <div class="mock-sidebar">
-                  <div class="mock-search-box">
-                    <span class="mock-glyph">🔍</span>
-                    <span class="mock-search-txt">Sentuh Hatiku</span>
-                  </div>
-                  <div class="mock-song-item active">
-                    <span class="mock-song-name">Sentuh Hatiku</span>
-                    <span class="mock-cat-tag">ID</span>
-                  </div>
-                  <div class="mock-song-item">
-                    <span class="mock-song-name">Amazing Grace</span>
-                    <span class="mock-cat-tag">EN</span>
-                  </div>
-                  <div class="mock-song-item">
-                    <span class="mock-song-name">Ku Berbahagia</span>
-                    <span class="mock-cat-tag">KJ 392</span>
-                  </div>
-                  <div class="mock-song-item">
-                    <span class="mock-song-name">Ro Ma Ho Tu Jesus</span>
-                    <span class="mock-cat-tag">BE 179</span>
-                  </div>
-                </div>
-
-                <div class="mock-stage-view">
-                  <div class="mock-stage-header">
-                    <span class="mock-stage-tag">STAGE OUTPUT (1920x1080 @ 60Hz)</span>
-                    <span class="mock-cue-tag">CHORUS</span>
-                  </div>
-                  <div class="mock-screen">
-                    <p class="mock-lyric-line">Sentuh hatiku ubah hidupku</p>
-                    <p class="mock-lyric-line">Menjadi yang Kau mau</p>
-                  </div>
-                  <div class="mock-slide-thumbnails">
-                    <div class="mock-thumb"><span>BLANK</span></div>
-                    <div class="mock-thumb"><span>VERSE 1</span></div>
-                    <div class="mock-thumb active"><span>CHORUS</span></div>
-                    <div class="mock-thumb"><span>ENDING</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Asymmetric Feature Showcase (Breaking Generic Card Grids) -->
+    <!-- Key Features Section (Asymmetric Content-Driven Layout) -->
     <section id="features" class="section section-dark">
       <div class="container">
-        <div class="section-header reveal-on-scroll">
-          <span class="section-tag">ENGINE CRAFTSMANSHIP</span>
-          <h2 class="section-title">Rekayasa Presisi untuk Stabilitas Panggung</h2>
+        <div class="section-header">
+          <span class="section-tag">KEUNGGULAN UTAMA</span>
+          <h2 class="section-title">Solusi Nyata Masalah Presentasi Ibadah</h2>
           <p class="section-subtitle">
-            Setiap komponen dirancang agar workstation multimedia gereja Anda tetap dingin, instan, dan bebas dari risiko force close saat kebaktian.
+            Dibangun berdasarkan pengalaman riil di meja operator multimedia gereja: cepat, stabil, dan ramah pengguna.
           </p>
         </div>
 
-        <div class="asymmetric-showcase">
-          <!-- Big Feature A: Single-File SQLite -->
-          <div class="showcase-card card-large reveal-on-scroll">
-            <div class="card-glow-accent" aria-hidden="true"></div>
-            <div class="card-content-wrap">
-              <span class="feature-kicker">ARSITEKTUR DATA BASE</span>
-              <h3 class="card-headline">Single-File SQLite 44.20 MB vs 40.000 File NTFS</h3>
-              <p class="card-body-text">
-                Menyimpan 40.000 berkas terpisah di harddisk membuat Windows NTFS lambat dan menyalin ke flashdisk USB butuh 15 menit. Banklycs mengemas seluruh 24.556 lagu ke dalam 1 file database tunggal dengan tabel virtual FTS5.
-              </p>
-
-              <!-- Interactive Disk Comparison Meter -->
-              <div class="comparison-meter-box">
-                <div class="meter-row">
-                  <div class="meter-info">
-                    <span class="meter-label">Metode Lama (40.000 Berkas .txt &amp; .pro)</span>
-                    <span class="meter-val bad tabular-num">~300 MB (15 Menit Copy USB)</span>
-                  </div>
-                  <div class="meter-track">
-                    <div class="meter-bar bad" style="width: 100%;"></div>
-                  </div>
-                </div>
-
-                <div class="meter-row">
-                  <div class="meter-info">
-                    <span class="meter-label">Banklycs (1 File banklycs.db)</span>
-                    <span class="meter-val good tabular-num">44.20 MB (1 Detik Copy USB)</span>
-                  </div>
-                  <div class="meter-track">
-                    <div class="meter-bar good" style="width: 15%;"></div>
-                  </div>
-                </div>
+        <div class="feature-asymmetric-grid">
+          <!-- Main Large Feature: Single-File SQLite -->
+          <article class="feature-box box-large">
+            <div class="feature-kicker-wrap">
+              <span class="feature-kicker-tag kicker-orange">DATA VAULT</span>
+              <span class="feature-meta-tag">44.20 MB SQLITE</span>
+            </div>
+            <h3 class="feature-box-title">Arsitektur Single-File SQLite vs 40.000 File NTFS</h3>
+            <p class="feature-box-desc">
+              Menyimpan puluhan ribu file teks dan file presentasi terpisah di harddisk membuat Windows NTFS lambat dan menyalin ke flashdisk USB butuh 15 menit. Banklycs menyimpan seluruh 24.556 lagu dalam 1 database tunggal yang rapi, cepat disalin dalam 1 detik, dan bebas dari disk bloat.
+            </p>
+            <div class="disk-compare-card">
+              <div class="compare-row">
+                <span class="compare-label">Metode Lama (40.000 File Terpisah)</span>
+                <span class="compare-val bad tabular-num">~300 MB (15 Menit Transfer USB)</span>
+              </div>
+              <div class="compare-track">
+                <div class="compare-bar bar-bad" style="width: 100%;"></div>
+              </div>
+              <div class="compare-row mt-3">
+                <span class="compare-label">Banklycs (1 File banklycs.db)</span>
+                <span class="compare-val good tabular-num">44.20 MB (1 Detik Transfer USB)</span>
+              </div>
+              <div class="compare-track">
+                <div class="compare-bar bar-good" style="width: 15%;"></div>
               </div>
             </div>
-          </div>
+          </article>
 
-          <!-- Feature B: On-Demand Protobuf Compilation -->
-          <div class="showcase-card reveal-on-scroll">
-            <div class="card-content-wrap">
-              <span class="feature-kicker kicker-blue">ON-DEMAND COMPILER</span>
-              <h3 class="card-headline">Kompilasi Protobuf &lt; 1 ms</h3>
-              <p class="card-body-text">
-                File .pro tidak disimpan menumpuk di disk. Saat tombol Inject diklik, serializer C# mengompilasi Protobuf resmi ProPresenter 7 secara in-memory langsung ke Libraries/Banks/ dan Playlists/Library.
-              </p>
-              <div class="stat-highlight-box">
-                <div class="stat-highlight-item">
-                  <span class="stat-hl-num tabular-num" id="live-benchmark-val">0.38 ms</span>
-                  <span class="stat-hl-label">Kecepatan FTS5 RAM</span>
-                </div>
-                <div class="stat-highlight-item">
-                  <button id="run-benchmark-btn" class="btn btn-outline btn-sm">
-                    <span>Uji Latensi RAM</span>
-                  </button>
-                </div>
+          <!-- Feature 2: On-Demand Protobuf Compilation -->
+          <article class="feature-box">
+            <div class="feature-kicker-wrap">
+              <span class="feature-kicker-tag kicker-blue">ON-DEMAND</span>
+              <span class="feature-meta-tag">&lt; 1 MS / LAGU</span>
+            </div>
+            <h3 class="feature-box-title">Kompilasi Protobuf On-Demand</h3>
+            <p class="feature-box-desc">
+              ProPresenter 7 tetap terbuka dalam waktu kurang dari 1 detik tanpa lag atau crash. Sistem hanya mengompilasi Protobuf in-memory untuk 5 sampai 10 lagu rundown aktif saat Anda mengklik Inject.
+            </p>
+            <div class="feature-stat-row">
+              <div class="feature-stat-col">
+                <span class="feature-stat-number tabular-num">&lt; 0.4 ms</span>
+                <span class="feature-stat-sub">Pencarian FTS5 RAM</span>
+              </div>
+              <div class="feature-stat-col">
+                <span class="feature-stat-number tabular-num">&lt; 1 Detik</span>
+                <span class="feature-stat-sub">Startup ProPresenter</span>
               </div>
             </div>
-          </div>
+          </article>
 
-          <!-- Feature C: Buku Himne Lengkap -->
-          <div class="showcase-card reveal-on-scroll">
-            <div class="card-content-wrap">
-              <span class="feature-kicker kicker-orange">KATALOG RESMI</span>
-              <h3 class="card-headline">Buku Himne &amp; Pujian Lengkap</h3>
-              <p class="card-body-text">
-                Kidung Jemaat (KJ), Buku Ende Batak (BE), Kidung Keesaan (KK), Nyanyikanlah Kidung Baru (NKB), Pelengkap Kidung Jemaat (PKJ), KLIK, NNBT, dan Kidung Pasamuwan Jawi lengkap dengan penomoran resmi.
-              </p>
-              <div class="mini-hymn-pills">
-                <button class="hymn-pill" data-jump="KJ 392">KJ 1.127</button>
-                <button class="hymn-pill" data-jump="BE 179">BE 844</button>
-                <button class="hymn-pill" data-jump="KK">KK 765</button>
-                <button class="hymn-pill" data-jump="KLIK">KLIK 461</button>
-                <button class="hymn-pill" data-jump="PKJ 145">PKJ 399</button>
-                <button class="hymn-pill" data-jump="NKB 128">NKB 363</button>
+          <!-- Feature 3: Complete Hymnal Books -->
+          <article class="feature-box">
+            <div class="feature-kicker-wrap">
+              <span class="feature-kicker-tag kicker-cyan">BUKU HIMNE</span>
+              <span class="feature-meta-tag">10 KATEGORI</span>
+            </div>
+            <h3 class="feature-box-title">Buku Nyanyian &amp; Himne Lengkap</h3>
+            <p class="feature-box-desc">
+              Mencakup Kidung Jemaat (KJ), Buku Ende Batak (BE), Kidung Keesaan (KK), Nyanyikanlah Kidung Baru (NKB), Pelengkap Kidung Jemaat (PKJ), KLIK, NNBT, dan Kidung Pasamuwan Jawi lengkap dengan penomoran resmi.
+            </p>
+            <div class="hymn-tag-list">
+              <span class="hymn-badge">KJ 1.127</span>
+              <span class="hymn-badge">BE 844</span>
+              <span class="hymn-badge">KK 765</span>
+              <span class="hymn-badge">KLIK 461</span>
+              <span class="hymn-badge">PKJ 399</span>
+              <span class="hymn-badge">NKB 363</span>
+            </div>
+          </article>
+
+          <!-- Feature 4: WhatsApp Export -->
+          <article class="feature-box box-wide">
+            <div class="feature-kicker-wrap">
+              <span class="feature-kicker-tag kicker-green">WORKFLOW SINKRON</span>
+              <span class="feature-meta-tag">1-KLIK CLIPBOARD</span>
+            </div>
+            <h3 class="feature-box-title">Ekspor Rundown Ibadah ke WhatsApp</h3>
+            <p class="feature-box-desc">
+              Susun lagu ibadah minggu ini, lalu klik tombol Salin ke WA. Daftar lagu tersusun rapi dan otomatis siap dikirimkan ke grup chat pengurus musik, singers, dan worship leader dalam hitungan detik.
+            </p>
+            <div class="wa-example-card">
+              <span class="wa-header-label">CONTOH FORMAT PESAN WHATSAPP:</span>
+              <div class="wa-sample-text">
+                <p><strong>*RUNDOWN LAGU IBADAH MINGGU*</strong></p>
+                <p>1. *Sentuh Hatiku* (Jason)</p>
+                <p>2. *Ku Berbahagia* (KJ 392)</p>
+                <p>3. *Amazing Grace* (John Newton)</p>
+                <p>4. *Kemenangan Terjadi Di Sini* (GMS Live)</p>
               </div>
             </div>
-          </div>
-
-          <!-- Feature D: 1-Klik Salin WhatsApp -->
-          <div class="showcase-card card-wide reveal-on-scroll">
-            <div class="card-content-wrap">
-              <span class="feature-kicker kicker-green">WORKFLOW SINKRON</span>
-              <h3 class="card-headline">Integrasi Rundown &amp; Ekspor WhatsApp Tim Musik</h3>
-              <p class="card-body-text">
-                Susun 5 sampai 8 lagu ibadah dalam rundown, lalu klik tombol Salin ke WA. Format rundown tersusun rapi otomatis siap dibagikan ke grup WhatsApp worship leader dan pemusik gereja dalam satu sentuhan.
-              </p>
-              <div class="wa-preview-bubble">
-                <div class="wa-bubble-header">
-                  <span class="wa-badge">CONTOH FORMAT WHATSAPP OTOMATIS</span>
-                  <span class="wa-time">10:45 AM</span>
-                </div>
-                <div class="wa-bubble-body">
-                  <p><strong>*RUNDOWN LAGU IBADAH MINGGU*</strong></p>
-                  <p>1. *Sentuh Hatiku* (Jason)</p>
-                  <p>2. *Ku Berbahagia* (KJ 392)</p>
-                  <p>3. *Amazing Grace* (John Newton)</p>
-                  <p>4. *Kemenangan Terjadi Di Sini* (GMS Live)</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Interactive Simulator Section: Broadcast Studio Console -->
+    <!-- Interactive Simulator Section: ProPresenter 7 Console Clone -->
     <section id="preview" class="section">
       <div class="container">
-        <div class="section-header reveal-on-scroll">
+        <div class="section-header">
           <span class="section-tag">SIMULATOR INTERAKTIF</span>
-          <h2 class="section-title">Uji Langsung Studio Console di Browser</h2>
+          <h2 class="section-title">Coba Langsung Studio Console di Browser</h2>
           <p class="section-subtitle">
-            Cari lagu, ganti mode monitor panggung virtual (Auditorium / Confidence / Lower Third), dan susun rundown ibadah.
+            Antarmuka kloning resmi ProPresenter 7: cari lagu, tinjau slide 16:9 panggung, dan susun rundown ibadah.
           </p>
         </div>
 
-        <div class="simulator-wrapper reveal-on-scroll">
-          <!-- Toolbar Simulator -->
-          <div class="sim-toolbar">
-            <div class="sim-tb-left">
-              <div class="sim-brand">
-                <span class="sim-badge" aria-hidden="true">P7</span>
-                <span class="sim-title">Studio Console</span>
+        <div class="simulator-console">
+          <!-- Top Toolbar ProPresenter 7 -->
+          <div class="console-toolbar">
+            <div class="console-tb-left">
+              <div class="pro-logo-wrap">
+                <span class="pro-badge" aria-hidden="true">P7</span>
+                <span class="pro-name">ProPresenter 7</span>
+                <span class="pro-tag">VAULT</span>
               </div>
-              <div class="sim-search-wrap">
+              <div class="console-search-box">
+                <svg class="search-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
                 <input
                   type="text"
                   id="sim-search-input"
-                  class="sim-input"
+                  class="console-input"
                   placeholder="Cari lagu / artis / no. buku (contoh: Sentuh Hatiku, KJ 392, Grace)..."
                   autocomplete="off"
                   spellcheck="false"
                   aria-label="Cari lagu di simulator"
                 >
-                <button id="sim-clear-btn" class="sim-clear-btn" title="Hapus pencarian (Esc)" aria-label="Hapus pencarian">✕</button>
+                <button id="sim-clear-btn" class="console-clear-btn" title="Hapus pencarian (Esc)" aria-label="Hapus pencarian">✕</button>
               </div>
             </div>
 
-            <div class="sim-tb-center" role="tablist" aria-label="Kategori Lagu">
-              <button class="sim-tab active" data-cat="ALL" role="tab" aria-selected="true">Semua</button>
-              <button class="sim-tab" data-cat="ID" role="tab" aria-selected="false">Praise (ID)</button>
-              <button class="sim-tab" data-cat="EN" role="tab" aria-selected="false">English</button>
-              <button class="sim-tab" data-cat="KJ" role="tab" aria-selected="false">KJ</button>
-              <button class="sim-tab" data-cat="BE" role="tab" aria-selected="false">BE</button>
-              <button class="sim-tab" data-cat="PKJ" role="tab" aria-selected="false">PKJ</button>
-              <button class="sim-tab" data-cat="NKB" role="tab" aria-selected="false">NKB</button>
+            <!-- Category Tabs -->
+            <div class="console-tb-center" role="tablist" aria-label="Kategori Lagu">
+              <button class="console-tab active" data-cat="ALL" role="tab" aria-selected="true">Semua</button>
+              <button class="console-tab" data-cat="ID" role="tab" aria-selected="false">Praise</button>
+              <button class="console-tab" data-cat="EN" role="tab" aria-selected="false">English</button>
+              <button class="console-tab" data-cat="KJ" role="tab" aria-selected="false">KJ</button>
+              <button class="console-tab" data-cat="BE" role="tab" aria-selected="false">BE</button>
+              <button class="console-tab" data-cat="PKJ" role="tab" aria-selected="false">PKJ</button>
+              <button class="console-tab" data-cat="NKB" role="tab" aria-selected="false">NKB</button>
             </div>
 
-            <div class="sim-tb-right">
-              <!-- Audio VU Meter Simulation -->
-              <div class="sim-vu-meter" title="Simulasi Audio Monitor Panggung" aria-hidden="true">
-                <span class="vu-bar vu-1"></span>
-                <span class="vu-bar vu-2"></span>
-                <span class="vu-bar vu-3"></span>
-                <span class="vu-bar vu-4"></span>
-                <span class="vu-bar vu-5"></span>
-              </div>
-
-              <!-- Live Broadcast Clock -->
-              <div class="sim-clock" id="sim-clock" title="Waktu Siaran Panggung">10:45:00 AM</div>
-
-              <!-- Tactile Sound Toggle -->
-              <button id="sound-toggle-btn" class="sim-sound-btn" title="Aktifkan Suara Klik Konsol Taktil">
-                <span id="sound-icon">🔊</span>
-                <span>Sound ON</span>
-              </button>
-
-              <div class="sim-status">
-                <span class="status-dot pulsing-dot"></span>
-                <span>Pro7 Ready</span>
+            <div class="console-tb-right">
+              <div class="pro-status-badge">
+                <span class="pro-status-dot pulsing-dot"></span>
+                <span>ProPresenter 7 Ready</span>
               </div>
             </div>
           </div>
 
-          <!-- Workspace Simulator: Sidebar + Inspector & Stage Display -->
-          <div class="sim-workspace">
-            <!-- Sidebar: Library List & Rundown -->
-            <aside class="sim-sidebar">
-              <!-- Top Box: Library Catalog -->
-              <div class="sim-sidebar-box">
-                <div class="sim-box-header">
-                  <span class="sim-box-title">KATALOG LAGU</span>
-                  <span class="sim-count-badge" id="sim-song-count">0 Lagu</span>
+          <!-- Console Main Workspace: Left Sidebar + Right Slide Deck -->
+          <div class="console-workspace">
+            <!-- Left Sidebar: Library + Playlist Rundown -->
+            <aside class="console-sidebar" aria-label="Library dan Rundown">
+              <!-- Top Section: Library Master Songs -->
+              <div class="sidebar-box library-box">
+                <div class="sidebar-box-header">
+                  <div class="box-title-wrap">
+                    <svg class="folder-icon" viewBox="0 0 16 16" fill="#f38020" aria-hidden="true">
+                      <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h4.344A2 2 0 0 1 16 5v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4.34c0-.16.03-.317.086-.462l.454-.008z"/>
+                    </svg>
+                    <span class="box-title-text">LIBRARY</span>
+                  </div>
+                  <span class="box-badge" id="sim-song-count">0 Lagu</span>
                 </div>
-                <div class="sim-list" id="sim-song-list" role="listbox" aria-label="Daftar lagu hasil pencarian">
+                <div class="sidebar-song-list" id="sim-song-list" role="listbox" aria-label="Daftar lagu hasil pencarian">
                   <!-- Populated by JS -->
                 </div>
               </div>
 
-              <!-- Bottom Box: Active Rundown -->
-              <div class="sim-sidebar-box sim-rundown-box">
-                <div class="sim-box-header">
-                  <span class="sim-box-title">RUNDOWN IBADAH</span>
-                  <div class="sim-rundown-header-actions">
-                    <span class="sim-count-badge" id="sim-rundown-count">0</span>
+              <!-- Bottom Section: Active Playlist Rundown -->
+              <div class="sidebar-box rundown-box">
+                <div class="sidebar-box-header">
+                  <div class="box-title-wrap">
+                    <svg class="playlist-icon" viewBox="0 0 16 16" fill="#32ade6" aria-hidden="true">
+                      <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm0 3a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm0 3a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zm0 3a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7z"/>
+                    </svg>
+                    <span class="box-title-text">RUNDOWN PLAYLIST</span>
+                  </div>
+                  <div class="rundown-header-actions">
+                    <span class="box-badge" id="sim-rundown-count">0</span>
                     <button id="sim-clear-rundown-btn" class="btn-text-xs" title="Kosongkan rundown">Reset</button>
                   </div>
                 </div>
-                <div class="sim-list sim-rundown-list" id="sim-rundown-list" aria-label="Daftar rundown ibadah aktif">
+                <div class="sidebar-rundown-list" id="sim-rundown-list" aria-label="Daftar rundown ibadah aktif">
                   <!-- Populated by JS -->
                 </div>
-                <div class="sim-rundown-footer">
+                <div class="rundown-actions-footer">
                   <button id="sim-copy-wa-btn" class="btn btn-outline btn-sm w-full">
-                    <span>Salin ke WhatsApp</span>
+                    <span>📋 Salin ke WhatsApp</span>
                   </button>
-                  <button id="sim-fake-inject-btn" class="btn btn-primary btn-sm w-full btn-glow">
-                    <span>Simulasi Inject Pro7</span>
+                  <button id="sim-fake-inject-btn" class="btn btn-primary btn-sm w-full">
+                    <span>▶ INJECT KE PROPRESENTER</span>
                   </button>
                 </div>
               </div>
             </aside>
 
-            <!-- Main Canvas Area: Live Stage Monitor + Slide Deck Inspector -->
-            <div class="sim-inspector">
-              <!-- Top Live Stage Monitor (Simulasi Layar Proyektor Ibadah) -->
-              <div class="stage-monitor-container">
-                <div class="stage-monitor-header">
-                  <div class="stage-monitor-title-wrap">
-                    <span class="live-on-air-badge">
-                      <span class="red-record-dot"></span>
-                      <span>LIVE PROJECTION</span>
-                    </span>
-                    <span class="stage-slide-meta" id="stage-slide-meta">Slide #1 (BLANK)</span>
-                  </div>
-
-                  <!-- 3 Output Display Modes Selector -->
-                  <div class="screen-mode-selector" role="radiogroup" aria-label="Mode Layar Panggung">
-                    <button class="mode-tab active" data-mode="auditorium" role="radio" aria-checked="true" title="Auditorium LED 16:9 Full Screen">LED Layar Utama</button>
-                    <button class="mode-tab" data-mode="confidence" role="radio" aria-checked="false" title="Monitor Panggung Pemusik & Singer">Confidence Monitor</button>
-                    <button class="mode-tab" data-mode="lowerthird" role="radio" aria-checked="false" title="Overlay Live Streaming YouTube / OBS">Lower Third Stream</button>
-                  </div>
-
-                  <div class="stage-monitor-controls">
-                    <button id="stage-prev-btn" class="stage-ctrl-btn" title="Slide Sebelumnya (Arrow Left)">◀ Prev</button>
-                    <button id="stage-next-btn" class="stage-ctrl-btn" title="Slide Berikutnya (Arrow Right / Space)">Next ▶</button>
-                    <button id="stage-clear-btn" class="stage-ctrl-btn btn-clear-screen" title="Layar Hitam (B / Esc)">Clear Black</button>
-                  </div>
-                </div>
-
-                <!-- Projection Screen 16:9 Output Container -->
-                <div class="stage-screen-frame" id="stage-screen-frame">
-                  <div class="stage-screen-screen mode-auditorium" id="stage-screen-output">
-                    <!-- Dynamic screen content (Auditorium, Confidence, or Lower Third) -->
-                    <div class="stage-screen-content fade-transition" id="stage-screen-text">
-                      <p class="stage-active-line-1">Sentuh Hatiku</p>
-                      <p class="stage-active-line-2">Jason</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Deck Header -->
-              <div class="sim-inspector-header">
+            <!-- Right Main Area: Slide Presentation Canvas 16:9 -->
+            <div class="console-canvas-area">
+              <div class="canvas-header">
                 <div>
-                  <span class="sim-tag" id="sim-inspector-category">READY</span>
-                  <h3 class="sim-inspector-title" id="sim-inspector-title">Pilih lagu dari daftar sebelah kiri</h3>
-                  <p class="sim-inspector-artist" id="sim-inspector-artist">Klik kartu slide di bawah untuk memproyeksikan langsung ke layar panggung</p>
+                  <span class="slide-cat-badge" id="sim-inspector-category">READY</span>
+                  <h3 class="slide-song-title" id="sim-inspector-title">Pilih lagu dari Library sebelah kiri</h3>
+                  <p class="slide-song-artist" id="sim-inspector-artist">Klik baris lagu untuk melihat pratinjau slide panggung 16:9 widescreen</p>
                 </div>
-                <button id="sim-add-btn" class="btn btn-primary btn-sm btn-glow" disabled>
+                <button id="sim-add-btn" class="btn btn-primary btn-sm" disabled>
                   <span>+ Tambah ke Rundown</span>
                 </button>
               </div>
 
               <!-- 16:9 Presentation Canvas Grid Deck -->
-              <div class="sim-canvas-viewport" id="sim-canvas-container">
+              <div class="canvas-deck-viewport" id="sim-canvas-container">
                 <!-- Slide cards will be injected by app.js -->
-              </div>
-
-              <!-- Keyboard Shortcuts Helper Footer -->
-              <div class="sim-keyboard-hints">
-                <span class="hint-item"><kbd>/</kbd> Cari Lagu</span>
-                <span class="hint-item"><kbd>Space</kbd> atau <kbd>→</kbd> Slide Berikutnya</span>
-                <span class="hint-item"><kbd>←</kbd> Slide Sebelumnya</span>
-                <span class="hint-item"><kbd>B</kbd> Layar Hitam</span>
-                <span class="hint-item"><kbd>Esc</kbd> Reset</span>
               </div>
             </div>
           </div>
@@ -491,83 +336,20 @@
       </div>
     </section>
 
-    <!-- Architecture & Interactive Pipeline Flow -->
+    <!-- Architecture & Comparison Section -->
     <section id="architecture" class="section section-dark">
       <div class="container">
-        <div class="section-header reveal-on-scroll">
+        <div class="section-header">
           <span class="section-tag">ARSITEKTUR &amp; PERFORMA</span>
-          <h2 class="section-title">Jalur Data Kompilasi Realtime On-Demand</h2>
+          <h2 class="section-title">Perbandingan Metode Lama vs Banklycs</h2>
           <p class="section-subtitle">
-            Alur data terenkapsulasi dari SQLite vault menuju presentasi panggung tanpa hambatan file locking.
+            Mengapa arsitektur single-file SQLite dan on-demand Protobuf jauh lebih stabil untuk komputer ibadah gereja.
           </p>
-        </div>
-
-        <!-- Interactive Animated Pipeline Flow Diagram -->
-        <div class="pipeline-diagram-wrapper reveal-on-scroll">
-          <div class="pipeline-flow">
-            <!-- Node 1 -->
-            <div class="pipeline-node" tabindex="0">
-              <div class="node-icon icon-orange" aria-hidden="true">🗄️</div>
-              <div class="node-body">
-                <span class="node-step">TAHAP 1</span>
-                <h4 class="node-title">SQLite Master Vault</h4>
-                <p class="node-desc">24.556 lagu dalam 1 file 44.20 MB. PRAGMA integrity ok.</p>
-              </div>
-            </div>
-
-            <!-- Flow Connector 1 -->
-            <div class="pipeline-connector" aria-hidden="true">
-              <span class="connector-line"></span>
-              <span class="connector-dot dot-1"></span>
-            </div>
-
-            <!-- Node 2 -->
-            <div class="pipeline-node" tabindex="0">
-              <div class="node-icon icon-blue" aria-hidden="true">⚡</div>
-              <div class="node-body">
-                <span class="node-step">TAHAP 2</span>
-                <h4 class="node-title">C# Native RAM Engine</h4>
-                <p class="node-desc">Katalog terload ~170 ms ke RAM, kueri FTS5 &lt; 0.4 ms.</p>
-              </div>
-            </div>
-
-            <!-- Flow Connector 2 -->
-            <div class="pipeline-connector" aria-hidden="true">
-              <span class="connector-line"></span>
-              <span class="connector-dot dot-2"></span>
-            </div>
-
-            <!-- Node 3 -->
-            <div class="pipeline-node" tabindex="0">
-              <div class="node-icon icon-green" aria-hidden="true">⚙️</div>
-              <div class="node-body">
-                <span class="node-step">TAHAP 3</span>
-                <h4 class="node-title">In-Memory Protobuf</h4>
-                <p class="node-desc">Kompilasi on-demand &lt; 1 ms per lagu saat klik Inject.</p>
-              </div>
-            </div>
-
-            <!-- Flow Connector 3 -->
-            <div class="pipeline-connector" aria-hidden="true">
-              <span class="connector-line"></span>
-              <span class="connector-dot dot-3"></span>
-            </div>
-
-            <!-- Node 4 -->
-            <div class="pipeline-node" tabindex="0">
-              <div class="node-icon icon-purple" aria-hidden="true">🖥️</div>
-              <div class="node-body">
-                <span class="node-step">TAHAP 4</span>
-                <h4 class="node-title">ProPresenter 7</h4>
-                <p class="node-desc">Startup instan &lt; 1 detik. Bebas crash &amp; siap tayang.</p>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="comparison-grid">
           <!-- Col 1: Old Approach -->
-          <div class="comparison-col col-bad reveal-on-scroll">
+          <div class="comparison-col col-bad">
             <div class="col-header">
               <span class="col-badge bad">METODE LAMA (PULUHAN RIBU FILE)</span>
               <h3 class="col-title">Loose Filesystem Storage</h3>
@@ -589,7 +371,7 @@
           </div>
 
           <!-- Col 2: Banklycs Approach -->
-          <div class="comparison-col col-good reveal-on-scroll">
+          <div class="comparison-col col-good">
             <div class="col-header">
               <span class="col-badge good">METODE BANKLYCS (TERVERIFIKASI)</span>
               <h3 class="col-title">Single-File SQLite &amp; On-Demand</h3>
@@ -616,7 +398,7 @@
     <!-- Download Hub Section -->
     <section id="download" class="section">
       <div class="container">
-        <div class="section-header reveal-on-scroll">
+        <div class="section-header">
           <span class="section-tag">DOWNLOAD RESMI</span>
           <h2 class="section-title">Unduh Paket Rilis Banklycs</h2>
           <p class="section-subtitle">
@@ -626,8 +408,7 @@
 
         <div class="download-grid">
           <!-- Option 1: Full Release Bundle -->
-          <div class="download-card card-featured reveal-on-scroll">
-            <div class="card-shimmer" aria-hidden="true"></div>
+          <div class="download-card card-featured">
             <div class="card-tag">PALING DIREKOMENDASIKAN</div>
             <h3 class="card-title">Full Release Bundle (ZIP)</h3>
             <p class="card-desc">
@@ -638,7 +419,7 @@
               <span class="meta-item">Status: Siap Pakai (0 Config)</span>
             </div>
             <div class="card-actions">
-              <a href="https://github.com/zzdevxx/banklycs/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full btn-glow">
+              <a href="https://github.com/zzdevxx/banklycs/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full">
                 <svg class="icon-svg" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
                 </svg>
@@ -648,7 +429,7 @@
           </div>
 
           <!-- Option 2: Database Only -->
-          <div class="download-card reveal-on-scroll">
+          <div class="download-card">
             <h3 class="card-title">Database Sah Saja (banklycs.db)</h3>
             <p class="card-desc">
               Bagi pengguna yang sudah memiliki engine Banklycs dan hanya ingin memperbarui katalog lagu master ke rilis 24.556 lagu terkurasi.
@@ -665,7 +446,7 @@
           </div>
 
           <!-- Option 3: Git Clone -->
-          <div class="download-card reveal-on-scroll">
+          <div class="download-card">
             <h3 class="card-title">Kloning Repositori Git</h3>
             <p class="card-desc">
               Untuk maintainer, teknisi gereja, atau developer yang ingin melakukan sinkronisasi otomatis menggunakan Git.
@@ -683,7 +464,7 @@
         </div>
 
         <!-- Verification & Requirements Note -->
-        <div class="verification-box reveal-on-scroll">
+        <div class="verification-box">
           <div class="req-item">
             <span class="req-title">Persyaratan Sistem:</span>
             <span>Windows 10 / 11 (64-bit), ProPresenter 7 terpasang di sistem. Tidak memerlukan instalasi Python.</span>
@@ -699,7 +480,7 @@
     <!-- Quick Start Guide Section -->
     <section id="guide" class="section section-dark">
       <div class="container">
-        <div class="section-header reveal-on-scroll">
+        <div class="section-header">
           <span class="section-tag">PANDUAN OPERATOR</span>
           <h2 class="section-title">Cara Penggunaan 3 Langkah Cepat</h2>
           <p class="section-subtitle">
@@ -709,7 +490,7 @@
 
         <div class="steps-grid">
           <!-- Step 1 -->
-          <div class="step-card reveal-on-scroll">
+          <div class="step-card">
             <div class="step-number" aria-hidden="true">1</div>
             <h3 class="step-title">Jalankan START.vbs</h3>
             <p class="step-text">
@@ -718,7 +499,7 @@
           </div>
 
           <!-- Step 2 -->
-          <div class="step-card reveal-on-scroll">
+          <div class="step-card">
             <div class="step-number" aria-hidden="true">2</div>
             <h3 class="step-title">Pilih Lagu &amp; Susun Rundown</h3>
             <p class="step-text">
@@ -727,7 +508,7 @@
           </div>
 
           <!-- Step 3 -->
-          <div class="step-card reveal-on-scroll">
+          <div class="step-card">
             <div class="step-number" aria-hidden="true">3</div>
             <h3 class="step-title">Klik INJECT TO PRO7</h3>
             <p class="step-text">
@@ -741,7 +522,7 @@
     <!-- FAQ Section -->
     <section id="faq" class="section">
       <div class="container">
-        <div class="section-header reveal-on-scroll">
+        <div class="section-header">
           <span class="section-tag">PERTANYAAN UMUM</span>
           <h2 class="section-title">Frequently Asked Questions</h2>
           <p class="section-subtitle">
@@ -749,7 +530,7 @@
           </p>
         </div>
 
-        <div class="faq-accordion reveal-on-scroll" role="region" aria-label="Pertanyaan yang Sering Diajukan">
+        <div class="faq-accordion" role="region" aria-label="Pertanyaan yang Sering Diajukan">
           <!-- FAQ 1 -->
           <div class="faq-item">
             <button class="faq-question" aria-expanded="false">

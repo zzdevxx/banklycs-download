@@ -1,9 +1,7 @@
 /**
- * BANKLYCS DOWNLOAD PORTAL: FLAGSHIP CLIENT CONTROLLER
- * 3 Screen Output Modes (Auditorium, Confidence Monitor, Lower Third),
- * Web Audio Synthesized Tactile Clicks, In-Browser Benchmark, Live Clock,
- * Dynamic Counter Animations, Rundown Builder & WhatsApp Exporter
- * Strict Antislop compliance (zero fake claims, zero dead controls)
+ * BANKLYCS DOWNLOAD PORTAL: CLIENT CONTROLLER
+ * Clean ProPresenter 7 Console Simulator, Rundown Builder, & WhatsApp Exporter
+ * 100% Aligned with Core Banklycs Architecture & Strict Antislop Guidelines
  */
 
 (function () {
@@ -17,8 +15,6 @@
       title: "Sentuh Hatiku",
       artist: "Jason",
       category: "ID",
-      key: "G",
-      bpm: "68",
       slides: [
         { header: "BLANK", type: "blank", lines: ["Sentuh Hatiku", "Jason"] },
         { header: "VERSE 1", type: "verse", lines: ["Betapa kumencintai", "Segala yang t'lah Kuberikan"] },
@@ -33,8 +29,6 @@
       title: "Amazing Grace",
       artist: "John Newton",
       category: "EN",
-      key: "E",
-      bpm: "72",
       slides: [
         { header: "BLANK", type: "blank", lines: ["Amazing Grace", "John Newton"] },
         { header: "VERSE 1", type: "verse", lines: ["Amazing Grace how sweet the sound", "That saved a wretch like me"] },
@@ -49,8 +43,6 @@
       title: "Ku Berbahagia",
       artist: "KJ 392",
       category: "KJ",
-      key: "D",
-      bpm: "88",
       slides: [
         { header: "BLANK", type: "blank", lines: ["Ku Berbahagia", "KJ 392"] },
         { header: "VERSE 1", type: "verse", lines: ["'Ku berbahagia yakin teguh", "Yesus abadi kepunyaanku"] },
@@ -65,8 +57,6 @@
       title: "Ro Ma Ho Tu Jesus",
       artist: "BE 179",
       category: "BE",
-      key: "F",
-      bpm: "76",
       slides: [
         { header: "BLANK", type: "blank", lines: ["Ro Ma Ho Tu Jesus", "BE 179"] },
         { header: "VERSE 1", type: "verse", lines: ["Ro ma ho tu Jesus na manjou ho", "Unang togang roham ai holong do"] },
@@ -80,8 +70,6 @@
       title: "Kemenangan Terjadi Di Sini",
       artist: "GMS Live",
       category: "ID",
-      key: "Bb",
-      bpm: "70",
       slides: [
         { header: "BLANK", type: "blank", lines: ["Kemenangan Terjadi Di Sini", "GMS Live"] },
         { header: "VERSE 1", type: "verse", lines: ["Kusembah Kudus Kudus Kuduslah Tuhan", "Dan kusanjung Kau mulia"] },
@@ -96,8 +84,6 @@
       title: "Way Maker",
       artist: "Sinach",
       category: "EN",
-      key: "E",
-      bpm: "68",
       slides: [
         { header: "BLANK", type: "blank", lines: ["Way Maker", "Sinach"] },
         { header: "VERSE 1", type: "verse", lines: ["You are here moving in our midst", "I worship You I worship You"] },
@@ -112,8 +98,6 @@
       title: "Bapa Engkau Sungguh Baik",
       artist: "Franky Sihombing",
       category: "ID",
-      key: "C",
-      bpm: "64",
       slides: [
         { header: "BLANK", type: "blank", lines: ["Bapa Engkau Sungguh Baik", "Franky Sihombing"] },
         { header: "VERSE 1", type: "verse", lines: ["Bapa Engkau sungguh baik", "Kasih-Mu melimpah di hidupku"] },
@@ -128,8 +112,6 @@
       title: "Maju Laskar Kristen",
       artist: "KJ 339",
       category: "KJ",
-      key: "Eb",
-      bpm: "104",
       slides: [
         { header: "BLANK", type: "blank", lines: ["Maju Laskar Kristen", "KJ 339"] },
         { header: "VERSE 1", type: "verse", lines: ["Maju laskar Kristen lawan kuasa g'lap", "Ikut salib Yesus sungguh dan tetap"] },
@@ -143,8 +125,6 @@
       title: "Kusrahkan Hidupku",
       artist: "PKJ 145",
       category: "PKJ",
-      key: "G",
-      bpm: "75",
       slides: [
         { header: "BLANK", type: "blank", lines: ["Kusrahkan Hidupku", "PKJ 145"] },
         { header: "VERSE 1", type: "verse", lines: ["Aku melangkah ke rumah Tuhan", "Membawa persembahan syukur"] },
@@ -157,8 +137,6 @@
       title: "O Tuhan Pimpinlah Langkahku",
       artist: "NKB 128",
       category: "NKB",
-      key: "F",
-      bpm: "80",
       slides: [
         { header: "BLANK", type: "blank", lines: ["O Tuhan Pimpinlah Langkahku", "NKB 128"] },
         { header: "VERSE 1", type: "verse", lines: ["'Ku t'lah berjalan jauh di lembah", "Gelap dan berliku jalanku"] },
@@ -174,18 +152,14 @@
     searchQuery: '',
     selectedSong: null,
     activeSlideIndex: 0,
-    isStageBlack: false,
-    displayMode: 'auditorium', // 'auditorium' | 'confidence' | 'lowerthird'
-    soundEnabled: true,
     rundown: [],
-    toastTimeout: null,
-    audioCtx: null
+    toastTimeout: null
   };
 
   // DOM Elements
   const simSearchInput = document.getElementById('sim-search-input');
   const simClearBtn = document.getElementById('sim-clear-btn');
-  const simTabs = document.querySelectorAll('.sim-tab');
+  const simTabs = document.querySelectorAll('.console-tab');
   const simSongList = document.getElementById('sim-song-list');
   const simSongCount = document.getElementById('sim-song-count');
   const simInspectorCategory = document.getElementById('sim-inspector-category');
@@ -198,26 +172,12 @@
   const simClearRundownBtn = document.getElementById('sim-clear-rundown-btn');
   const simCopyWaBtn = document.getElementById('sim-copy-wa-btn');
   const simFakeInjectBtn = document.getElementById('sim-fake-inject-btn');
-  const stageScreenOutput = document.getElementById('stage-screen-output');
-  const stageSlideMeta = document.getElementById('stage-slide-meta');
-  const stagePrevBtn = document.getElementById('stage-prev-btn');
-  const stageNextBtn = document.getElementById('stage-next-btn');
-  const stageClearBtn = document.getElementById('stage-clear-btn');
-  const modeTabs = document.querySelectorAll('.mode-tab');
-  const soundToggleBtn = document.getElementById('sound-toggle-btn');
-  const soundIcon = document.getElementById('sound-icon');
-  const runBenchmarkBtn = document.getElementById('run-benchmark-btn');
-  const liveBenchmarkVal = document.getElementById('live-benchmark-val');
-  const hymnPills = document.querySelectorAll('.hymn-pill');
   const toastEl = document.getElementById('toast');
   const copyBtns = document.querySelectorAll('.btn-copy');
   const faqQuestions = document.querySelectorAll('.faq-question');
 
   // Initialization
   function init() {
-    setupLiveClock();
-    setupScrollReveals();
-    setupAnimatedCounters();
     loadSavedRundown();
     setupEventListeners();
     filterAndRenderSongs();
@@ -226,137 +186,6 @@
     if (SAMPLE_SONGS.length > 0) {
       selectSong(SAMPLE_SONGS[0]);
     }
-  }
-
-  // Web Audio Synthesized Tactile Mechanical Click
-  function playTactileClick() {
-    if (!state.soundEnabled) return;
-    try {
-      if (!state.audioCtx) {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        if (AudioContext) state.audioCtx = new AudioContext();
-      }
-      if (state.audioCtx && state.audioCtx.state === 'suspended') {
-        state.audioCtx.resume();
-      }
-      if (state.audioCtx) {
-        const osc = state.audioCtx.createOscillator();
-        const gain = state.audioCtx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(420, state.audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(140, state.audioCtx.currentTime + 0.025);
-
-        gain.gain.setValueAtTime(0.08, state.audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, state.audioCtx.currentTime + 0.025);
-
-        osc.connect(gain);
-        gain.connect(state.audioCtx.destination);
-        osc.start();
-        osc.stop(state.audioCtx.currentTime + 0.025);
-      }
-    } catch {
-      // Audio blocked or unsupported
-    }
-  }
-
-  // Live Broadcast Clock
-  function setupLiveClock() {
-    const clockEl = document.getElementById('sim-clock');
-    if (!clockEl) return;
-
-    function update() {
-      const now = new Date();
-      clockEl.textContent = now.toLocaleTimeString('en-US', {
-        hour12: true,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-    }
-
-    update();
-    setInterval(update, 1000);
-  }
-
-  // Scroll Reveal Animations
-  function setupScrollReveals() {
-    const reveals = document.querySelectorAll('.reveal-on-scroll');
-    if (!reveals.length) return;
-
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      });
-
-      reveals.forEach((el) => observer.observe(el));
-    } else {
-      reveals.forEach((el) => el.classList.add('is-revealed'));
-    }
-  }
-
-  // Animated Metric Numbers Counter
-  function setupAnimatedCounters() {
-    const counters = document.querySelectorAll('.count-up');
-    if (!counters.length) return;
-
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateNumber(entry.target);
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-
-      counters.forEach((c) => observer.observe(c));
-    } else {
-      counters.forEach((c) => animateNumber(c));
-    }
-  }
-
-  function animateNumber(el) {
-    const target = parseFloat(el.dataset.target || '0');
-    const decimals = parseInt(el.dataset.decimals || '0', 10);
-    const prefix = el.dataset.prefix || '';
-    const suffix = el.dataset.suffix || '';
-    const duration = 1200; // ms
-    const startTime = performance.now();
-
-    function update(now) {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const current = target * (progress * (2 - progress));
-
-      let formatted = '';
-      if (decimals > 0) {
-        formatted = current.toFixed(decimals);
-      } else {
-        formatted = Math.round(current).toLocaleString('id-ID');
-      }
-
-      el.textContent = `${prefix}${formatted}${suffix}`;
-
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        if (decimals > 0) {
-          el.textContent = `${prefix}${target.toFixed(decimals)}${suffix}`;
-        } else {
-          el.textContent = `${prefix}${Math.round(target).toLocaleString('id-ID')}${suffix}`;
-        }
-      }
-    }
-
-    requestAnimationFrame(update);
   }
 
   // Toast Notification
@@ -374,7 +203,7 @@
       toastEl.classList.remove('show');
       setTimeout(() => {
         toastEl.hidden = true;
-      }, 180);
+      }, 150);
     }, 2500);
   }
 
@@ -392,7 +221,6 @@
     if (simClearBtn) {
       simClearBtn.addEventListener('click', () => {
         if (simSearchInput) {
-          playTactileClick();
           simSearchInput.value = '';
           state.searchQuery = '';
           filterAndRenderSongs();
@@ -404,7 +232,6 @@
     // Category Tabs
     simTabs.forEach((tab) => {
       tab.addEventListener('click', () => {
-        playTactileClick();
         simTabs.forEach((t) => {
           t.classList.remove('active');
           t.setAttribute('aria-selected', 'false');
@@ -416,84 +243,9 @@
       });
     });
 
-    // Screen Mode Selector (Auditorium / Confidence / Lower Third)
-    modeTabs.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        playTactileClick();
-        modeTabs.forEach((b) => {
-          b.classList.remove('active');
-          b.setAttribute('aria-checked', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-checked', 'true');
-        state.displayMode = btn.dataset.mode || 'auditorium';
-        updateLiveStageDisplay();
-        showToast(`Mode Layar: ${btn.textContent}`);
-      });
-    });
-
-    // Sound Toggle
-    if (soundToggleBtn) {
-      soundToggleBtn.addEventListener('click', () => {
-        state.soundEnabled = !state.soundEnabled;
-        if (state.soundEnabled) {
-          playTactileClick();
-          soundToggleBtn.classList.remove('sound-off');
-          if (soundIcon) soundIcon.textContent = '🔊';
-          soundToggleBtn.querySelector('span:last-child').textContent = 'Sound ON';
-          showToast("Suara Konsol Panggung: Aktif");
-        } else {
-          soundToggleBtn.classList.add('sound-off');
-          if (soundIcon) soundIcon.textContent = '🔇';
-          soundToggleBtn.querySelector('span:last-child').textContent = 'Sound OFF';
-          showToast("Suara Konsol Panggung: Mute");
-        }
-      });
-    }
-
-    // Live In-Browser Latency Benchmark
-    if (runBenchmarkBtn) {
-      runBenchmarkBtn.addEventListener('click', () => {
-        playTactileClick();
-        if (liveBenchmarkVal) liveBenchmarkVal.textContent = "...";
-        setTimeout(() => {
-          const t0 = performance.now();
-          // Simulate sub-ms memory iteration of 24,556 index nodes
-          let sum = 0;
-          for (let i = 0; i < 24556; i++) {
-            sum += (i * 3) % 7;
-          }
-          const tDiff = (performance.now() - t0).toFixed(2);
-          const finalVal = Math.max(0.18, parseFloat(tDiff)).toFixed(2);
-          if (liveBenchmarkVal) liveBenchmarkVal.textContent = `${finalVal} ms`;
-          showToast(`Uji Latensi RAM Selesai: ${finalVal} ms (Sub-Milidetik)`);
-        }, 120);
-      });
-    }
-
-    // Hymn Pills Jumpers
-    hymnPills.forEach((pill) => {
-      pill.addEventListener('click', () => {
-        playTactileClick();
-        const target = pill.dataset.jump;
-        if (!target) return;
-        if (simSearchInput) {
-          simSearchInput.value = target;
-          state.searchQuery = target.toLowerCase();
-          filterAndRenderSongs();
-          const targetEl = document.getElementById('preview');
-          if (targetEl) {
-            targetEl.scrollIntoView({ behavior: 'smooth' });
-          }
-          showToast(`Mencari buku himne: ${target}`);
-        }
-      });
-    });
-
     // Add Song to Rundown
     if (simAddBtn) {
       simAddBtn.addEventListener('click', () => {
-        playTactileClick();
         if (!state.selectedSong) return;
         addToRundown(state.selectedSong);
       });
@@ -502,7 +254,6 @@
     // Clear Rundown
     if (simClearRundownBtn) {
       simClearRundownBtn.addEventListener('click', () => {
-        playTactileClick();
         state.rundown = [];
         saveRundown();
         renderRundown();
@@ -510,26 +261,7 @@
       });
     }
 
-    // Stage Screen Controls
-    if (stagePrevBtn) {
-      stagePrevBtn.addEventListener('click', () => {
-        advanceSlide(-1);
-      });
-    }
-
-    if (stageNextBtn) {
-      stageNextBtn.addEventListener('click', () => {
-        advanceSlide(1);
-      });
-    }
-
-    if (stageClearBtn) {
-      stageClearBtn.addEventListener('click', () => {
-        toggleClearBlack();
-      });
-    }
-
-    // Global Keyboard Shortcuts for Simulator
+    // Global Keyboard Shortcuts
     document.addEventListener('keydown', (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
         if (e.key === 'Escape') {
@@ -544,21 +276,12 @@
           simSearchInput.focus();
           simSearchInput.select();
         }
-      } else if (e.key === 'ArrowRight' || e.key === ' ') {
-        e.preventDefault();
-        advanceSlide(1);
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        advanceSlide(-1);
-      } else if (e.key === 'Escape' || e.key === 'b' || e.key === 'B') {
-        toggleClearBlack();
       }
     });
 
     // Copy to WhatsApp
     if (simCopyWaBtn) {
       simCopyWaBtn.addEventListener('click', () => {
-        playTactileClick();
         if (state.rundown.length === 0) {
           showToast("Tambahkan lagu ke rundown terlebih dahulu.");
           return;
@@ -594,7 +317,6 @@
     // Simulate Inject Pro7
     if (simFakeInjectBtn) {
       simFakeInjectBtn.addEventListener('click', () => {
-        playTactileClick();
         if (state.rundown.length === 0) {
           showToast("Pilih minimal 1 lagu untuk simulasi injeksi.");
           return;
@@ -603,14 +325,13 @@
         showToast(`Mengompilasi ${state.rundown.length} lagu ke Libraries/Banks/ (< 2 ms)...`);
         setTimeout(() => {
           showToast(`Sukses! Playlist ProPresenter siap ditayangkan tanpa lag.`);
-        }, 550);
+        }, 500);
       });
     }
 
     // Copy Code / Command Buttons
     copyBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
-        playTactileClick();
         const textToCopy = btn.dataset.copy;
         if (!textToCopy) return;
 
@@ -630,7 +351,6 @@
     // FAQ Accordion
     faqQuestions.forEach((q) => {
       q.addEventListener('click', () => {
-        playTactileClick();
         const isExpanded = q.getAttribute('aria-expanded') === 'true';
         faqQuestions.forEach((item) => {
           item.setAttribute('aria-expanded', 'false');
@@ -638,127 +358,6 @@
         q.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
       });
     });
-  }
-
-  // Advance Slide (Next / Prev)
-  function advanceSlide(delta) {
-    if (!state.selectedSong || !state.selectedSong.slides || state.selectedSong.slides.length === 0) {
-      return;
-    }
-
-    playTactileClick();
-
-    if (state.isStageBlack) {
-      state.isStageBlack = false;
-    }
-
-    let nextIdx = state.activeSlideIndex + delta;
-    if (nextIdx < 0) nextIdx = 0;
-    if (nextIdx >= state.selectedSong.slides.length) {
-      nextIdx = state.selectedSong.slides.length - 1;
-    }
-
-    state.activeSlideIndex = nextIdx;
-    updateLiveStageDisplay();
-  }
-
-  // Toggle Screen to Black
-  function toggleClearBlack() {
-    playTactileClick();
-    state.isStageBlack = !state.isStageBlack;
-    if (stageScreenOutput) {
-      if (state.isStageBlack) {
-        stageScreenOutput.innerHTML = '<div class="stage-screen-content"><p class="slide-blank-label" style="color: #444; font-size: 13px;">[ BLACK SCREEN ]</p></div>';
-        if (stageSlideMeta) stageSlideMeta.textContent = "Screen Cleared to Black";
-        if (stageClearBtn) stageClearBtn.textContent = "Restore";
-      } else {
-        if (stageClearBtn) stageClearBtn.textContent = "Clear Black";
-        updateLiveStageDisplay();
-      }
-    }
-  }
-
-  // Update Live Stage Monitor Display (Auditorium, Confidence, or Lower Third)
-  function updateLiveStageDisplay() {
-    if (!state.selectedSong || !state.selectedSong.slides || state.selectedSong.slides.length === 0) {
-      return;
-    }
-
-    const slide = state.selectedSong.slides[state.activeSlideIndex];
-    if (!slide || !stageScreenOutput) return;
-
-    if (stageSlideMeta) {
-      stageSlideMeta.textContent = `Slide #${state.activeSlideIndex + 1} (${slide.header})`;
-    }
-
-    // Apply class for active mode
-    stageScreenOutput.className = `stage-screen-screen mode-${state.displayMode}`;
-
-    let htmlContent = '';
-    const line1 = slide.lines[0] || '';
-    const line2 = slide.lines[1] || '';
-
-    if (state.displayMode === 'auditorium') {
-      // 1. Auditorium LED Mode: Center-Stage High Contrast Big Lyrics
-      if (slide.type === 'blank') {
-        htmlContent = `
-          <div class="stage-screen-content fade-transition">
-            <p class="stage-active-line-1" style="color: #888; font-size: 18px;">${escapeHtml(line1 || state.selectedSong.title)}</p>
-            <p class="stage-active-line-2" style="color: #555; font-size: 13px;">${escapeHtml(line2 || state.selectedSong.artist || '')}</p>
-          </div>
-        `;
-      } else {
-        htmlContent = `
-          <div class="stage-screen-content fade-transition">
-            <p class="stage-active-line-1">${escapeHtml(line1)}</p>
-            <p class="stage-active-line-2">${escapeHtml(line2)}</p>
-          </div>
-        `;
-      }
-    } else if (state.displayMode === 'confidence') {
-      // 2. Confidence Monitor Mode: Current Slide + Next Slide + Chord/Tempo Key
-      const nextSlide = state.selectedSong.slides[state.activeSlideIndex + 1];
-      const nextLine1 = nextSlide ? (nextSlide.lines[0] || '') : '[ END OF SONG ]';
-      const nextLine2 = nextSlide ? (nextSlide.lines[1] || '') : '';
-
-      htmlContent = `
-        <div class="confidence-layout fade-transition">
-          <div class="confidence-cur-box">
-            <div class="confidence-label">CURRENT SLIDE (${slide.header}) &bull; KEY: ${state.selectedSong.key || 'G'} &bull; ${state.selectedSong.bpm || '72'} BPM</div>
-            <p class="stage-active-line-1" style="font-size: 18px;">${escapeHtml(line1)}</p>
-            <p class="stage-active-line-2" style="font-size: 18px;">${escapeHtml(line2)}</p>
-          </div>
-          <div class="confidence-next-box">
-            <div class="confidence-label" style="color: #666;">NEXT SLIDE</div>
-            <p style="font-size: 14px; color: #aaa; font-weight: 700;">${escapeHtml(nextLine1)}</p>
-            <p style="font-size: 14px; color: #888; font-weight: 700;">${escapeHtml(nextLine2)}</p>
-          </div>
-        </div>
-      `;
-    } else if (state.displayMode === 'lowerthird') {
-      // 3. Lower Third Overlay Mode: YouTube / OBS Broadcast Streaming Banner
-      htmlContent = `
-        <div class="lowerthird-banner fade-transition">
-          <div class="lowerthird-title">${escapeHtml(state.selectedSong.title)} &bull; ${escapeHtml(state.selectedSong.artist || state.selectedSong.category)}</div>
-          <div class="lowerthird-text">${escapeHtml(line1)} ${line2 ? '&bull; ' + escapeHtml(line2) : ''}</div>
-        </div>
-      `;
-    }
-
-    stageScreenOutput.innerHTML = htmlContent;
-
-    // Highlight active card in the viewport grid
-    if (simCanvasContainer) {
-      const cards = simCanvasContainer.querySelectorAll('.slide-card');
-      cards.forEach((card, idx) => {
-        if (idx === state.activeSlideIndex) {
-          card.classList.add('is-active-stage');
-          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        } else {
-          card.classList.remove('is-active-stage');
-        }
-      });
-    }
   }
 
   // Filter and Render Songs List
@@ -788,7 +387,7 @@
       const emptyDiv = document.createElement('div');
       emptyDiv.style.padding = '20px 12px';
       emptyDiv.style.textAlign = 'center';
-      emptyDiv.style.color = '#76767b';
+      emptyDiv.style.color = '#8e8e93';
       emptyDiv.style.fontSize = '12px';
       emptyDiv.textContent = 'Tidak ada lagu yang cocok dengan pencarian.';
       simSongList.appendChild(emptyDiv);
@@ -829,10 +428,8 @@
 
   // Select a Song for Preview
   function selectSong(song) {
-    playTactileClick();
     state.selectedSong = song;
     state.activeSlideIndex = 0;
-    state.isStageBlack = false;
 
     // Update active highlight in list
     const items = simSongList.querySelectorAll('.sim-item');
@@ -846,7 +443,6 @@
 
     // Render 16:9 Presentation Canvas Grid Deck
     renderSlideCanvas(song);
-    updateLiveStageDisplay();
     filterAndRenderSongs();
   }
 
@@ -857,7 +453,7 @@
 
     if (!song.slides || song.slides.length === 0) {
       simCanvasContainer.innerHTML = `
-        <div class="sim-empty-state">
+        <div class="canvas-empty-state">
           <p>Lirik lagu tidak memiliki slide terformat.</p>
         </div>
       `;
@@ -868,7 +464,7 @@
       const card = document.createElement('div');
       card.className = 'slide-card';
       if (idx === state.activeSlideIndex) {
-        card.classList.add('is-active-stage');
+        card.classList.add('active-slide');
       }
 
       let stripClass = 'strip-verse';
@@ -903,9 +499,9 @@
 
       card.addEventListener('click', () => {
         state.activeSlideIndex = idx;
-        state.isStageBlack = false;
-        playTactileClick();
-        updateLiveStageDisplay();
+        const allCards = simCanvasContainer.querySelectorAll('.slide-card');
+        allCards.forEach((c) => c.classList.remove('active-slide'));
+        card.classList.add('active-slide');
       });
 
       simCanvasContainer.appendChild(card);
@@ -927,7 +523,6 @@
   }
 
   function removeFromRundown(index) {
-    playTactileClick();
     const removed = state.rundown.splice(index, 1);
     saveRundown();
     renderRundown();
@@ -946,7 +541,7 @@
 
     if (state.rundown.length === 0) {
       simRundownList.innerHTML = `
-        <div style="padding: 14px 8px; text-align: center; color: #76767b; font-size: 11px;">
+        <div style="padding: 14px 8px; text-align: center; color: #8e8e93; font-size: 11px;">
           Rundown kosong. Pilih lagu dari Library lalu klik + Tambah.
         </div>
       `;
