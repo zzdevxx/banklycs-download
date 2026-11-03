@@ -53,9 +53,9 @@
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
       <div class="container hero-container">
-        <div class="hero-content">
+        <div class="hero-content reveal-on-scroll">
           <div class="status-chip" role="status">
-            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-dot pulsing-dot" aria-hidden="true"></span>
             <span class="status-label">Master Database 24.556 Lagu Terkurasi (Zero Duplicate)</span>
           </div>
 
@@ -68,32 +68,33 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#download" class="btn btn-primary btn-lg">
+            <a href="#download" class="btn btn-primary btn-lg btn-glow">
               <svg class="icon-svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
               </svg>
               <span>Download Banklycs</span>
             </a>
             <a href="#preview" class="btn btn-secondary btn-lg">
+              <span class="btn-play-icon" aria-hidden="true">▶</span>
               <span>Coba Live Simulator</span>
             </a>
           </div>
 
           <div class="stat-pills" aria-label="Metrik Utama Banklycs">
             <div class="stat-pill">
-              <span class="stat-num tabular-num">24.556</span>
+              <span class="stat-num tabular-num count-up" data-target="24556">0</span>
               <span class="stat-desc">Lagu Master Terkurasi</span>
             </div>
             <div class="stat-pill">
-              <span class="stat-num tabular-num">44.20 MB</span>
+              <span class="stat-num tabular-num count-up" data-target="44.20" data-suffix=" MB" data-decimals="2">0 MB</span>
               <span class="stat-desc">SQLite Single-File</span>
             </div>
             <div class="stat-pill">
-              <span class="stat-num tabular-num">&lt; 1 ms</span>
+              <span class="stat-num tabular-num count-up" data-target="1" data-prefix="&lt; " data-suffix=" ms">0 ms</span>
               <span class="stat-desc">Kompilasi On-Demand</span>
             </div>
             <div class="stat-pill">
-              <span class="stat-num tabular-num">0</span>
+              <span class="stat-num tabular-num">0 Config</span>
               <span class="stat-desc">Dependensi Luar</span>
             </div>
           </div>
@@ -104,7 +105,7 @@
     <!-- Key Features Section -->
     <section id="features" class="section section-dark">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-tag">KEUNGGULAN UTAMA</span>
           <h2 class="section-title">Solusi Nyata Masalah Presentasi Ibadah</h2>
           <p class="section-subtitle">
@@ -114,7 +115,7 @@
 
         <div class="feature-grid">
           <!-- Card 1 -->
-          <article class="feature-card">
+          <article class="feature-card reveal-on-scroll">
             <div class="feature-icon-box icon-orange" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
@@ -130,7 +131,7 @@
           </article>
 
           <!-- Card 2 -->
-          <article class="feature-card">
+          <article class="feature-card reveal-on-scroll">
             <div class="feature-icon-box icon-blue" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
@@ -143,7 +144,7 @@
           </article>
 
           <!-- Card 3 -->
-          <article class="feature-card">
+          <article class="feature-card reveal-on-scroll">
             <div class="feature-icon-box icon-green" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="11" cy="11" r="8"/>
@@ -157,7 +158,7 @@
           </article>
 
           <!-- Card 4 -->
-          <article class="feature-card">
+          <article class="feature-card reveal-on-scroll">
             <div class="feature-icon-box icon-purple" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
@@ -172,7 +173,7 @@
           </article>
 
           <!-- Card 5 -->
-          <article class="feature-card">
+          <article class="feature-card reveal-on-scroll">
             <div class="feature-icon-box icon-yellow" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -189,7 +190,7 @@
           </article>
 
           <!-- Card 6 -->
-          <article class="feature-card">
+          <article class="feature-card reveal-on-scroll">
             <div class="feature-icon-box icon-cyan" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -205,18 +206,18 @@
       </div>
     </section>
 
-    <!-- Interactive Simulator Section -->
+    <!-- Interactive Simulator Section with Live Stage Screen -->
     <section id="preview" class="section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-tag">SIMULATOR INTERAKTIF</span>
           <h2 class="section-title">Coba Langsung Studio Console di Browser</h2>
           <p class="section-subtitle">
-            Uji coba pencarian cepat, pratinjau slide 16:9 panggung, dan penyusunan rundown dengan data sampel autentik Banklycs.
+            Uji coba pencarian cepat, proyeksikan lirik ke layar panggung simulasi secara realtime, dan susun rundown ibadah.
           </p>
         </div>
 
-        <div class="simulator-wrapper">
+        <div class="simulator-wrapper reveal-on-scroll">
           <!-- Toolbar Simulator -->
           <div class="sim-toolbar">
             <div class="sim-tb-left">
@@ -234,7 +235,7 @@
                   spellcheck="false"
                   aria-label="Cari lagu di simulator"
                 >
-                <button id="sim-clear-btn" class="sim-clear-btn" title="Hapus pencarian" aria-label="Hapus pencarian">✕</button>
+                <button id="sim-clear-btn" class="sim-clear-btn" title="Hapus pencarian (Esc)" aria-label="Hapus pencarian">✕</button>
               </div>
             </div>
 
@@ -250,13 +251,13 @@
 
             <div class="sim-tb-right">
               <div class="sim-status">
-                <span class="status-dot"></span>
+                <span class="status-dot pulsing-dot"></span>
                 <span>Ready</span>
               </div>
             </div>
           </div>
 
-          <!-- Workspace Simulator: Sidebar + Canvas Preview -->
+          <!-- Workspace Simulator: Sidebar + Inspector & Stage Display -->
           <div class="sim-workspace">
             <!-- Sidebar: Library List & Rundown -->
             <aside class="sim-sidebar">
@@ -294,22 +295,59 @@
               </div>
             </aside>
 
-            <!-- Main Canvas: Slide Preview Inspector -->
+            <!-- Main Canvas Area: Live Stage Monitor + Slide Deck Inspector -->
             <div class="sim-inspector">
+              <!-- Top Live Stage Monitor (Simulasi Layar Proyektor Ibadah) -->
+              <div class="stage-monitor-container">
+                <div class="stage-monitor-header">
+                  <div class="stage-monitor-title-wrap">
+                    <span class="live-on-air-badge">
+                      <span class="red-record-dot"></span>
+                      <span>LIVE PROJECTION</span>
+                    </span>
+                    <span class="stage-slide-meta" id="stage-slide-meta">Slide #1 (BLANK)</span>
+                  </div>
+                  <div class="stage-monitor-controls">
+                    <button id="stage-prev-btn" class="stage-ctrl-btn" title="Slide Sebelumnya (Arrow Left)">◀ Prev</button>
+                    <button id="stage-next-btn" class="stage-ctrl-btn" title="Slide Berikutnya (Arrow Right / Space)">Next ▶</button>
+                    <button id="stage-clear-btn" class="stage-ctrl-btn btn-clear-screen" title="Layar Hitam">Clear Black</button>
+                  </div>
+                </div>
+
+                <!-- Projection Screen 16:9 Output -->
+                <div class="stage-screen-frame">
+                  <div class="stage-screen-screen" id="stage-screen-output">
+                    <div class="stage-screen-content fade-transition" id="stage-screen-text">
+                      <p class="stage-active-line-1">Sentuh Hatiku</p>
+                      <p class="stage-active-line-2">Jason</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Deck Header -->
               <div class="sim-inspector-header">
                 <div>
                   <span class="sim-tag" id="sim-inspector-category">READY</span>
                   <h3 class="sim-inspector-title" id="sim-inspector-title">Pilih lagu dari daftar sebelah kiri</h3>
-                  <p class="sim-inspector-artist" id="sim-inspector-artist">Klik baris lagu untuk melihat susunan slide panggung</p>
+                  <p class="sim-inspector-artist" id="sim-inspector-artist">Klik kartu slide di bawah untuk memproyeksikan langsung ke layar panggung</p>
                 </div>
                 <button id="sim-add-btn" class="btn btn-primary btn-sm" disabled>
                   <span>+ Tambah ke Rundown</span>
                 </button>
               </div>
 
-              <!-- 16:9 Presentation Canvas Grid -->
+              <!-- 16:9 Presentation Canvas Grid Deck -->
               <div class="sim-canvas-viewport" id="sim-canvas-container">
                 <!-- Slide cards will be injected by app.js -->
+              </div>
+
+              <!-- Keyboard Shortcuts Helper Footer -->
+              <div class="sim-keyboard-hints">
+                <span class="hint-item"><kbd>/</kbd> Cari Lagu</span>
+                <span class="hint-item"><kbd>Space</kbd> atau <kbd>→</kbd> Slide Berikutnya</span>
+                <span class="hint-item"><kbd>←</kbd> Slide Sebelumnya</span>
+                <span class="hint-item"><kbd>Esc</kbd> Clear Layar</span>
               </div>
             </div>
           </div>
@@ -320,7 +358,7 @@
     <!-- Architecture & Comparison Section -->
     <section id="architecture" class="section section-dark">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-tag">ARSITEKTUR &amp; PERFORMA</span>
           <h2 class="section-title">Perbandingan Metode Lama vs Banklycs</h2>
           <p class="section-subtitle">
@@ -328,11 +366,74 @@
           </p>
         </div>
 
+        <!-- Interactive Animated Pipeline Flow Diagram -->
+        <div class="pipeline-diagram-wrapper reveal-on-scroll">
+          <div class="pipeline-flow">
+            <!-- Node 1 -->
+            <div class="pipeline-node" tabindex="0">
+              <div class="node-icon icon-orange" aria-hidden="true">🗄️</div>
+              <div class="node-body">
+                <span class="node-step">TAHAP 1</span>
+                <h4 class="node-title">SQLite Master Vault</h4>
+                <p class="node-desc">24.556 lagu dalam 1 file 44 MB. Bebas bloat NTFS.</p>
+              </div>
+            </div>
+
+            <!-- Flow Connector 1 -->
+            <div class="pipeline-connector" aria-hidden="true">
+              <span class="connector-line"></span>
+              <span class="connector-dot dot-1"></span>
+            </div>
+
+            <!-- Node 2 -->
+            <div class="pipeline-node" tabindex="0">
+              <div class="node-icon icon-blue" aria-hidden="true">⚡</div>
+              <div class="node-body">
+                <span class="node-step">TAHAP 2</span>
+                <h4 class="node-title">C# Native RAM Engine</h4>
+                <p class="node-desc">Load ~170 ms ke RAM, pencarian FTS5 &lt; 0.4 ms.</p>
+              </div>
+            </div>
+
+            <!-- Flow Connector 2 -->
+            <div class="pipeline-connector" aria-hidden="true">
+              <span class="connector-line"></span>
+              <span class="connector-dot dot-2"></span>
+            </div>
+
+            <!-- Node 3 -->
+            <div class="pipeline-node" tabindex="0">
+              <div class="node-icon icon-green" aria-hidden="true">⚙️</div>
+              <div class="node-body">
+                <span class="node-step">TAHAP 3</span>
+                <h4 class="node-title">In-Memory Protobuf</h4>
+                <p class="node-desc">Kompilasi on-demand &lt; 1 ms per lagu saat klik Inject.</p>
+              </div>
+            </div>
+
+            <!-- Flow Connector 3 -->
+            <div class="pipeline-connector" aria-hidden="true">
+              <span class="connector-line"></span>
+              <span class="connector-dot dot-3"></span>
+            </div>
+
+            <!-- Node 4 -->
+            <div class="pipeline-node" tabindex="0">
+              <div class="node-icon icon-purple" aria-hidden="true">🖥️</div>
+              <div class="node-body">
+                <span class="node-step">TAHAP 4</span>
+                <h4 class="node-title">ProPresenter 7</h4>
+                <p class="node-desc">Startup instan &lt; 1 detik. Bebas crash &amp; siap tayang.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="comparison-grid">
           <!-- Col 1: Old Approach -->
-          <div class="comparison-col col-bad">
+          <div class="comparison-col col-bad reveal-on-scroll">
             <div class="col-header">
-              <span class="col-badge bad">METODE LAMA (PULULUHAN RIBU FILE)</span>
+              <span class="col-badge bad">METODE LAMA (PULUHAN RIBU FILE)</span>
               <h3 class="col-title">Loose Filesystem Storage</h3>
             </div>
             <ul class="col-points">
@@ -352,7 +453,7 @@
           </div>
 
           <!-- Col 2: Banklycs Approach -->
-          <div class="comparison-col col-good">
+          <div class="comparison-col col-good reveal-on-scroll">
             <div class="col-header">
               <span class="col-badge good">METODE BANKLYCS (TERVERIFIKASI)</span>
               <h3 class="col-title">Single-File SQLite &amp; On-Demand</h3>
@@ -375,7 +476,7 @@
         </div>
 
         <!-- Category Distribution Matrix -->
-        <div class="category-breakdown">
+        <div class="category-breakdown reveal-on-scroll">
           <h3 class="breakdown-title">Distribusi 24.556 Lagu Terkurasi (100% Zero-Duplicate)</h3>
           <div class="category-chips">
             <div class="cat-chip">
@@ -426,7 +527,7 @@
     <!-- Download Hub Section -->
     <section id="download" class="section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-tag">DOWNLOAD RESMI</span>
           <h2 class="section-title">Unduh Paket Rilis Banklycs</h2>
           <p class="section-subtitle">
@@ -436,7 +537,8 @@
 
         <div class="download-grid">
           <!-- Option 1: Full Release Bundle -->
-          <div class="download-card card-featured">
+          <div class="download-card card-featured reveal-on-scroll">
+            <div class="card-shimmer" aria-hidden="true"></div>
             <div class="card-tag">PALING DIREKOMENDASIKAN</div>
             <h3 class="card-title">Full Release Bundle (ZIP)</h3>
             <p class="card-desc">
@@ -447,7 +549,7 @@
               <span class="meta-item">Status: Siap Pakai (0 Config)</span>
             </div>
             <div class="card-actions">
-              <a href="https://github.com/zzdevxx/banklycs/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full">
+              <a href="https://github.com/zzdevxx/banklycs/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full btn-glow">
                 <svg class="icon-svg" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
                 </svg>
@@ -457,7 +559,7 @@
           </div>
 
           <!-- Option 2: Database Only -->
-          <div class="download-card">
+          <div class="download-card reveal-on-scroll">
             <h3 class="card-title">Database Sah Saja (banklycs.db)</h3>
             <p class="card-desc">
               Bagi pengguna yang sudah memiliki engine Banklycs dan hanya ingin memperbarui katalog lagu master ke rilis 24.556 lagu terkurasi.
@@ -474,7 +576,7 @@
           </div>
 
           <!-- Option 3: Git Clone -->
-          <div class="download-card">
+          <div class="download-card reveal-on-scroll">
             <h3 class="card-title">Kloning Repositori Git</h3>
             <p class="card-desc">
               Untuk maintainer, teknisi gereja, atau developer yang ingin melakukan sinkronisasi otomatis menggunakan Git.
@@ -492,7 +594,7 @@
         </div>
 
         <!-- Verification & Requirements Note -->
-        <div class="verification-box">
+        <div class="verification-box reveal-on-scroll">
           <div class="req-item">
             <span class="req-title">Persyaratan Sistem:</span>
             <span>Windows 10 / 11 (64-bit), ProPresenter 7 terpasang di sistem. Tidak memerlukan instalasi Python.</span>
@@ -508,7 +610,7 @@
     <!-- Quick Start Guide Section -->
     <section id="guide" class="section section-dark">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-tag">PANDUAN OPERATOR</span>
           <h2 class="section-title">Cara Penggunaan 3 Langkah Cepat</h2>
           <p class="section-subtitle">
@@ -518,7 +620,7 @@
 
         <div class="steps-grid">
           <!-- Step 1 -->
-          <div class="step-card">
+          <div class="step-card reveal-on-scroll">
             <div class="step-number" aria-hidden="true">1</div>
             <h3 class="step-title">Jalankan START.vbs</h3>
             <p class="step-text">
@@ -527,7 +629,7 @@
           </div>
 
           <!-- Step 2 -->
-          <div class="step-card">
+          <div class="step-card reveal-on-scroll">
             <div class="step-number" aria-hidden="true">2</div>
             <h3 class="step-title">Pilih Lagu &amp; Susun Rundown</h3>
             <p class="step-text">
@@ -536,7 +638,7 @@
           </div>
 
           <!-- Step 3 -->
-          <div class="step-card">
+          <div class="step-card reveal-on-scroll">
             <div class="step-number" aria-hidden="true">3</div>
             <h3 class="step-title">Klik INJECT TO PRO7</h3>
             <p class="step-text">
@@ -550,7 +652,7 @@
     <!-- FAQ Section -->
     <section id="faq" class="section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-tag">PERTANYAAN UMUM</span>
           <h2 class="section-title">Frequently Asked Questions</h2>
           <p class="section-subtitle">
@@ -558,7 +660,7 @@
           </p>
         </div>
 
-        <div class="faq-accordion" role="region" aria-label="Pertanyaan yang Sering Diajukan">
+        <div class="faq-accordion reveal-on-scroll" role="region" aria-label="Pertanyaan yang Sering Diajukan">
           <!-- FAQ 1 -->
           <div class="faq-item">
             <button class="faq-question" aria-expanded="false">

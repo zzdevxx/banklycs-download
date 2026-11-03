@@ -1,6 +1,7 @@
 /**
- * BANKLYCS DOWNLOAD PORTAL: CLIENT CONTROLLER
- * Interactive Simulator, Rundown Builder, WA Exporter & FAQ Accordion
+ * BANKLYCS DOWNLOAD PORTAL: CLIENT CONTROLLER (STAGE MOTION EDITION)
+ * Live Stage Projection Simulator, Animated Metric Counters,
+ * Scroll Reveals, Rundown Builder, WhatsApp Exporter & FAQ Accordion
  * Strict Antislop compliance (zero fake claims, zero dead controls)
  */
 
@@ -151,6 +152,8 @@
     activeCategory: 'ALL',
     searchQuery: '',
     selectedSong: null,
+    activeSlideIndex: 0,
+    isStageBlack: false,
     rundown: [],
     toastTimeout: null
   };
@@ -171,12 +174,19 @@
   const simClearRundownBtn = document.getElementById('sim-clear-rundown-btn');
   const simCopyWaBtn = document.getElementById('sim-copy-wa-btn');
   const simFakeInjectBtn = document.getElementById('sim-fake-inject-btn');
+  const stageScreenText = document.getElementById('stage-screen-text');
+  const stageSlideMeta = document.getElementById('stage-slide-meta');
+  const stagePrevBtn = document.getElementById('stage-prev-btn');
+  const stageNextBtn = document.getElementById('stage-next-btn');
+  const stageClearBtn = document.getElementById('stage-clear-btn');
   const toastEl = document.getElementById('toast');
   const copyBtns = document.querySelectorAll('.btn-copy');
   const faqQuestions = document.querySelectorAll('.faq-question');
 
   // Initialization
   function init() {
+    setupScrollReveals();
+    setupAnimatedCounters();
     loadSavedRundown();
     setupEventListeners();
     filterAndRenderSongs();
@@ -185,6 +195,89 @@
     if (SAMPLE_SONGS.length > 0) {
       selectSong(SAMPLE_SONGS[0]);
     }
+  }
+
+  // Scroll Reveal Animations
+  function setupScrollReveals() {
+    const reveals = document.querySelectorAll('.reveal-on-scroll');
+    if (!reveals.length) return;
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      // Fallback: reveal all immediately
+      reveals.forEach((el) => el.classList.add('is-revealed'));
+    }
+  }
+
+  // Animated Metric Numbers Counter
+  function setupAnimatedCounters() {
+    const counters = document.querySelectorAll('.count-up');
+    if (!counters.length) return;
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateNumber(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach((c) => observer.observe(c));
+    } else {
+      counters.forEach((c) => animateNumber(c));
+    }
+  }
+
+  function animateNumber(el) {
+    const target = parseFloat(el.dataset.target || '0');
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1200; // ms
+    const startTime = performance.now();
+
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out quad
+      const current = target * (progress * (2 - progress));
+
+      let formatted = '';
+      if (decimals > 0) {
+        formatted = current.toFixed(decimals);
+      } else {
+        formatted = Math.round(current).toLocaleString('id-ID');
+      }
+
+      el.textContent = `${prefix}${formatted}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        if (decimals > 0) {
+          el.textContent = `${prefix}${target.toFixed(decimals)}${suffix}`;
+        } else {
+          el.textContent = `${prefix}${Math.round(target).toLocaleString('id-ID')}${suffix}`;
+        }
+      }
+    }
+
+    requestAnimationFrame(update);
   }
 
   // Toast Notification
@@ -202,7 +295,7 @@
       toastEl.classList.remove('show');
       setTimeout(() => {
         toastEl.hidden = true;
-      }, 150);
+      }, 180);
     }, 2500);
   }
 
@@ -260,6 +353,52 @@
       });
     }
 
+    // Stage Screen Controls
+    if (stagePrevBtn) {
+      stagePrevBtn.addEventListener('click', () => {
+        advanceSlide(-1);
+      });
+    }
+
+    if (stageNextBtn) {
+      stageNextBtn.addEventListener('click', () => {
+        advanceSlide(1);
+      });
+    }
+
+    if (stageClearBtn) {
+      stageClearBtn.addEventListener('click', () => {
+        toggleClearBlack();
+      });
+    }
+
+    // Global Keyboard Shortcuts for Simulator
+    document.addEventListener('keydown', (e) => {
+      // Ignore if user is currently typing inside an input field
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        if (e.key === 'Escape') {
+          e.target.blur();
+        }
+        return;
+      }
+
+      if (e.key === '/') {
+        e.preventDefault();
+        if (simSearchInput) {
+          simSearchInput.focus();
+          simSearchInput.select();
+        }
+      } else if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        advanceSlide(1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        advanceSlide(-1);
+      } else if (e.key === 'Escape') {
+        toggleClearBlack();
+      }
+    });
+
     // Copy to WhatsApp
     if (simCopyWaBtn) {
       simCopyWaBtn.addEventListener('click', () => {
@@ -306,7 +445,7 @@
         showToast(`Mengompilasi ${state.rundown.length} lagu ke Libraries/Banks/ (< 2 ms)...`);
         setTimeout(() => {
           showToast(`Sukses! Playlist ProPresenter siap ditayangkan tanpa lag.`);
-        }, 600);
+        }, 550);
       });
     }
 
@@ -333,7 +472,6 @@
     faqQuestions.forEach((q) => {
       q.addEventListener('click', () => {
         const isExpanded = q.getAttribute('aria-expanded') === 'true';
-        // Close others for clean accordion
         faqQuestions.forEach((item) => {
           item.setAttribute('aria-expanded', 'false');
         });
@@ -342,16 +480,97 @@
     });
   }
 
+  // Advance Slide (Next / Prev)
+  function advanceSlide(delta) {
+    if (!state.selectedSong || !state.selectedSong.slides || state.selectedSong.slides.length === 0) {
+      return;
+    }
+
+    if (state.isStageBlack) {
+      state.isStageBlack = false;
+    }
+
+    let nextIdx = state.activeSlideIndex + delta;
+    if (nextIdx < 0) nextIdx = 0;
+    if (nextIdx >= state.selectedSong.slides.length) {
+      nextIdx = state.selectedSong.slides.length - 1;
+    }
+
+    state.activeSlideIndex = nextIdx;
+    updateLiveStageDisplay();
+  }
+
+  // Toggle Screen to Black
+  function toggleClearBlack() {
+    state.isStageBlack = !state.isStageBlack;
+    if (stageScreenText) {
+      if (state.isStageBlack) {
+        stageScreenText.innerHTML = '<p class="slide-blank-label" style="color: #444;">[ BLACK SCREEN ]</p>';
+        if (stageSlideMeta) stageSlideMeta.textContent = "Screen Cleared to Black";
+        if (stageClearBtn) stageClearBtn.textContent = "Restore";
+      } else {
+        if (stageClearBtn) stageClearBtn.textContent = "Clear Black";
+        updateLiveStageDisplay();
+      }
+    }
+  }
+
+  // Update Live Stage Monitor Display
+  function updateLiveStageDisplay() {
+    if (!state.selectedSong || !state.selectedSong.slides || state.selectedSong.slides.length === 0) {
+      return;
+    }
+
+    const slide = state.selectedSong.slides[state.activeSlideIndex];
+    if (!slide) return;
+
+    if (stageSlideMeta) {
+      stageSlideMeta.textContent = `Slide #${state.activeSlideIndex + 1} (${slide.header})`;
+    }
+
+    if (stageScreenText) {
+      // Re-trigger animation
+      stageScreenText.classList.remove('fade-transition');
+      void stageScreenText.offsetWidth; // Reflow
+      stageScreenText.classList.add('fade-transition');
+
+      if (slide.type === 'blank') {
+        stageScreenText.innerHTML = `
+          <p class="stage-active-line-1" style="color: #aaa; font-size: 15px;">${escapeHtml(slide.lines[0] || state.selectedSong.title)}</p>
+          <p class="stage-active-line-2" style="color: #666; font-size: 12px;">${escapeHtml(slide.lines[1] || state.selectedSong.artist || '')}</p>
+        `;
+      } else {
+        const line1 = slide.lines[0] || '';
+        const line2 = slide.lines[1] || '';
+        stageScreenText.innerHTML = `
+          <p class="stage-active-line-1">${escapeHtml(line1)}</p>
+          <p class="stage-active-line-2">${escapeHtml(line2)}</p>
+        `;
+      }
+    }
+
+    // Highlight active card in the viewport grid
+    if (simCanvasContainer) {
+      const cards = simCanvasContainer.querySelectorAll('.slide-card');
+      cards.forEach((card, idx) => {
+        if (idx === state.activeSlideIndex) {
+          card.classList.add('is-active-stage');
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          card.classList.remove('is-active-stage');
+        }
+      });
+    }
+  }
+
   // Filter and Render Songs List
   function filterAndRenderSongs() {
     if (!simSongList) return;
 
     let filtered = SAMPLE_SONGS.filter((s) => {
-      // Category filter
       if (state.activeCategory !== 'ALL' && s.category !== state.activeCategory) {
         return false;
       }
-      // Query filter
       if (state.searchQuery) {
         const fullIndex = `${s.title} ${s.artist} ${s.category}`.toLowerCase();
         if (!fullIndex.includes(state.searchQuery)) {
@@ -413,6 +632,8 @@
   // Select a Song for Preview
   function selectSong(song) {
     state.selectedSong = song;
+    state.activeSlideIndex = 0;
+    state.isStageBlack = false;
 
     // Update active highlight in list
     const items = simSongList.querySelectorAll('.sim-item');
@@ -424,8 +645,9 @@
     if (simInspectorArtist) simInspectorArtist.textContent = song.artist ? `Artis / Buku: ${song.artist}` : song.filename;
     if (simAddBtn) simAddBtn.disabled = false;
 
-    // Render 16:9 Presentation Canvas Grid
+    // Render 16:9 Presentation Canvas Grid Deck
     renderSlideCanvas(song);
+    updateLiveStageDisplay();
     filterAndRenderSongs();
   }
 
@@ -446,6 +668,9 @@
     song.slides.forEach((slide, idx) => {
       const card = document.createElement('div');
       card.className = 'slide-card';
+      if (idx === state.activeSlideIndex) {
+        card.classList.add('is-active-stage');
+      }
 
       let stripClass = 'strip-verse';
       if (slide.type === 'blank') stripClass = 'strip-blank';
@@ -476,6 +701,12 @@
         </div>
         ${contentHtml}
       `;
+
+      card.addEventListener('click', () => {
+        state.activeSlideIndex = idx;
+        state.isStageBlack = false;
+        updateLiveStageDisplay();
+      });
 
       simCanvasContainer.appendChild(card);
     });

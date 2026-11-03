@@ -1,7 +1,7 @@
 # DESIGN DIRECTION: BANKLYCS DOWNLOAD PORTAL
 
 > Direction: Identity, personality, palette, typography, and craftsmanship standards for the Banklycs official download and documentation portal.
-> Dial: ENERGY 2 / RHYTHM 2 / MOTION 1
+> Dial: ENERGY 2 / RHYTHM 2 / MOTION 2
 > Filter: antislop (Strict compliance: zero em dash, zero fake claims, zero generic gradients)
 
 ---
@@ -21,7 +21,7 @@
 |---|---|---|
 | **ENERGY** | **2 (Balanced)** | Tampilan bersih, percaya diri, berfokus pada konten teknis dan kegunaan nyata. |
 | **RHYTHM** | **2 (Structured & Break)** | Bagian tersusun logis (Hero -> Live Preview Simulator -> Architecture Proof -> Download Matrix -> Quickstart -> FAQ -> Footer). |
-| **MOTION** | **1 (Calm / Functional)** | Transisi instan dan halus (150ms ease-out) untuk hover dan klik. Tanpa floating bounce atau scroll parallax yang memberatkan browser ibadah. |
+| **MOTION** | **2 (Interactive / Purposeful)** | Animasi scroll-reveal berbasis IntersectionObserver, perpindahan slide instan dengan crossfade panggung, counter metrik dinamis, LED hardware pulse, transisi tab geser, dan feedback toast taktil. |
 
 ---
 
