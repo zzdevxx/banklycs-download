@@ -7,7 +7,7 @@ Portal landing page resmi dan distribusi publik untuk proyek **Banklycs (ProPres
 - **Live Simulator Console**: Simulator langsung di browser untuk menguji pencarian cepat, filter kategori, dan rendering thumbnail slide panggung 16:9 widescreen dengan kode warna resmi ProPresenter 7.
 - **Rundown Builder & Ekspor WA**: Fitur penyusunan daftar lagu ibadah interaktif serta ekspor format WhatsApp rapi ke clipboard.
 - **Perbandingan Arsitektur**: Analisis keunggulan Single-File SQLite 61.42 MB vs 40.000 file terpisah NTFS.
-- **Pusat Download (Hub)**: Tautan unduh bundle ZIP rilis resmi, file database mandiri `banklycs.db`, dan perintah kloning Git.
+- **Pusat Download (Hub)**: Tautan unduh bundle ZIP rilis resmi, file database mandiri `banklycs.db` (61.42 MB), dan perintah kloning Git.
 - **Panduan Cepat (Quick Start)**: Langkah penggunaan 1-klik untuk operator proyektor dan multimedia gereja.
 - **FAQ Interaktif**: Jawaban teknis terkait kompatibilitas Windows 10/11, ProPresenter 7, dan kesiapan penggunaan offline.
 
