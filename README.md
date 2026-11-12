@@ -1,28 +1,31 @@
-# 🌐 Banklycs Download Portal (GitHub Pages)
+# Banklycs Download Portal (GitHub Pages)
 
-Portal landing page resmi dan distribusi publik untuk proyek **Banklycs (ProPresenter 7 Worship Lyrics Engine & Database)**.
+Landing page resmi dan distribusi publik untuk proyek Banklycs (ProPresenter 7 Worship Lyrics Engine & Database).
 
-## 🎯 Fitur Halaman
+## Fitur Halaman
 
-- **Live Simulator Console**: Simulator langsung di browser untuk menguji pencarian cepat, filter kategori, dan rendering thumbnail slide panggung 16:9 widescreen dengan kode warna resmi ProPresenter 7.
-- **Rundown Builder & Ekspor WA**: Fitur penyusunan daftar lagu ibadah interaktif serta ekspor format WhatsApp rapi ke clipboard.
-- **Perbandingan Arsitektur**: Analisis keunggulan Single-File SQLite 61.42 MB vs 40.000 file terpisah NTFS.
-- **Pusat Download (Hub)**: Tautan unduh bundle ZIP rilis resmi, file database mandiri `banklycs.db` (61.42 MB), dan perintah kloning Git.
-- **Panduan Cepat (Quick Start)**: Langkah penggunaan 1-klik untuk operator proyektor dan multimedia gereja.
-- **FAQ Interaktif**: Jawaban teknis terkait kompatibilitas Windows 10/11, ProPresenter 7, dan kesiapan penggunaan offline.
+- Live Simulator Console: simulator langsung di browser untuk mencari lagu, filter kategori, dan melihat pratinjau slide panggung 16:9 widescreen dengan kode warna resmi ProPresenter 7.
+- Rundown Builder & Ekspor WA: penyusunan daftar lagu ibadah interaktif serta ekspor format WhatsApp ke clipboard.
+- Perbandingan Arsitektur: mengapa satu file SQLite lebih stabil untuk laptop ibadah dibanding puluhan ribu file terpisah.
+- Pusat Download (Hub): tautan unduh installer rilis resmi, file database mandiri `banklycs.db` (106 MB), dan perintah kloning Git.
+- Panduan Cepat: langkah penggunaan untuk operator proyektor dan multimedia gereja.
+- FAQ: jawaban teknis soal kompatibilitas Windows 10/11, ProPresenter 7, dan penggunaan offline.
 
-## 🛠️ Standar Desain (Antislop & Aksesibilitas)
+## Standar Desain (Antislop & Aksesibilitas)
 
 Halaman ini dibangun dengan standar ketat:
-- **Zero AI Slop**: Bebas dari gradien ungu-biru neon generik, tombol lonjong (pill button), atau kartu template AI.
-- **5-State Interactive Contract**: Semua elemen interaktif memiliki status `default`, `hover`, `focus-visible`, `active`, dan `disabled`.
-- **WCAG 2.2 AA Contrast**: Rasio kontras teks minimum 4.5:1 untuk teks normal dan 3:1 untuk teks besar.
-- **Tabular Numerals**: Menggunakan `font-variant-numeric: tabular-nums` untuk angka katalog, durasi, dan ukuran berkas.
-- **Zero External Runtime Dependency**: Menggunakan HTML5 murni, CSS modern, dan JavaScript vanilla tanpa library berat.
 
-## 🚀 Menjalankan Lokal
+- Zero AI slop: tanpa gradien ungu-biru neon generik, tombol lonjong, atau kartu template AI.
+- Zero em dash (R-02): seluruh teks halaman bebas karakter `—`.
+- Angka terverifikasi (R-17): setiap angka di halaman diambil ulang dari `database/banklycs.db` dan aset release terbaru sebelum dipublikasikan.
+- 5-State Interactive Contract: semua elemen interaktif memiliki status `default`, `hover`, `focus-visible`, `active`, dan `disabled`.
+- WCAG 2.2 AA Contrast: rasio kontras teks minimum 4.5:1 untuk teks normal dan 3:1 untuk teks besar.
+- Tabular Numerals: `font-variant-numeric: tabular-nums` untuk angka katalog, durasi, dan ukuran berkas.
+- Zero External Runtime Dependency: HTML5 murni, CSS modern, dan JavaScript vanilla tanpa library.
 
-Cukup buka file `index.html` langsung di browser, atau jalankan web server lokal ringan:
+## Menjalankan Lokal
+
+Buka file `index.html` langsung di browser, atau jalankan web server lokal:
 
 ```powershell
 # Menggunakan Python
@@ -32,6 +35,6 @@ python -m http.server 8080
 # http://127.0.0.1:8080
 ```
 
-## 📜 Lisensi
+## Lisensi
 
 Lisensi MIT © 2026 Andreas Restuawanta Christwara ([@zzdevxx](https://github.com/zzdevxx)).
