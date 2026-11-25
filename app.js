@@ -1,758 +1,755 @@
-/**
- * BANKLYCS DOWNLOAD PORTAL: CLIENT CONTROLLER
- * Clean ProPresenter 7 Console Simulator, Rundown Builder, & WhatsApp Exporter
- * 100% Aligned with Core Banklycs Architecture & Strict Antislop Guidelines
- */
-
 (function () {
   'use strict';
 
-  // Sample Authentic Songs Representing Catalog Categories
+  document.documentElement.classList.add('js');
+
+  const STORAGE_KEY = 'banklycs_demo_rundown';
+  const DIRECT_BASE = 'https://zzdree.my.id/banklycs/download/';
+
+  // Cuplikan ini disalin dari kolom content database rilis v2.6, bukan teks rekaan.
   const SAMPLE_SONGS = [
     {
-      id: 1,
-      filename: "Sentuh Hatiku - Jason.txt",
-      title: "Sentuh Hatiku",
-      artist: "Jason",
-      category: "ID",
+      id: 'amazing-grace',
+      filename: 'Amazing Grace - John Newton.txt',
+      title: 'Amazing Grace',
+      artist: 'John Newton',
+      category: 'EN',
       slides: [
-        { header: "BLANK", type: "blank", lines: ["Sentuh Hatiku", "Jason"] },
-        { header: "VERSE 1", type: "verse", lines: ["Betapa kumencintai", "Segala yang t'lah Kuberikan"] },
-        { header: "VERSE 1", type: "verse", lines: ["Takkan pernah kubiarkan", "Kasih-Mu pudar di hidupku"] },
-        { header: "CHORUS", type: "chorus", lines: ["Sentuh hatiku ubah hidupku", "Menjadi yang Kau mau"] },
-        { header: "CHORUS", type: "chorus", lines: ["Biar kemuliaan-Mu nyata", "Dalam tiap langkahku"] }
+        { header: 'BLANK', type: 'blank', lines: ['Amazing Grace - John Newton'] },
+        { header: 'VERSE 1', type: 'verse', lines: ['Amazing grace how sweet the sound', 'That saved a wretch like me'] },
+        { header: 'VERSE 1', type: 'verse', lines: ['I once was lost, but now am found', 'Was blind but now I see'] },
+        { header: 'VERSE 2', type: 'verse', lines: ['Twas grace that taught my heart to fear', 'And grace my fears relieved'] },
+        { header: 'VERSE 2', type: 'verse', lines: ['How precious did that grace appear', 'The hour I first believed'] }
       ]
     },
     {
-      id: 2,
-      filename: "Amazing Grace - John Newton.txt",
-      title: "Amazing Grace",
-      artist: "John Newton",
-      category: "EN",
+      id: 'ku-berbahagia',
+      filename: 'Ku Berbahagia - KJ 392.txt',
+      title: 'Ku Berbahagia',
+      artist: 'KJ 392',
+      category: 'KJ',
       slides: [
-        { header: "BLANK", type: "blank", lines: ["Amazing Grace", "John Newton"] },
-        { header: "VERSE 1", type: "verse", lines: ["Amazing Grace how sweet the sound", "That saved a wretch like me"] },
-        { header: "VERSE 1", type: "verse", lines: ["I once was lost but now am found", "Was blind but now I see"] },
-        { header: "VERSE 2", type: "verse", lines: ["'Twas grace that taught my heart to fear", "And grace my fears relieved"] },
-        { header: "VERSE 2", type: "verse", lines: ["How precious did that grace appear", "The hour I first believed"] }
+        { header: 'BLANK', type: 'blank', lines: ['Ku Berbahagia - KJ 392'] },
+        { header: 'VERSE 1', type: 'verse', lines: ["'Ku berbahagia, yakin teguh", 'Yesus aba-di kepunyaanku!'] },
+        { header: 'VERSE 1', type: 'verse', lines: ["Aku warisNya, 'ku ditebus", 'Ciptaan baru Rohul kudus.'] },
+        { header: 'CHORUS', type: 'chorus', lines: ['Aku bernyanyi bahagia', 'Memuji Yesus selamanya'] },
+        { header: 'CHORUS', type: 'chorus', lines: ['Aku bernyanyi bahagia', 'Memuji Yesus selamanya.'] }
       ]
     },
     {
-      id: 3,
-      filename: "Ku Berbahagia - KJ 392.txt",
-      title: "Ku Berbahagia",
-      artist: "KJ 392",
-      category: "KJ",
+      id: 'aku-percaya',
+      filename: 'Aku Percaya - KJ 280.txt',
+      title: 'Aku Percaya',
+      artist: 'KJ 280',
+      category: 'KJ',
       slides: [
-        { header: "BLANK", type: "blank", lines: ["Ku Berbahagia", "KJ 392"] },
-        { header: "VERSE 1", type: "verse", lines: ["'Ku berbahagia yakin teguh", "Yesus abadi kepunyaanku"] },
-        { header: "VERSE 1", type: "verse", lines: ["Aku waris-Nya 'ku ditebus", "Ciptaan baru Rohulkudus"] },
-        { header: "CHORUS", type: "chorus", lines: ["Aku bernyanyi bahagia", "Memuji Yesus selamanya"] },
-        { header: "CHORUS", type: "chorus", lines: ["Aku bernyanyi bahagia", "Memuji Yesus selamanya"] }
+        { header: 'BLANK', type: 'blank', lines: ['Aku Percaya - KJ 280'] },
+        { header: 'VERSE', type: 'verse', lines: ['Aku percaya Allah yang kekal', 'Pencipta langit bumi semesta'] },
+        { header: 'VERSE', type: 'verse', lines: ['Bapa yang maha pengasih dan adil', 'Memelihara hidup umatNya'] },
+        { header: 'CHORUS', type: 'chorus', lines: ['Aku percaya pada Yesus Kristus', 'Penebus dosa umat manusia'] },
+        { header: 'CHORUS', type: 'chorus', lines: ['Oleh Roh Kudus kita disatukan', 'Dalam pengharapan yang kekal'] }
       ]
     },
     {
-      id: 4,
-      filename: "Ro Ma Ho Tu Jesus - BE 179.txt",
-      title: "Ro Ma Ho Tu Jesus",
-      artist: "BE 179",
-      category: "BE",
+      id: 'kemenangan',
+      filename: 'Kemenangan Terjadi Di Sini - GMS Live.txt',
+      title: 'Kemenangan Terjadi Di Sini',
+      artist: 'GMS Live',
+      category: 'ID',
       slides: [
-        { header: "BLANK", type: "blank", lines: ["Ro Ma Ho Tu Jesus", "BE 179"] },
-        { header: "VERSE 1", type: "verse", lines: ["Ro ma ho tu Jesus na manjou ho", "Unang togang roham ai holong do"] },
-        { header: "VERSE 1", type: "verse", lines: ["Ditopot do ho na mandate i", "Asa sonang roham dibahen i"] },
-        { header: "CHORUS", type: "chorus", lines: ["Sai tangihon joujouNa i", "Unang leleng ro ma ho tu si"] }
+        { header: 'BLANK', type: 'blank', lines: ['Kemenangan Terjadi Di Sini - GMS Live'] },
+        { header: 'VERSE 1', type: 'verse', lines: ['Kumenyembah dalam kudus hadiratMu', 'Hampiri tahta kasih karuniaMu Bapa'] },
+        { header: 'VERSE 1', type: 'verse', lines: ['Kekuatanku hanya dalam hadiratMu', 'Yesusku hanya Kaulah segalanya.'] },
+        { header: 'CHORUS', type: 'chorus', lines: ['Kuyakin Kau hadir di sini', 'Kurasakan kuasa yang tak terbatas'] },
+        { header: 'CHORUS', type: 'chorus', lines: ['Kuyakin Kau nyata di sini', 'Kemenangan terjadi disini.'] },
+        { header: 'BRIDGE', type: 'bridge', lines: ['Segnap jiwaku memujiMu', 'Sungguh besar Kau Yesusku'] }
       ]
     },
     {
-      id: 5,
-      filename: "Kemenangan Terjadi Di Sini - GMS Live.txt",
-      title: "Kemenangan Terjadi Di Sini",
-      artist: "GMS Live",
-      category: "ID",
+      id: 'way-maker',
+      filename: 'Way Maker - Sinach.txt',
+      title: 'Way Maker',
+      artist: 'Sinach',
+      category: 'ID',
       slides: [
-        { header: "BLANK", type: "blank", lines: ["Kemenangan Terjadi Di Sini", "GMS Live"] },
-        { header: "VERSE 1", type: "verse", lines: ["Kusembah Kudus Kudus Kuduslah Tuhan", "Dan kusanjung Kau mulia"] },
-        { header: "VERSE 1", type: "verse", lines: ["Kudus Kuduslah Tuhan", "Bagi-Mu kemuliaan"] },
-        { header: "CHORUS", type: "chorus", lines: ["Kemenangan terjadi di sini", "Kemenangan terjadi di sini"] },
-        { header: "CHORUS", type: "chorus", lines: ["Saat kumenyembah-Mu", "Kemenangan terjadi di sini"] }
+        { header: 'BLANK', type: 'blank', lines: ['Way Maker - Sinach'] },
+        { header: 'VERSE 1', type: 'verse', lines: ['You are here, moving in our midst', 'I worship you I worship you'] },
+        { header: 'CHORUS', type: 'chorus', lines: ['You are Way Maker, Miracle Worker', 'Promise Keeper, Light in the darkness'] },
+        { header: 'CHORUS', type: 'chorus', lines: ['My God, that is who You are'] }
       ]
     },
     {
-      id: 6,
-      filename: "Way Maker - Sinach.txt",
-      title: "Way Maker",
-      artist: "Sinach",
-      category: "EN",
+      id: 'aha-do',
+      filename: 'Aha do Naung Hubaen Tuhan - BE 784.txt',
+      title: 'Aha do Naung Hubaen Tuhan',
+      artist: 'BE 784',
+      category: 'BE',
       slides: [
-        { header: "BLANK", type: "blank", lines: ["Way Maker", "Sinach"] },
-        { header: "VERSE 1", type: "verse", lines: ["You are here moving in our midst", "I worship You I worship You"] },
-        { header: "VERSE 1", type: "verse", lines: ["You are here working in this place", "I worship You I worship You"] },
-        { header: "CHORUS", type: "chorus", lines: ["Way maker miracle worker", "Promise keeper light in the darkness"] },
-        { header: "CHORUS", type: "chorus", lines: ["My God that is who You are", "That is who You are"] }
+        { header: 'BLANK', type: 'blank', lines: ['Aha do Naung Hubaen Tuhan - BE 784'] },
+        { header: 'VERSE 1', type: 'verse', lines: ['Aha do naung hubaen Tuhan', 'Aha do naung hubaen Tuhan'] },
+        { header: 'VERSE 2', type: 'verse', lines: ['Dia ma bahenonku Tuhan', 'Dia ma bahenonku Tuhan'] }
       ]
     },
     {
-      id: 7,
-      filename: "Bapa Engkau Sungguh Baik - Franky Sihombing.txt",
-      title: "Bapa Engkau Sungguh Baik",
-      artist: "Franky Sihombing",
-      category: "ID",
+      id: 'ada-yang-tanya',
+      filename: 'Ada Yang Tanya - PKJ 117.txt',
+      title: 'Ada Yang Tanya',
+      artist: 'PKJ 117',
+      category: 'PKJ',
       slides: [
-        { header: "BLANK", type: "blank", lines: ["Bapa Engkau Sungguh Baik", "Franky Sihombing"] },
-        { header: "VERSE 1", type: "verse", lines: ["Bapa Engkau sungguh baik", "Kasih-Mu melimpah di hidupku"] },
-        { header: "VERSE 1", type: "verse", lines: ["Bapa 'ku bert'rima kasih", "Berkat-Mu hari ini yang Kau sediakan"] },
-        { header: "CHORUS", type: "chorus", lines: ["Kunaikkan syukurku", "Buat hari yang Kau b'ri"] },
-        { header: "CHORUS", type: "chorus", lines: ["Tak habis-habisnya kasih dan rahmat-Mu", "S'lalu baru dan tak pernah terlambat"] }
+        { header: 'BLANK', type: 'blank', lines: ['Ada Yang Tanya - PKJ 117'] },
+        { header: 'VERSE 1', type: 'verse', lines: ['Ada yang tanya kepadaku.', 'Siapa Yesus yang jadi junjunganku.'] },
+        { header: 'VERSE 1', type: 'verse', lines: ['Dia Jurus\'lamat dan Tuhanku', 'artinya kub\'ritahukan kepadamu'] },
+        { header: 'VERSE 1', type: 'verse', lines: ['Dia segalanya bagi diriku', 'Dia segalanya dalam hidupku.'] }
       ]
     },
     {
-      id: 8,
-      filename: "Maju Laskar Kristen - KJ 339.txt",
-      title: "Maju Laskar Kristen",
-      artist: "KJ 339",
-      category: "KJ",
+      id: 'adakah-damai',
+      filename: 'Adakah Damai di Hatimu - NKB 13.txt',
+      title: 'Adakah Damai di Hatimu',
+      artist: 'NKB 13',
+      category: 'NKB',
       slides: [
-        { header: "BLANK", type: "blank", lines: ["Maju Laskar Kristen", "KJ 339"] },
-        { header: "VERSE 1", type: "verse", lines: ["Maju laskar Kristen lawan kuasa g'lap", "Ikut salib Yesus sungguh dan tetap"] },
-        { header: "VERSE 1", type: "verse", lines: ["Baginda di depan maju bertekun", "Panji salib Kristus megah tertunrun"] },
-        { header: "CHORUS", type: "chorus", lines: ["Maju laskar Kristen lawan kuasa g'lap", "Ikut salib Yesus sungguh dan tetap"] }
-      ]
-    },
-    {
-      id: 9,
-      filename: "Kusrahkan Hidupku - PKJ 145.txt",
-      title: "Kusrahkan Hidupku",
-      artist: "PKJ 145",
-      category: "PKJ",
-      slides: [
-        { header: "BLANK", type: "blank", lines: ["Kusrahkan Hidupku", "PKJ 145"] },
-        { header: "VERSE 1", type: "verse", lines: ["Aku melangkah ke rumah Tuhan", "Membawa persembahan syukur"] },
-        { header: "VERSE 1", type: "verse", lines: ["Kusrahkan hidupku bagi-Mu Yesus", "Jadikan alat kemuliaan-Mu"] }
-      ]
-    },
-    {
-      id: 10,
-      filename: "O Tuhan Pimpinlah Langkahku - NKB 128.txt",
-      title: "O Tuhan Pimpinlah Langkahku",
-      artist: "NKB 128",
-      category: "NKB",
-      slides: [
-        { header: "BLANK", type: "blank", lines: ["O Tuhan Pimpinlah Langkahku", "NKB 128"] },
-        { header: "VERSE 1", type: "verse", lines: ["'Ku t'lah berjalan jauh di lembah", "Gelap dan berliku jalanku"] },
-        { header: "VERSE 1", type: "verse", lines: ["O Tuhan pimpinlah langkah hidupku", "Sampai ku tiba di terang-Mu"] },
-        { header: "CHORUS", type: "chorus", lines: ["Pimpinlah daku ya Tuhan", "Menuju neg'ri bahagia"] }
+        { header: 'BLANK', type: 'blank', lines: ['Adakah Damai di Hatimu - NKB 13'] },
+        { header: 'VERSE 1', type: 'verse', lines: ['Adakah damai di hatimu', 'Kala badai hidup menderu?'] },
+        { header: 'VERSE 1', type: 'verse', lines: ['Datanglah pada Yesus Tuhan', 'Dia b\'ri kelegaan jiwa'] },
+        { header: 'CHORUS', type: 'chorus', lines: ['Damai Yesus melampaui akal', 'Menjaga hati dan pikiranmu'] }
       ]
     }
   ];
 
-  // State Management
   const state = {
     activeCategory: 'ALL',
     searchQuery: '',
     selectedSong: null,
     activeSlideIndex: 0,
     rundown: [],
-    toastTimeout: null
+    toastTimeout: null,
+    toastHideTimeout: null,
+    storageNotice: '',
+    storageWarningShown: false
   };
 
-  // DOM Elements
-  const simSearchInput = document.getElementById('sim-search-input');
-  const simClearBtn = document.getElementById('sim-clear-btn');
-  const simTabs = document.querySelectorAll('.console-tab');
-  const simSongList = document.getElementById('sim-song-list');
-  const simSongCount = document.getElementById('sim-song-count');
-  const simInspectorCategory = document.getElementById('sim-inspector-category');
-  const simInspectorTitle = document.getElementById('sim-inspector-title');
-  const simInspectorArtist = document.getElementById('sim-inspector-artist');
-  const simAddBtn = document.getElementById('sim-add-btn');
-  const simCanvasContainer = document.getElementById('sim-canvas-container');
-  const simRundownList = document.getElementById('sim-rundown-list');
-  const simRundownCount = document.getElementById('sim-rundown-count');
-  const simClearRundownBtn = document.getElementById('sim-clear-rundown-btn');
-  const simCopyWaBtn = document.getElementById('sim-copy-wa-btn');
-  const simFakeInjectBtn = document.getElementById('sim-fake-inject-btn');
-  const toastEl = document.getElementById('toast');
-  const copyBtns = document.querySelectorAll('.btn-copy');
-  const faqQuestions = document.querySelectorAll('.faq-question');
+  const releaseState = {
+    installer: null,
+    database: null
+  };
 
-  // Initialization
-  function init() {
-    setupScrollReveals();
-    setupAnimatedCounters();
-    loadSavedRundown();
-    setupEventListeners();
-    filterAndRenderSongs();
-    syncLiveReleaseMetadata();
+  const el = {
+    search: document.getElementById('sim-search-input'),
+    clearSearch: document.getElementById('sim-clear-btn'),
+    tabs: document.querySelectorAll('.console-tab'),
+    songs: document.getElementById('sim-song-list'),
+    songCount: document.getElementById('sim-song-count'),
+    inspectorCategory: document.getElementById('sim-inspector-category'),
+    inspectorTitle: document.getElementById('sim-inspector-title'),
+    inspectorArtist: document.getElementById('sim-inspector-artist'),
+    add: document.getElementById('sim-add-btn'),
+    canvas: document.getElementById('sim-canvas-container'),
+    rundown: document.getElementById('sim-rundown-list'),
+    rundownCount: document.getElementById('sim-rundown-count'),
+    clearRundown: document.getElementById('sim-clear-rundown-btn'),
+    copyWa: document.getElementById('sim-copy-wa-btn'),
+    simulateInject: document.getElementById('sim-fake-inject-btn'),
+    toast: document.getElementById('toast'),
+    copyFallback: document.getElementById('copy-fallback'),
+    copyButtons: document.querySelectorAll('.btn-copy'),
+    faqQuestions: document.querySelectorAll('.faq-question')
+  };
 
-    // Select first song as initial preview
-    if (SAMPLE_SONGS.length > 0) {
-      selectSong(SAMPLE_SONGS[0]);
+  function reducedMotion() {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function showToast(message) {
+    if (!el.toast) return;
+    el.toast.textContent = message;
+    el.toast.hidden = false;
+    el.toast.classList.add('show');
+
+    if (state.toastTimeout) clearTimeout(state.toastTimeout);
+    if (state.toastHideTimeout) clearTimeout(state.toastHideTimeout);
+
+    state.toastTimeout = setTimeout(() => {
+      el.toast.classList.remove('show');
+      state.toastHideTimeout = setTimeout(() => {
+        el.toast.hidden = true;
+      }, 150);
+    }, 2600);
+  }
+
+  function formatBytes(value) {
+    if (!Number.isFinite(Number(value))) return 'tidak tersedia';
+    return `${new Intl.NumberFormat('id-ID').format(Number(value))} byte`;
+  }
+
+  function sourceLabel(result, prefix) {
+    if (!result) return `${prefix}: menunggu metadata`;
+    if (result.status === 'loading') return `${prefix}: menunggu metadata`;
+    if (result.source === 'fallback') return `${prefix}: snapshot rilis publik terverifikasi`;
+    if (result.verified) return `${prefix}: GitHub API dan portal, checksum cocok`;
+    return `${prefix}: GitHub API, checksum belum cocok dengan snapshot`;
+  }
+
+  function resultMessage(result, prefix) {
+    if (!result) return `${prefix}: menunggu metadata`;
+    if (result.status === 'loading') return `${prefix}: ${result.message}`;
+    return `${prefix}: ${result.message}`;
+  }
+
+  function renderReleaseStatus() {
+    const status = document.getElementById('dl-status');
+    const source = document.getElementById('dl-source');
+    if (!status || !source) return;
+
+    status.textContent = [
+      resultMessage(releaseState.installer, 'Installer'),
+      resultMessage(releaseState.database, 'Database')
+    ].join(' | ');
+    source.textContent = [
+      sourceLabel(releaseState.installer, 'Installer'),
+      sourceLabel(releaseState.database, 'Database')
+    ].join(' | ');
+  }
+
+  function setText(id, value) {
+    const node = document.getElementById(id);
+    if (node) node.textContent = value;
+  }
+
+  function setHref(id, value, allowedPrefix) {
+    const node = document.getElementById(id);
+    if (!node || typeof value !== 'string') return;
+    if (allowedPrefix && !value.startsWith(allowedPrefix)) return;
+    node.href = value;
+  }
+
+  function applyRelease(result) {
+    releaseState.installer = result;
+    renderReleaseStatus();
+    const release = result.release;
+    if (!release) return;
+
+    setText('dl-installer-version', `Versi rilis: ${release.tag}`);
+    setText('dl-installer-asset', `Berkas: ${release.asset}`);
+    setText('dl-installer-size', `Ukuran: ${formatBytes(release.size)}`);
+    setText('dl-installer-sha', `SHA-256: ${release.sha256}`);
+    setHref('dl-installer-release', release.githubRelease, 'https://github.com/zzdevxx/banklycs/releases/tag/');
+    setHref('dl-installer-direct', release.direct, DIRECT_BASE);
+    setText('dl-step1-exe', release.asset);
+  }
+
+  function applyDatabaseRelease(result) {
+    releaseState.database = result;
+    renderReleaseStatus();
+    const release = result.release;
+    if (!release) return;
+
+    setText('dl-db-size', `Ukuran: ${formatBytes(release.size)}`);
+    setText('dl-db-version', `Manifest: ${release.version}`);
+    setText('dl-db-asset', `Berkas: ${release.asset}`);
+    setText('dl-db-sha', `SHA-256: ${release.sha256}`);
+    setHref('dl-db-release', release.githubRelease, 'https://github.com/zzdevxx/banklycs/releases/tag/');
+    setHref('dl-db-direct', release.direct, DIRECT_BASE);
+  }
+
+  async function fetchJson(url) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 4000);
+    try {
+      const response = await fetch(url, {
+        signal: controller.signal,
+        headers: { Accept: 'application/json' }
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return await response.json();
+    } finally {
+      clearTimeout(timer);
     }
   }
 
-  // Progressive sync with banklycs db_manifest.json and GitHub latest release
-  async function syncLiveReleaseMetadata() {
-    const manifestUrl = 'https://raw.githubusercontent.com/zzdevxx/banklycs/master/database/db_manifest.json';
-    const releaseApiUrl = 'https://api.github.com/repos/zzdevxx/banklycs/releases/latest';
-
-    const fetchJson = async (url) => {
-      const ctrl = new AbortController();
-      const timer = setTimeout(() => ctrl.abort(), 4000);
-      try {
-        const res = await fetch(url, { signal: ctrl.signal });
-        if (!res.ok) return null;
-        return await res.json();
-      } catch {
-        return null;
-      } finally {
-        clearTimeout(timer);
-      }
-    };
-
-    const [manifest, release] = await Promise.all([
-      fetchJson(manifestUrl),
-      fetchJson(releaseApiUrl)
-    ]);
-
-    if (manifest && typeof manifest.url === 'string' && manifest.url.startsWith('https://')) {
-      const dbLink = document.getElementById('dl-db-link');
-      const dbSize = document.getElementById('dl-db-size');
-      const dbBtnLabel = document.getElementById('dl-db-btn-label');
-      const dbVersion = document.getElementById('dl-db-version');
-      if (dbLink) dbLink.href = manifest.url;
-      if (typeof manifest.size === 'number' && manifest.size > 0) {
-        const mb = Math.round(manifest.size / (1024 * 1024));
-        if (dbSize) dbSize.textContent = `Ukuran: ${mb} MB`;
-        if (dbBtnLabel) dbBtnLabel.textContent = `Unduh banklycs.db (${mb} MB)`;
-      }
-      if (dbVersion && manifest.version) {
-        dbVersion.textContent = `Manifest: ${manifest.version}`;
-      }
+  function initRelease() {
+    const contract = window.ReleaseContract;
+    if (!contract || typeof contract.createReleaseController !== 'function') {
+      applyRelease({
+        status: 'fallback',
+        source: 'fallback',
+        verified: false,
+        message: 'Kontrak metadata tidak dimuat. Nilai statis rilis publik tetap ditampilkan.'
+      });
+      applyDatabaseRelease({
+        status: 'fallback',
+        source: 'fallback',
+        verified: false,
+        message: 'Kontrak metadata tidak dimuat. Nilai statis database tetap ditampilkan.'
+      });
+      return;
     }
 
-    if (release && release.tag_name) {
-      const verEl = document.getElementById('dl-installer-version');
-      const sizeEl = document.getElementById('dl-installer-size');
-      const linkEl = document.getElementById('dl-installer-link');
-      const stepExeEl = document.getElementById('dl-step1-exe');
-      if (verEl) verEl.textContent = `Versi rilis: ${release.tag_name}`;
-
-      if (Array.isArray(release.assets)) {
-        const exeAsset = release.assets.find((a) =>
-          typeof a.name === 'string' && a.name.toLowerCase().endsWith('.exe')
-        );
-        if (exeAsset) {
-          if (linkEl && exeAsset.browser_download_url) linkEl.href = exeAsset.browser_download_url;
-          if (sizeEl && typeof exeAsset.size === 'number') {
-            sizeEl.textContent = `Ukuran: ${Math.round(exeAsset.size / 1_000_000)} MB (Setup)`;
-          }
-          if (stepExeEl && exeAsset.name) stepExeEl.textContent = exeAsset.name;
-        }
-      }
-    }
+    contract.createReleaseController('banklycs', { fetchJson, apply: applyRelease }).load();
+    contract.createReleaseController('banklycs', {
+      fetchJson,
+      apply: applyDatabaseRelease,
+      type: 'database'
+    }).load();
   }
 
-  // Scroll Reveal Animations
   function setupScrollReveals() {
     const reveals = document.querySelectorAll('.reveal-on-scroll');
     if (!reveals.length) return;
 
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -30px 0px'
-      });
-
-      reveals.forEach((el) => observer.observe(el));
-    } else {
-      reveals.forEach((el) => el.classList.add('is-revealed'));
+    if (!('IntersectionObserver' in window) || reducedMotion()) {
+      reveals.forEach((node) => node.classList.add('is-revealed'));
+      return;
     }
+
+    const observer = new IntersectionObserver((entries, activeObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-revealed');
+        activeObserver.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    reveals.forEach((node) => observer.observe(node));
   }
 
-  // Animated Metric Numbers Counter
   function setupAnimatedCounters() {
     const counters = document.querySelectorAll('.count-up');
     if (!counters.length) return;
 
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateNumber(entry.target);
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-
-      counters.forEach((c) => observer.observe(c));
-    } else {
-      counters.forEach((c) => animateNumber(c));
+    if (!('IntersectionObserver' in window) || reducedMotion()) {
+      counters.forEach((node) => {
+        node.textContent = Number(node.dataset.target || 0).toLocaleString('id-ID');
+      });
+      return;
     }
+
+    const observer = new IntersectionObserver((entries, activeObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        animateNumber(entry.target);
+        activeObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach((node) => observer.observe(node));
   }
 
-  function animateNumber(el) {
-    const target = parseFloat(el.dataset.target || '0');
-    const decimals = parseInt(el.dataset.decimals || '0', 10);
-    const prefix = el.dataset.prefix || '';
-    const suffix = el.dataset.suffix || '';
+  function animateNumber(node) {
+    const target = Number(node.dataset.target || 0);
     const duration = 1200;
     const startTime = performance.now();
 
     function update(now) {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const current = target * (progress * (2 - progress));
-
-      let formatted = '';
-      if (decimals > 0) {
-        formatted = current.toFixed(decimals);
-      } else {
-        formatted = Math.round(current).toLocaleString('id-ID');
-      }
-
-      el.textContent = `${prefix}${formatted}${suffix}`;
-
+      const current = Math.round(target * (progress * (2 - progress)));
+      node.textContent = current.toLocaleString('id-ID');
       if (progress < 1) {
         requestAnimationFrame(update);
       } else {
-        if (decimals > 0) {
-          el.textContent = `${prefix}${target.toFixed(decimals)}${suffix}`;
-        } else {
-          el.textContent = `${prefix}${Math.round(target).toLocaleString('id-ID')}${suffix}`;
-        }
+        node.textContent = target.toLocaleString('id-ID');
       }
     }
 
     requestAnimationFrame(update);
   }
 
-  // Toast Notification
-  function showToast(message) {
-    if (!toastEl) return;
-    toastEl.textContent = message;
-    toastEl.hidden = false;
-    toastEl.classList.add('show');
-
-    if (state.toastTimeout) {
-      clearTimeout(state.toastTimeout);
+  function loadSavedRundown() {
+    let saved;
+    try {
+      saved = window.localStorage.getItem(STORAGE_KEY);
+    } catch (error) {
+      state.storageNotice = `Penyimpanan lokal diblokir (${error.message}). Simulator tetap bekerja tanpa rundown tersimpan.`;
+      return;
     }
 
-    state.toastTimeout = setTimeout(() => {
-      toastEl.classList.remove('show');
-      setTimeout(() => {
-        toastEl.hidden = true;
-      }, 150);
-    }, 2500);
+    if (!saved) return;
+
+    let parsed;
+    try {
+      parsed = JSON.parse(saved);
+    } catch (error) {
+      state.storageNotice = `Rundown lokal rusak (${error.message}). Simulator memakai rundown kosong.`;
+      return;
+    }
+
+    if (!Array.isArray(parsed)) {
+      state.storageNotice = 'Format rundown lokal tidak dikenal. Simulator memakai rundown kosong.';
+      return;
+    }
+
+    const seen = new Set();
+    state.rundown = parsed.reduce((items, entry) => {
+      const id = entry && typeof entry === 'object' ? entry.id : null;
+      const song = SAMPLE_SONGS.find((item) => item.id === id);
+      if (!song || seen.has(song.id)) return items;
+      seen.add(song.id);
+      items.push(song);
+      return items;
+    }, []);
   }
 
-  // Event Listeners Setup
-  function setupEventListeners() {
-    // Search Input
-    if (simSearchInput) {
-      simSearchInput.addEventListener('input', (e) => {
-        state.searchQuery = e.target.value.trim().toLowerCase();
-        filterAndRenderSongs();
-      });
-    }
-
-    // Clear Search Button
-    if (simClearBtn) {
-      simClearBtn.addEventListener('click', () => {
-        if (simSearchInput) {
-          simSearchInput.value = '';
-          state.searchQuery = '';
-          filterAndRenderSongs();
-          simSearchInput.focus();
-        }
-      });
-    }
-
-    // Category Tabs
-    simTabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        simTabs.forEach((t) => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-        state.activeCategory = tab.dataset.cat || 'ALL';
-        filterAndRenderSongs();
-      });
-    });
-
-    // Add Song to Rundown
-    if (simAddBtn) {
-      simAddBtn.addEventListener('click', () => {
-        if (!state.selectedSong) return;
-        addToRundown(state.selectedSong);
-      });
-    }
-
-    // Clear Rundown
-    if (simClearRundownBtn) {
-      simClearRundownBtn.addEventListener('click', () => {
-        state.rundown = [];
-        saveRundown();
-        renderRundown();
-        showToast("Rundown ibadah berhasil dikosongkan.");
-      });
-    }
-
-    // Global Keyboard Shortcuts
-    document.addEventListener('keydown', (e) => {
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
-        if (e.key === 'Escape') {
-          e.target.blur();
-        }
-        return;
+  function saveRundown() {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state.rundown.map((song) => ({ id: song.id }))));
+      state.storageNotice = '';
+      state.storageWarningShown = false;
+    } catch (error) {
+      state.storageNotice = `Rundown tidak disimpan di browser (${error.message}).`;
+      if (!state.storageWarningShown) {
+        showToast(state.storageNotice);
+        state.storageWarningShown = true;
       }
-
-      if (e.key === '/') {
-        e.preventDefault();
-        if (simSearchInput) {
-          simSearchInput.focus();
-          simSearchInput.select();
-        }
-      }
-    });
-
-    // Copy to WhatsApp
-    if (simCopyWaBtn) {
-      simCopyWaBtn.addEventListener('click', () => {
-        if (state.rundown.length === 0) {
-          showToast("Tambahkan lagu ke rundown terlebih dahulu.");
-          return;
-        }
-
-        const dateStr = new Date().toLocaleDateString('id-ID', {
-          weekday: 'long',
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
-        });
-
-        let text = `*RUNDOWN LAGU IBADAH*\n`;
-        text += `Tanggal: ${dateStr}\n`;
-        text += `Aplikasi: Banklycs (ProPresenter 7)\n`;
-        text += `------------------------------------\n`;
-
-        state.rundown.forEach((song, idx) => {
-          text += `${idx + 1}. *${song.title}* (${song.artist || song.category})\n`;
-        });
-
-        text += `------------------------------------\n`;
-        text += `Siap ditayangkan di ProPresenter 7.`;
-
-        navigator.clipboard.writeText(text).then(() => {
-          showToast("Rundown WhatsApp berhasil disalin ke clipboard!");
-        }).catch(() => {
-          showToast("Gagal menyalin ke clipboard.");
-        });
-      });
     }
-
-    // Simulate Inject Pro7
-    if (simFakeInjectBtn) {
-      simFakeInjectBtn.addEventListener('click', () => {
-        if (state.rundown.length === 0) {
-          showToast("Pilih minimal 1 lagu untuk simulasi injeksi.");
-          return;
-        }
-
-        showToast(`Mengompilasi ${state.rundown.length} lagu ke Libraries/Banks/ (< 2 ms)...`);
-        setTimeout(() => {
-          showToast(`Sukses! Playlist ProPresenter siap ditayangkan tanpa lag.`);
-        }, 500);
-      });
-    }
-
-    // Copy Code / Command Buttons
-    copyBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const textToCopy = btn.dataset.copy;
-        if (!textToCopy) return;
-
-        navigator.clipboard.writeText(textToCopy).then(() => {
-          const originalText = btn.textContent;
-          btn.textContent = "Disalin!";
-          showToast(`Perintah berhasil disalin: ${textToCopy}`);
-          setTimeout(() => {
-            btn.textContent = originalText;
-          }, 2000);
-        }).catch(() => {
-          showToast("Gagal menyalin teks.");
-        });
-      });
-    });
-
-    // FAQ Accordion
-    faqQuestions.forEach((q) => {
-      q.addEventListener('click', () => {
-        const isExpanded = q.getAttribute('aria-expanded') === 'true';
-        faqQuestions.forEach((item) => {
-          item.setAttribute('aria-expanded', 'false');
-        });
-        q.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
-      });
-    });
   }
 
-  // Filter and Render Songs List
-  function filterAndRenderSongs() {
-    if (!simSongList) return;
+  function renderSongs() {
+    if (!el.songs) return;
 
-    let filtered = SAMPLE_SONGS.filter((s) => {
-      if (state.activeCategory !== 'ALL' && s.category !== state.activeCategory) {
-        return false;
-      }
-      if (state.searchQuery) {
-        const fullIndex = `${s.title} ${s.artist} ${s.category}`.toLowerCase();
-        if (!fullIndex.includes(state.searchQuery)) {
-          return false;
-        }
-      }
-      return true;
+    const filtered = SAMPLE_SONGS.filter((song) => {
+      if (state.activeCategory !== 'ALL' && song.category !== state.activeCategory) return false;
+      const haystack = `${song.title} ${song.artist} ${song.category} ${song.filename}`.toLowerCase();
+      return !state.searchQuery || haystack.includes(state.searchQuery);
     });
 
-    if (simSongCount) {
-      simSongCount.textContent = `${filtered.length} Lagu`;
-    }
+    if (el.songCount) el.songCount.textContent = `${filtered.length} lagu`;
+    el.songs.replaceChildren();
 
-    simSongList.innerHTML = '';
-
-    if (filtered.length === 0) {
-      const emptyDiv = document.createElement('div');
-      emptyDiv.style.padding = '20px 12px';
-      emptyDiv.style.textAlign = 'center';
-      emptyDiv.style.color = '#8e8e93';
-      emptyDiv.style.fontSize = '12px';
-      emptyDiv.textContent = 'Tidak ada lagu yang cocok dengan pencarian.';
-      simSongList.appendChild(emptyDiv);
+    if (!filtered.length) {
+      const empty = document.createElement('p');
+      empty.className = 'sim-empty';
+      empty.textContent = 'Tidak ada lagu yang cocok dengan pencarian.';
+      el.songs.appendChild(empty);
       return;
     }
 
     filtered.forEach((song) => {
-      const itemEl = document.createElement('div');
-      itemEl.className = 'sim-item';
-      if (state.selectedSong && state.selectedSong.id === song.id) {
-        itemEl.classList.add('active');
-      }
-      itemEl.setAttribute('role', 'option');
-      itemEl.setAttribute('tabindex', '0');
+      const item = document.createElement('button');
+      item.type = 'button';
+      item.className = 'sim-item';
+      item.setAttribute('aria-pressed', String(Boolean(state.selectedSong && state.selectedSong.id === song.id)));
 
-      itemEl.innerHTML = `
-        <div class="sim-item-meta">
-          <span class="sim-item-title">${escapeHtml(song.title)}</span>
-          <span class="sim-item-artist">${escapeHtml(song.artist || song.category)}</span>
-        </div>
-        <span class="sim-item-badge">${song.category}</span>
-      `;
+      const meta = document.createElement('span');
+      meta.className = 'sim-item-meta';
 
-      itemEl.addEventListener('click', () => {
-        selectSong(song);
-      });
+      const title = document.createElement('span');
+      title.className = 'sim-item-title';
+      title.textContent = song.title;
 
-      itemEl.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          selectSong(song);
-        }
-      });
+      const artist = document.createElement('span');
+      artist.className = 'sim-item-artist';
+      artist.textContent = song.artist;
 
-      simSongList.appendChild(itemEl);
+      const badge = document.createElement('span');
+      badge.className = 'sim-item-badge';
+      badge.textContent = song.category;
+
+      meta.append(title, artist);
+      item.append(meta, badge);
+      item.addEventListener('click', () => selectSong(song));
+      el.songs.appendChild(item);
     });
   }
 
-  // Select a Song for Preview
+  function renderSlideCanvas() {
+    if (!el.canvas) return;
+    el.canvas.replaceChildren();
+    const song = state.selectedSong;
+
+    if (!song || !song.slides.length) {
+      const empty = document.createElement('p');
+      empty.className = 'canvas-empty-state';
+      empty.textContent = 'Pilih lagu dari Library untuk melihat pratinjau slide.';
+      el.canvas.appendChild(empty);
+      return;
+    }
+
+    song.slides.forEach((slide, index) => {
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'slide-card';
+      if (index === state.activeSlideIndex) card.classList.add('active-slide');
+      card.setAttribute('aria-pressed', String(index === state.activeSlideIndex));
+
+      const strip = document.createElement('span');
+      strip.className = `slide-strip strip-${slide.type}`;
+      const heading = document.createElement('span');
+      heading.textContent = slide.header;
+      const number = document.createElement('span');
+      number.className = 'slide-num tabular-num';
+      number.textContent = `#${index + 1}`;
+      strip.append(heading, number);
+
+      const body = document.createElement('span');
+      body.className = 'slide-body';
+      if (slide.type === 'blank') {
+        const label = document.createElement('span');
+        label.className = 'slide-blank-label';
+        label.textContent = slide.lines[0] || 'BLANK';
+        body.appendChild(label);
+      } else {
+        slide.lines.forEach((line) => {
+          const text = document.createElement('span');
+          text.className = 'slide-text-line';
+          text.textContent = line;
+          body.appendChild(text);
+        });
+      }
+
+      card.append(strip, body);
+      card.addEventListener('click', () => {
+        state.activeSlideIndex = index;
+        el.canvas.querySelectorAll('.slide-card').forEach((node, nodeIndex) => {
+          const active = nodeIndex === index;
+          node.classList.toggle('active-slide', active);
+          node.setAttribute('aria-pressed', String(active));
+        });
+      });
+      el.canvas.appendChild(card);
+    });
+  }
+
+  function renderRundown() {
+    if (!el.rundown) return;
+    el.rundown.replaceChildren();
+    if (el.rundownCount) el.rundownCount.textContent = String(state.rundown.length);
+
+    if (!state.rundown.length) {
+      const empty = document.createElement('p');
+      empty.className = 'sim-empty';
+      empty.textContent = 'Rundown kosong. Pilih lagu dari Library lalu tambahkan.';
+      el.rundown.appendChild(empty);
+      return;
+    }
+
+    state.rundown.forEach((song, index) => {
+      const row = document.createElement('div');
+      row.className = 'rundown-row';
+
+      const item = document.createElement('button');
+      item.type = 'button';
+      item.className = 'sim-rundown-item';
+      const title = document.createElement('span');
+      title.className = 'sim-rundown-item-title';
+      title.textContent = `${index + 1}. ${song.title}`;
+      item.appendChild(title);
+      item.addEventListener('click', () => selectSong(song));
+
+      const remove = document.createElement('button');
+      remove.type = 'button';
+      remove.className = 'sim-rundown-remove';
+      remove.textContent = 'Hapus';
+      remove.setAttribute('aria-label', `Hapus ${song.title} dari rundown`);
+      remove.addEventListener('click', () => removeFromRundown(index));
+
+      row.append(item, remove);
+      el.rundown.appendChild(row);
+    });
+  }
+
   function selectSong(song) {
     state.selectedSong = song;
     state.activeSlideIndex = 0;
-
-    // Update active highlight in list
-    const items = simSongList.querySelectorAll('.sim-item');
-    items.forEach((it) => it.classList.remove('active'));
-
-    // Update Header Metadata
-    if (simInspectorCategory) simInspectorCategory.textContent = song.category;
-    if (simInspectorTitle) simInspectorTitle.textContent = song.title;
-    if (simInspectorArtist) simInspectorArtist.textContent = song.artist ? `Artis / Buku: ${song.artist}` : song.filename;
-    if (simAddBtn) simAddBtn.disabled = false;
-
-    // Render 16:9 Presentation Canvas Grid Deck
-    renderSlideCanvas(song);
-    filterAndRenderSongs();
+    if (el.inspectorCategory) el.inspectorCategory.textContent = song.category;
+    if (el.inspectorTitle) el.inspectorTitle.textContent = song.title;
+    if (el.inspectorArtist) el.inspectorArtist.textContent = `Artis / buku: ${song.artist} | Sampel database: ${song.filename}`;
+    if (el.add) el.add.disabled = false;
+    renderSongs();
+    renderSlideCanvas();
   }
 
-  // Render Slide Canvas Cards
-  function renderSlideCanvas(song) {
-    if (!simCanvasContainer) return;
-    simCanvasContainer.innerHTML = '';
-
-    if (!song.slides || song.slides.length === 0) {
-      simCanvasContainer.innerHTML = `
-        <div class="canvas-empty-state">
-          <p>Lirik lagu tidak memiliki slide terformat.</p>
-        </div>
-      `;
-      return;
-    }
-
-    song.slides.forEach((slide, idx) => {
-      const card = document.createElement('div');
-      card.className = 'slide-card';
-      if (idx === state.activeSlideIndex) {
-        card.classList.add('active-slide');
-      }
-
-      let stripClass = 'strip-verse';
-      if (slide.type === 'blank') stripClass = 'strip-blank';
-      else if (slide.type === 'chorus') stripClass = 'strip-chorus';
-      else if (slide.type === 'bridge') stripClass = 'strip-bridge';
-      else if (slide.type === 'pre-chorus') stripClass = 'strip-pre-chorus';
-
-      let contentHtml = '';
-      if (slide.type === 'blank') {
-        contentHtml = `
-          <div class="slide-body">
-            <span class="slide-blank-label">${escapeHtml(slide.lines[0] || 'BLANK')}</span>
-          </div>
-        `;
-      } else {
-        const linesHtml = slide.lines.map((l) => `<div class="slide-text-line">${escapeHtml(l)}</div>`).join('');
-        contentHtml = `
-          <div class="slide-body">
-            ${linesHtml}
-          </div>
-        `;
-      }
-
-      card.innerHTML = `
-        <div class="slide-strip ${stripClass}">
-          <span>${escapeHtml(slide.header)}</span>
-          <span class="slide-num tabular-num">#${idx + 1}</span>
-        </div>
-        ${contentHtml}
-      `;
-
-      card.addEventListener('click', () => {
-        state.activeSlideIndex = idx;
-        const allCards = simCanvasContainer.querySelectorAll('.slide-card');
-        allCards.forEach((c) => c.classList.remove('active-slide'));
-        card.classList.add('active-slide');
-      });
-
-      simCanvasContainer.appendChild(card);
-    });
-  }
-
-  // Rundown Management
   function addToRundown(song) {
-    const exists = state.rundown.some((s) => s.id === song.id);
-    if (exists) {
-      showToast(`'${song.title}' sudah ada di rundown.`);
+    if (state.rundown.some((item) => item.id === song.id)) {
+      showToast(`${song.title} sudah ada di rundown.`);
       return;
     }
-
     state.rundown.push(song);
     saveRundown();
     renderRundown();
-    showToast(`'${song.title}' ditambahkan ke rundown.`);
+    showToast(`${song.title} ditambahkan ke rundown simulasi.`);
   }
 
   function removeFromRundown(index) {
     const removed = state.rundown.splice(index, 1);
     saveRundown();
     renderRundown();
-    if (removed.length > 0) {
-      showToast(`'${removed[0].title}' dihapus dari rundown.`);
-    }
+    if (removed.length) showToast(`${removed[0].title} dihapus dari rundown simulasi.`);
   }
 
-  function renderRundown() {
-    if (!simRundownList) return;
-    simRundownList.innerHTML = '';
+  async function copyWithFallback(text, successMessage) {
+    let copied = false;
+    let clipboardError = '';
 
-    if (simRundownCount) {
-      simRundownCount.textContent = state.rundown.length.toString();
-    }
-
-    if (state.rundown.length === 0) {
-      simRundownList.innerHTML = `
-        <div style="padding: 14px 8px; text-align: center; color: #8e8e93; font-size: 11px;">
-          Rundown kosong. Pilih lagu dari Library lalu klik + Tambah.
-        </div>
-      `;
-      return;
-    }
-
-    state.rundown.forEach((song, idx) => {
-      const item = document.createElement('div');
-      item.className = 'sim-rundown-item';
-      item.innerHTML = `
-        <span class="sim-rundown-item-title">${idx + 1}. ${escapeHtml(song.title)}</span>
-        <button class="sim-rundown-remove" title="Hapus dari rundown" aria-label="Hapus ${escapeHtml(song.title)}">✕</button>
-      `;
-
-      const removeBtn = item.querySelector('.sim-rundown-remove');
-      if (removeBtn) {
-        removeBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          removeFromRundown(idx);
-        });
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+      try {
+        await navigator.clipboard.writeText(text);
+        copied = true;
+      } catch (error) {
+        clipboardError = error && error.message ? ` (${error.message})` : '';
       }
+    }
 
-      item.addEventListener('click', () => {
-        selectSong(song);
+    if (copied) {
+      showToast(successMessage);
+      return true;
+    }
+
+    if (!el.copyFallback) {
+      showToast(`Clipboard tidak tersedia${clipboardError}. Kolom cadangan tidak ditemukan.`);
+      return false;
+    }
+
+    el.copyFallback.hidden = false;
+    el.copyFallback.value = text;
+    el.copyFallback.focus();
+    el.copyFallback.select();
+    showToast(`Clipboard tidak tersedia${clipboardError}. Teks dipilih di kolom cadangan, salin manual dengan Ctrl+C.`);
+    return false;
+  }
+
+  function buildRundownText() {
+    const date = new Date().toLocaleDateString('id-ID', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+    const lines = [
+      '*RUNDOWN LAGU IBADAH*',
+      `Tanggal: ${date}`,
+      'Sumber: SIMULASI BROWSER Banklycs',
+      'Tidak ada perubahan pada ProPresenter.',
+      '------------------------------------'
+    ];
+    state.rundown.forEach((song, index) => {
+      lines.push(`${index + 1}. *${song.title}* (${song.artist})`);
+    });
+    lines.push('------------------------------------');
+    lines.push('Susunan ini siap disalin ke WhatsApp.');
+    return lines.join('\n');
+  }
+
+  function setupEvents() {
+    if (el.search) {
+      el.search.addEventListener('input', (event) => {
+        state.searchQuery = event.target.value.trim().toLowerCase();
+        renderSongs();
       });
+    }
 
-      simRundownList.appendChild(item);
+    if (el.clearSearch) {
+      el.clearSearch.addEventListener('click', () => {
+        if (!el.search) return;
+        el.search.value = '';
+        state.searchQuery = '';
+        renderSongs();
+        el.search.focus();
+      });
+    }
+
+    el.tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        el.tabs.forEach((item) => {
+          const active = item === tab;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+        state.activeCategory = tab.dataset.cat || 'ALL';
+        renderSongs();
+      });
+    });
+
+    if (el.add) {
+      el.add.addEventListener('click', () => {
+        if (state.selectedSong) addToRundown(state.selectedSong);
+      });
+    }
+
+    if (el.clearRundown) {
+      el.clearRundown.addEventListener('click', () => {
+        state.rundown = [];
+        saveRundown();
+        renderRundown();
+        showToast('Rundown simulasi dikosongkan.');
+      });
+    }
+
+    if (el.copyWa) {
+      el.copyWa.addEventListener('click', () => {
+        if (!state.rundown.length) {
+          showToast('Tambahkan lagu ke rundown terlebih dahulu.');
+          return;
+        }
+        copyWithFallback(buildRundownText(), 'Rundown berhasil disalin ke clipboard.');
+      });
+    }
+
+    if (el.simulateInject) {
+      el.simulateInject.addEventListener('click', () => {
+        if (!state.rundown.length) {
+          showToast('Tambahkan lagu ke rundown untuk menjalankan simulasi.');
+          return;
+        }
+        showToast(`Simulasi selesai: ${state.rundown.length} lagu diproses di browser. Tidak ada perubahan pada ProPresenter.`);
+      });
+    }
+
+    el.copyButtons.forEach((button) => {
+      button.addEventListener('click', async () => {
+        const text = button.dataset.copy;
+        if (!text) return;
+        const original = button.textContent;
+        const copied = await copyWithFallback(text, 'Perintah berhasil disalin ke clipboard.');
+        if (!copied) return;
+        button.textContent = 'Disalin';
+        setTimeout(() => {
+          button.textContent = original;
+        }, 1800);
+      });
+    });
+
+    el.faqQuestions.forEach((question) => {
+      question.addEventListener('click', () => {
+        const expanded = question.getAttribute('aria-expanded') === 'true';
+        el.faqQuestions.forEach((item) => item.setAttribute('aria-expanded', 'false'));
+        question.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      const tag = event.target && event.target.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA') {
+        if (event.key === 'Escape') event.target.blur();
+        return;
+      }
+      if (event.key === '/' && el.search) {
+        event.preventDefault();
+        el.search.focus();
+        el.search.select();
+      }
     });
   }
 
-  function loadSavedRundown() {
-    try {
-      const saved = localStorage.getItem('banklycs_demo_rundown');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          state.rundown = parsed;
-          renderRundown();
-        }
-      }
-    } catch {
-      // Local storage unaccessible
+  function init() {
+    setupScrollReveals();
+    setupAnimatedCounters();
+    loadSavedRundown();
+    setupEvents();
+    renderSongs();
+    renderRundown();
+    if (SAMPLE_SONGS.length) selectSong(SAMPLE_SONGS[0]);
+    if (state.storageNotice && !state.storageWarningShown) {
+      showToast(state.storageNotice);
+      state.storageWarningShown = true;
     }
+    initRelease();
   }
 
-  function saveRundown() {
-    try {
-      localStorage.setItem('banklycs_demo_rundown', JSON.stringify(state.rundown));
-    } catch {
-      // Ignore
-    }
-  }
-
-  // HTML Escape Helper
-  function escapeHtml(str) {
-    if (!str) return '';
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  }
-
-  // Start on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

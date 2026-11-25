@@ -1,18 +1,17 @@
 # DESIGN DIRECTION: BANKLYCS DOWNLOAD PORTAL
 
-> Direction: Identity, personality, palette, typography, and craftsmanship standards for the Banklycs official download and documentation portal.
+> Direction: Identitas konsol ProPresenter 7 untuk portal unduhan Banklycs, dipertajam lewat audit aksesibilitas, kejujuran konten, dan fallback yang dapat dipulihkan.
 > Dial: ENERGY 2 / RHYTHM 2 / MOTION 2
-> Refinements: Ringkas, to the point, frosted dark glass cards, subtle stage gradient lighting, smooth motion, and 100% ProPresenter 7 palette alignment.
-> Filter: antislop (Strict compliance: zero em dash, zero fake claims, WCAG 2.2 AA contrast)
+> Filter: antislop, Bahasa Indonesia, tanpa em dash, tanpa angka performa yang belum diukur.
 
 ---
 
-## 1. Product Identity & Narrative
+## 1. Identitas Produk
 
-- **Product**: Banklycs (ProPresenter 7 Worship Lyrics Engine & Vault)
-- **Target Audience**: Church multimedia operators, projector technicians, sound engineers, worship leaders, and pastors.
-- **Copywriting Style**: To the point, on point, padat, dan lugas. Menjelaskan solusi teknis secara ringkas tanpa kalimat bertele-tele.
-- **Visual Style**: ProPresenter 7 Native Broadcast Console dengan sentuhan modern *frosted dark glass*, pencahayaan *stage spotlight*, dan mikro-interaksi responsif.
+- **Produk**: Banklycs, database lirik dan alur rundown untuk ProPresenter 7.
+- **Audience**: Operator multimedia gereja, teknisi projector, sound engineer, worship leader, dan pendeta.
+- **Gaya bahasa**: Padat, lugas, teknis, dan tidak menjanjikan angka yang belum diukur.
+- **Visual**: Konsol siaran gelap dengan border 1 px, permukaan solid bertingkat, dan aksen oranye ProPresenter. Tombol aksi tidak memakai gradien biru generik.
 
 ---
 
@@ -20,37 +19,65 @@
 
 | Dial | Nilai | Penjelasan |
 |---|---|---|
-| **ENERGY** | **2 (Balanced & Confident)** | Visual berbobot, teks kontras tinggi, elegan, dan fokus pada kegunaan panggung. |
-| **RHYTHM** | **2 (Structured)** | Alur membaca terarah: Hero -> Fitur Inti -> Simulator Pro7 -> Arsitektur -> Download -> Cara Pakai -> FAQ. |
-| **MOTION** | **2 (Silky Smooth)** | Animasi scroll-reveal berbasis IntersectionObserver, hover card lift dengan spring easing, slide card activation glow, dan toast feedback. |
+| **ENERGY** | 2 | Berbobot dan tenang, dengan kontras tinggi untuk teks dan status. |
+| **RHYTHM** | 2 | Alur tetap mengikuti struktur lama: Hero, Fitur, Simulator, Arsitektur, Download, Panduan, FAQ. |
+| **MOTION** | 2 | Transisi pendek untuk hover, reveal, toast, dan perubahan state. Reduced motion menonaktifkan gerak. |
 
 ---
 
-## 3. Color & Surface Tokens (ProPresenter 7 Native + Glass Depth)
+## 3. Token Warna dan Permukaan
 
-- **Workspace Base**: `#161616` (Latar belakang panggung netral)
-- **Sidebar & Secondary**: `#1c1c1c` (Panel samping)
-- **Toolbar & Header**: `rgba(35, 35, 35, 0.88)` dengan `backdrop-filter: blur(16px)`
-- **Frosted Glass Cards**: `linear-gradient(180deg, rgba(40, 40, 40, 0.75) 0%, rgba(26, 26, 26, 0.85) 100%)` dengan `backdrop-filter: blur(12px)`
-- **Border Treatment**: Layered 1px `rgba(255, 255, 255, 0.08)` dan inner highlight `rgba(255, 255, 255, 0.05)`
+| Peran | Nilai | Pemakaian |
+|---|---|---|
+| Canvas | `#111214`, `#17191b` | Latar dasar dan seksi bergantian |
+| Panel | `#1c1f21`, `#24282a`, `#2d3235` | Kartu, toolbar, dan permukaan interaktif |
+| Border | `#34393c`, `#4b5357` | Garis 1 px dan separator |
+| Teks | `#f3f2ee`, `#d8d7d1`, `#a9ada8` | Primer, sekunder, pendukung |
+| Oranye | `#f38020` | Identitas P7, aksi primer, fokus, dan angka penting |
+| Fungsional | `#4ea8ff`, `#58c7dc`, `#65d98a`, `#ff7a6e` | Kategori, status, dan grup slide |
+| Grup slide | biru, ungu, oranye, abu | VERSE, CHORUS, BRIDGE, BLANK |
 
-### Aksen Panggung Pro7:
-- **P7 Orange**: `#f38020` (Identitas logo P7 & kategori Library)
-- **Action Blue Gradient**: `linear-gradient(180deg, #0a84ff 0%, #0066d6 100%)` (Tombol aksi utama)
-- **Playlist Cyan**: `#32ade6` (Aksen rundown ibadah)
-- **Status Green**: `#30d158` (Indikator status ready / online)
-
-### Warna Grup Slide Panggung Pro7:
-- **VERSE**: `#0a84ff` (Cyan / Royal Blue)
-- **CHORUS**: `#bf5af2` (Magenta)
-- **BRIDGE**: `#ff9f0a` (Warm Orange)
-- **PRE-CHORUS**: `#5e5ce6` (Indigo)
-- **BLANK**: `#48484a` (Slate Grey)
+Stacked glassmorphism, blurred glow, dan shimmer dihapus dari stylesheet. Identitas konsol tetap dipertahankan lewat hierarki toolbar, sidebar, canvas slide, dan status badge.
 
 ---
 
-## 4. Standar Kualitas Anti-Slop
-- **Zero Em Dash**: Bebas 100% dari karakter em dash (`—`).
-- **WCAG 2.2 AA**: Rasio kontras teks tinggi (> 6:1 untuk teks sekunder, > 14:1 untuk teks utama).
-- **Tabular Numerals**: Menggunakan `tabular-nums` pada seluruh angka metrik.
-- **5-State Contract**: Status *default, hover, focus-visible, active, disabled* terdefinisi penuh pada semua elemen interaktif.
+## 4. Interaksi dan Aksesibilitas
+
+- Semua tombol, tautan, input, dan kartu interaktif memiliki lima state: default, hover, focus-visible, active, disabled.
+- Target interaktif minimal 44 px, termasuk tab kategori, tombol hapus, tombol salin, dan tautan footer.
+- Fokus keyboard memakai outline putih 2 px dengan offset dan cincin gelap penyangga.
+- `skip-link` tersedia di awal dokumen.
+- Angka, ukuran berkas, checksum, dan nomor slide memakai `tabular-nums`.
+- `prefers-reduced-motion` menonaktifkan animasi dan scroll halus.
+- `IntersectionObserver` hanya dipakai setelah JavaScript menandai root dengan kelas `js`, sehingga konten tetap tampil bila skrip gagal.
+
+---
+
+## 5. Simulator dan Kejujuran Konten
+
+- Contoh lagu adalah cuplikan dari database rilis v2.6 yang diverifikasi lewat skema `songs` dan nama berkas nyata.
+- Teks lirik rekaan dan nama berkas yang tidak ditemukan di database dihapus.
+- Semua aksi simulator diberi label simulasi browser dan tidak mengklaim penulisan ke ProPresenter.
+- Klaim waktu seperti `< 2 ms`, `< 20 ms`, `< 1 MS / LAGU`, dan `~1 dtk` dihapus.
+- Teks `ProPresenter 7 Ready` tidak dipakai sebagai status simulasi browser.
+- Rundown memakai tombol native. Tombol hapus adalah saudara dari tombol pilih, bukan anak di dalam tombol.
+- localStorage yang diblokir atau berisi data rusak tidak menghentikan UI. Portal menampilkan pesan pemulihan dan tetap memakai rundown sesi berjalan.
+- Clipboard yang ditolak browser membuka kolom teks cadangan dengan instruksi salin manual.
+
+---
+
+## 6. Kontrak Download
+
+- Installer memakai rilis publik `v2.7`, berkas `Banklycs-Setup-2.7.0.exe`, `39884985` byte, SHA-256 `95190137a3b50a3347c0c986d3eb148f608924ea4f78c703f280a81df4ed5159`.
+- Database memakai jalur terpisah: `database_2026-11-12_14-55-47.db`, `111144960` byte, SHA-256 `7ccf6a94b62316b3a76c56a8c0b796de7ec9c1cd4ebc96c86e47a67d2423e287`.
+- Setiap aset memiliki dua tautan eksplisit: halaman GitHub Release dan direct download same-origin.
+- Status metadata, sumber data, dan checksum ditampilkan dalam teks yang dapat dibaca pembaca layar.
+- Jika checksum tidak tersedia, tidak cocok, atau URL aset di luar daftar izin, portal tidak mengklaim verifikasi.
+
+---
+
+## 7. Verifikasi
+
+- `node --test tests/release.test.js` menguji kontrak rilis, race metadata, allowlist URL, dan checksum.
+- `node --test tests/portal.test.js` menguji anchor, tautan legal, sampel terverifikasi, larangan klaim usang, dan kontrak antarmuka.
+- Audit render penuh dilakukan pemilik setelah perubahan portal selesai.
