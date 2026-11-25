@@ -6,7 +6,8 @@
   <title>Banklycs: Database 54.204 Lagu &amp; Injektor ProPresenter 7</title>
   <meta name="description" content="Database 54.204 lagu rohani dan himne siap tayang untuk ProPresenter 7. Format single-file SQLite 106 MB dengan pencarian katalog di RAM dan kompilasi Protobuf on-demand.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23f38020'/><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='52' font-weight='900' fill='%23000'>P7</text></svg>">
-  <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://zzdree.my.id/banklycs/">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body class="site-body">
   <!-- Top Ambient Spotlight & Stage Glow -->
@@ -39,6 +40,9 @@
 
       <!-- Action & Repository Link -->
       <div class="header-actions">
+        <a href="https://zzdree.my.id/" class="btn btn-outline btn-sm">
+          <span>zzdree.my.id</span>
+        </a>
         <a href="https://github.com/zzdevxx/banklycs" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
           <svg class="icon-svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
@@ -390,7 +394,7 @@
                 <strong>ProPresenter Selalu Ringan:</strong> Library ProPresenter hanya menampung lagu rundown aktif di folder Banks, jadi tidak ada indeks yang menumpuk.
               </li>
               <li>
-                <strong>Nol Dependensi (Zero Setup):</strong> Menggunakan engine native C# .NET 8 self-contained dengan SQLite tertanam tanpa butuh instalasi Python.
+                <strong>Nol Dependensi (Zero Setup):</strong> Menggunakan aplikasi native C# .NET 10 self-contained dengan engine dan SQLite tertanam tanpa butuh instalasi Python.
               </li>
             </ul>
           </div>
@@ -419,11 +423,12 @@
               Installer standalone untuk operator gereja: window native dengan tray icon, tanpa UAC, tanpa browser, tanpa START.vbs. Sudah mencakup database 54.204 lagu dan engine native C# in-process.
             </p>
             <div class="card-meta">
-              <span class="meta-item">Ukuran: 145 MB (Setup)</span>
+              <span class="meta-item" id="dl-installer-version">Versi rilis: v2.6</span>
+              <span class="meta-item" id="dl-installer-size">Ukuran: 145 MB (Setup)</span>
               <span class="meta-item">Status: Siap Pakai (0 Config)</span>
             </div>
             <div class="card-actions">
-              <a href="https://github.com/zzdevxx/banklycs/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full btn-glow">
+              <a id="dl-installer-link" href="https://github.com/zzdevxx/banklycs/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full btn-glow">
                 <svg class="icon-svg" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
                 </svg>
@@ -434,17 +439,18 @@
 
           <!-- Option 2: Database Only -->
           <div class="download-card glass-card reveal-on-scroll">
-            <h3 class="card-title">Database Sah Saja (banklycs.db)</h3>
+            <h3 class="card-title">Database Saja (banklycs.db)</h3>
             <p class="card-desc">
-              Bagi pengguna yang sudah memiliki engine Banklycs dan hanya ingin memperbarui katalog lagu master ke rilis 54.204 lagu.
+              Bagi pengguna yang sudah memiliki aplikasi Banklycs dan hanya ingin memperbarui katalog lagu master ke rilis 54.204 lagu.
             </p>
             <div class="card-meta">
-              <span class="meta-item">Ukuran: 106 MB</span>
+              <span class="meta-item" id="dl-db-size">Ukuran: 106 MB</span>
+              <span class="meta-item" id="dl-db-version">Manifest: 2026-11-12T14:55:47Z</span>
               <span class="meta-item">Target: database/banklycs.db</span>
             </div>
             <div class="card-actions">
-              <a href="https://github.com/zzdevxx/banklycs/releases/download/v2.6/database_2026-11-12_14-55-47.db" target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full">
-                <span>Unduh banklycs.db (106 MB)</span>
+              <a id="dl-db-link" href="https://github.com/zzdevxx/banklycs/releases/download/v2.6/database_2026-11-12_14-55-47.db" target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full">
+                <span id="dl-db-btn-label">Unduh banklycs.db (106 MB)</span>
               </a>
             </div>
           </div>
@@ -498,7 +504,7 @@
             <div class="step-number" aria-hidden="true">1</div>
             <h3 class="step-title">Install Banklycs</h3>
             <p class="step-text">
-              Unduh <code>Banklycs-Setup-2.6.0.exe</code> dari halaman rilis, jalankan, selesai. Installer per-user tanpa UAC, lalu buka Banklycs dari shortcut Desktop atau Start Menu.
+              Unduh <code id="dl-step1-exe">Banklycs-Setup-2.6.0.exe</code> dari halaman rilis, jalankan, selesai. Installer per-user tanpa UAC, lalu buka Banklycs dari shortcut Desktop atau Start Menu.
             </p>
           </div>
 
@@ -556,7 +562,7 @@
             </button>
             <div class="faq-answer">
               <p>
-                Banklycs sama sekali tidak memerlukan instalasi Python pada komputer operator. Engine utama telah dikompilasi menggunakan C# .NET 8 native ke dalam satu file binary mandiri (banklycs.exe) dengan SQLite bawaan di dalamnya.
+                Banklycs sama sekali tidak memerlukan instalasi Python pada komputer operator. Aplikasi desktop (<code>Banklycs.App.exe</code>) meng-embed engine C# .NET 10 self-contained bersama SQLite di dalam satu proses mandiri.
               </p>
             </div>
           </div>
@@ -618,16 +624,21 @@
           Worship lyrics database &amp; on-demand compiler for ProPresenter 7. Proyek nirlaba untuk mendukung kelancaran pelayanan ibadah gereja.
         </p>
         <div class="footer-links">
+          <a href="https://zzdree.my.id/" class="footer-link">zzdree.my.id</a>
+          <a href="https://zzdree.my.id/zzluxora/" class="footer-link">ZZLUXORA</a>
           <a href="https://github.com/zzdevxx/banklycs" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
           <a href="https://gitlab.com/zzdevxx/banklycs" target="_blank" rel="noopener noreferrer" class="footer-link">GitLab</a>
           <a href="https://codeberg.org/zzdevxx/banklycs" target="_blank" rel="noopener noreferrer" class="footer-link">Codeberg</a>
           <a href="https://github.com/zzdevxx/banklycs/blob/master/LICENSE" target="_blank" rel="noopener noreferrer" class="footer-link">Lisensi MIT</a>
+          <a href="https://zzdree.my.id/privacy" class="footer-link">Privasi</a>
+          <a href="https://zzdree.my.id/terms" class="footer-link">Ketentuan</a>
+          <a href="https://zzdree.my.id/data-deletion" class="footer-link">Hapus Data</a>
         </div>
       </div>
 
       <div class="footer-bottom">
         <p class="copyright-text">
-          &copy; 2026 Andreas Restuawanta Christwara (<a href="https://github.com/zzdevxx" target="_blank" rel="noopener noreferrer">@zzdevxx</a>). Dililis di bawah Lisensi MIT.
+          &copy; 2026 Andreas Restuawanta Christwara (<a href="https://github.com/zzdevxx" target="_blank" rel="noopener noreferrer">@zzdevxx</a>). Dirilis di bawah Lisensi MIT. Portal ini tidak memakai akun atau pelacakan; state rundown hanya disimpan di browser lokal.
         </p>
         <p class="disclaimer-text">
           Hak cipta teks lagu dan himne sepenuhnya dimiliki oleh pencipta, label, penerbit, atau yayasan buku nyanyian terkait (YAMUGER, BPK Gunung Mulia, Sinode HKBP, CCLI, dll.).
@@ -640,6 +651,6 @@
   <div id="toast" class="toast-notice" role="alert" aria-live="polite" hidden></div>
 
   <!-- Scripts -->
-  <script src="app.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>

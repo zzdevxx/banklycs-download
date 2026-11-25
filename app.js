@@ -183,10 +183,73 @@
     loadSavedRundown();
     setupEventListeners();
     filterAndRenderSongs();
+    syncLiveReleaseMetadata();
 
     // Select first song as initial preview
     if (SAMPLE_SONGS.length > 0) {
       selectSong(SAMPLE_SONGS[0]);
+    }
+  }
+
+  // Progressive sync with banklycs db_manifest.json and GitHub latest release
+  async function syncLiveReleaseMetadata() {
+    const manifestUrl = 'https://raw.githubusercontent.com/zzdevxx/banklycs/master/database/db_manifest.json';
+    const releaseApiUrl = 'https://api.github.com/repos/zzdevxx/banklycs/releases/latest';
+
+    const fetchJson = async (url) => {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 4000);
+      try {
+        const res = await fetch(url, { signal: ctrl.signal });
+        if (!res.ok) return null;
+        return await res.json();
+      } catch {
+        return null;
+      } finally {
+        clearTimeout(timer);
+      }
+    };
+
+    const [manifest, release] = await Promise.all([
+      fetchJson(manifestUrl),
+      fetchJson(releaseApiUrl)
+    ]);
+
+    if (manifest && typeof manifest.url === 'string' && manifest.url.startsWith('https://')) {
+      const dbLink = document.getElementById('dl-db-link');
+      const dbSize = document.getElementById('dl-db-size');
+      const dbBtnLabel = document.getElementById('dl-db-btn-label');
+      const dbVersion = document.getElementById('dl-db-version');
+      if (dbLink) dbLink.href = manifest.url;
+      if (typeof manifest.size === 'number' && manifest.size > 0) {
+        const mb = Math.round(manifest.size / (1024 * 1024));
+        if (dbSize) dbSize.textContent = `Ukuran: ${mb} MB`;
+        if (dbBtnLabel) dbBtnLabel.textContent = `Unduh banklycs.db (${mb} MB)`;
+      }
+      if (dbVersion && manifest.version) {
+        dbVersion.textContent = `Manifest: ${manifest.version}`;
+      }
+    }
+
+    if (release && release.tag_name) {
+      const verEl = document.getElementById('dl-installer-version');
+      const sizeEl = document.getElementById('dl-installer-size');
+      const linkEl = document.getElementById('dl-installer-link');
+      const stepExeEl = document.getElementById('dl-step1-exe');
+      if (verEl) verEl.textContent = `Versi rilis: ${release.tag_name}`;
+
+      if (Array.isArray(release.assets)) {
+        const exeAsset = release.assets.find((a) =>
+          typeof a.name === 'string' && a.name.toLowerCase().endsWith('.exe')
+        );
+        if (exeAsset) {
+          if (linkEl && exeAsset.browser_download_url) linkEl.href = exeAsset.browser_download_url;
+          if (sizeEl && typeof exeAsset.size === 'number') {
+            sizeEl.textContent = `Ukuran: ${Math.round(exeAsset.size / 1_000_000)} MB (Setup)`;
+          }
+          if (stepExeEl && exeAsset.name) stepExeEl.textContent = exeAsset.name;
+        }
+      }
     }
   }
 

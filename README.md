@@ -1,15 +1,18 @@
-# Banklycs Download Portal (GitHub Pages)
+# Banklycs Download Portal
 
-Landing page resmi dan distribusi publik untuk proyek Banklycs (ProPresenter 7 Worship Lyrics Engine & Database).
+Portal unduhan resmi dan simulator browser untuk proyek [Banklycs](https://github.com/zzdevxx/banklycs) (ProPresenter 7 Worship Lyrics Engine & Database).
+
+- Portal utama: [https://zzdree.my.id/banklycs/](https://zzdree.my.id/banklycs/)
+- Origin GitHub Pages: [https://zzdevxx.github.io/banklycs-download/](https://zzdevxx.github.io/banklycs-download/)
+- Hub portofolio: [https://zzdree.my.id/](https://zzdree.my.id/)
 
 ## Fitur Halaman
 
-- Live Simulator Console: simulator langsung di browser untuk mencari lagu, filter kategori, dan melihat pratinjau slide panggung 16:9 widescreen dengan kode warna resmi ProPresenter 7.
+- Live Simulator Console: simulator langsung di browser untuk mencari lagu, filter kategori, dan melihat pratinjau slide panggung 16:9 widescreen dengan kode warna ProPresenter 7.
 - Rundown Builder & Ekspor WA: penyusunan daftar lagu ibadah interaktif serta ekspor format WhatsApp ke clipboard.
-- Perbandingan Arsitektur: mengapa satu file SQLite lebih stabil untuk laptop ibadah dibanding puluhan ribu file terpisah.
-- Pusat Download (Hub): tautan unduh installer rilis resmi, file database mandiri `banklycs.db` (106 MB), dan perintah kloning Git.
-- Panduan Cepat: langkah penggunaan untuk operator proyektor dan multimedia gereja.
-- FAQ: jawaban teknis soal kompatibilitas Windows 10/11, ProPresenter 7, dan penggunaan offline.
+- Sinkronisasi Rilis Otomatis: membaca `database/db_manifest.json` dan GitHub Releases terbaru `zzdevxx/banklycs` secara progresif dengan nilai fallback terverifikasi.
+- Pusat Download (Hub): tautan unduh installer rilis resmi (.NET 10 self-contained), file database mandiri `banklycs.db` (106 MB), dan perintah kloning Git.
+- Panduan Cepat & FAQ: langkah penggunaan untuk operator proyektor, kompatibilitas Windows 10/11, ProPresenter 7, dan penggunaan offline.
 
 ## Standar Desain (Antislop & Aksesibilitas)
 
