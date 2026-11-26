@@ -12,11 +12,11 @@
       repo: 'zzdevxx/zzluxora',
       apiUrl: 'https://api.github.com/repos/zzdevxx/zzluxora/releases/latest',
       fallback: {
-        tag: 'v10.0',
-        version: '10.0.0',
-        asset: 'ZZLUXORA-Setup-10.0.0.exe',
-        size: 80539329,
-        sha256: 'c5a35679cef3dd260bf7416848f0cfa2c081f4efe07c57ea79e192fcf4397287'
+        tag: 'v10.1',
+        version: '10.1.0',
+        asset: 'ZZLUXORA-Setup-10.1.0.exe',
+        size: 80544241,
+        sha256: '03fdef2953395d1713a3b0c45b6d186b91342693981565dce67ad474611f3508'
       }
     },
     banklycs: {
