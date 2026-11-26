@@ -24,6 +24,7 @@
       name: 'Banklycs',
       repo: 'zzdevxx/banklycs',
       apiUrl: 'https://api.github.com/repos/zzdevxx/banklycs/releases/latest',
+      dbApiUrl: 'https://api.github.com/repos/zzdevxx/banklycs/releases/tags/v2.6',
       fallback: {
         tag: 'v2.7',
         version: '2.7.0',
@@ -42,6 +43,13 @@
   };
 
   const SHA256 = /^[a-f0-9]{64}$/i;
+  const DIGEST_WITH_PREFIX = /^(?:sha256:)?([a-f0-9]{64})$/i;
+
+  function normalizeDigest(value) {
+    if (typeof value !== 'string') return null;
+    const match = DIGEST_WITH_PREFIX.exec(value.trim());
+    return match ? match[1] : null;
+  }
 
   function isSha256(value) {
     return typeof value === 'string' && SHA256.test(value.trim());
@@ -60,15 +68,41 @@
     };
   }
 
-  function parseChecksum(payload) {
+  function parseChecksum(payload, expectedAssetName, expectedApp) {
     if (typeof payload === 'string') return { sha256: payload.trim() };
     if (!payload || typeof payload !== 'object') return null;
-    const digest = payload.sha256 || payload.checksum || payload.digest;
-    if (typeof digest !== 'string') return null;
+    if (expectedApp && payload.app && payload.app !== expectedApp) return null;
+
+    if (!Array.isArray(payload.assets)) {
+      const digest = normalizeDigest(payload.sha256 || payload.checksum || payload.digest);
+      if (!digest) return null;
+      return {
+        sha256: digest,
+        tag: payload.tag || payload.release_tag || null,
+        name: payload.name || payload.asset || payload.asset_name || null,
+        size: payload.size,
+        source: payload.source || null,
+        app: payload.app || null
+      };
+    }
+
+    const entries = payload.assets.filter((entry) => entry && typeof entry.name === 'string');
+    const matches = typeof expectedAssetName === 'string'
+      ? entries.filter((entry) => entry.name === expectedAssetName)
+      : entries;
+    if (matches.length !== 1) return null;
+
+    const entry = matches[0];
+    const digest = normalizeDigest(entry.sha256 || entry.checksum || entry.digest);
+    if (!digest) return null;
+
     return {
-      sha256: digest.trim(),
+      sha256: digest,
       tag: payload.tag || payload.release_tag || null,
-      name: payload.name || payload.asset || payload.asset_name || null
+      name: entry.name,
+      size: entry.size,
+      source: payload.source || null,
+      app: payload.app || null
     };
   }
 
@@ -120,7 +154,7 @@
       return fallbackResult(projectKey, snapshot, 'Aset installer tidak ditemukan pada rilis GitHub. Snapshot publik terakhir disajikan.');
     }
 
-    const checksum = parseChecksum(checksumPayload);
+    const checksum = parseChecksum(checksumPayload, asset.name, projectKey);
     if (!checksum || !isSha256(checksum.sha256)) {
       return fallbackResult(projectKey, snapshot, 'Checksum tidak tersedia atau tidak valid. Snapshot publik terakhir disajikan.');
     }
@@ -138,8 +172,19 @@
       return fallbackResult(projectKey, snapshot, 'URL aset GitHub di luar daftar izin. Snapshot publik terakhir disajikan.');
     }
 
-    if (!Number.isFinite(asset.size) || asset.size <= 0) {
+    if (!Number.isInteger(asset.size) || asset.size <= 0) {
       return fallbackResult(projectKey, snapshot, 'Ukuran aset GitHub tidak valid. Snapshot publik terakhir disajikan.');
+    }
+
+    const hasChecksumSize = checksum.size !== undefined && checksum.size !== null && checksum.size !== '';
+    if (hasChecksumSize) {
+      const checksumSize = Number(checksum.size);
+      if (!Number.isInteger(checksumSize) || checksumSize <= 0) {
+        return fallbackResult(projectKey, snapshot, 'Ukuran checksum tidak valid. Snapshot publik terakhir disajikan.');
+      }
+      if (checksumSize !== asset.size) {
+        return fallbackResult(projectKey, snapshot, 'Ukuran checksum berbeda dengan aset GitHub. Snapshot publik terakhir disajikan.');
+      }
     }
 
     if (tag === snapshot.tag && checksum.sha256.toLowerCase() !== snapshot.sha256.toLowerCase()) {
@@ -164,6 +209,7 @@
       source: exactMatch ? 'snapshot' : 'api',
       verified: exactMatch,
       release,
+      checksumSource: checksum.source || null,
       message: exactMatch
         ? 'Versi, ukuran, dan checksum cocok dengan snapshot rilis publik.'
         : 'Rilis GitHub terbaca. Checksum dari portal diterima, tetapi belum cocok dengan snapshot lokal.'
@@ -175,6 +221,7 @@
     const project = PROJECTS[projectKey];
     const fetchJson = options.fetchJson;
     const apply = options.apply;
+    const releaseApiUrl = options.type === 'database' && project.dbApiUrl ? project.dbApiUrl : project.apiUrl;
     let generation = 0;
 
     return {
@@ -185,7 +232,7 @@
         let apiRelease = null;
         let failure = null;
         try {
-          apiRelease = await fetchJson(project.apiUrl);
+          apiRelease = await fetchJson(releaseApiUrl);
         } catch (error) {
           failure = error && error.message ? error.message : 'permintaan gagal';
         }

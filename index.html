@@ -7,7 +7,7 @@
   <meta name="description" content="Portal Banklycs untuk unduhan installer dan database SQLite 54.204 lagu rohani, dengan simulator rundown ProPresenter 7 di browser.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23f38020'/><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='52' font-weight='900' fill='%23000'>P7</text></svg>">
   <link rel="canonical" href="https://zzdree.my.id/banklycs/">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css?v=20261126-responsive">
 </head>
 <body class="site-body">
   <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
@@ -22,8 +22,19 @@
         </span>
       </a>
 
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav-list"
+      >
+        <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+
       <nav class="site-nav" aria-label="Navigasi utama">
-        <ul class="nav-list">
+        <ul class="nav-list" id="site-nav-list">
           <li><a href="#features" class="nav-link">Keunggulan</a></li>
           <li><a href="#preview" class="nav-link">Live Console</a></li>
           <li><a href="#architecture" class="nav-link">Arsitektur</a></li>
@@ -525,7 +536,7 @@
   <label class="visually-hidden" for="copy-fallback">Teks cadangan untuk disalin manual</label>
   <textarea id="copy-fallback" class="copy-fallback" readonly hidden></textarea>
 
-  <script src="./release.js"></script>
-  <script src="./app.js"></script>
+  <script src="./release.js?v=20261126-responsive"></script>
+  <script src="./app.js?v=20261126-responsive"></script>
 </body>
 </html>

@@ -136,6 +136,8 @@
   };
 
   const el = {
+    siteHeader: document.querySelector('.site-header'),
+    navToggle: document.getElementById('nav-toggle'),
     search: document.getElementById('sim-search-input'),
     clearSearch: document.getElementById('sim-clear-btn'),
     tabs: document.querySelectorAll('.console-tab'),
@@ -292,6 +294,49 @@
       apply: applyDatabaseRelease,
       type: 'database'
     }).load();
+  }
+
+  function setupNav() {
+    if (!el.navToggle || !el.siteHeader) return;
+
+    const mobile = window.matchMedia && window.matchMedia('(max-width: 768px)');
+    if (!mobile) return;
+
+    const label = el.navToggle.querySelector('.nav-toggle-label');
+
+    function setOpen(open) {
+      el.siteHeader.dataset.navOpen = String(Boolean(open));
+      el.navToggle.setAttribute('aria-expanded', String(Boolean(open)));
+      if (label) label.textContent = open ? 'Tutup' : 'Menu';
+    }
+
+    setOpen(false);
+
+    el.navToggle.addEventListener('click', () => {
+      setOpen(el.siteHeader.dataset.navOpen !== 'true');
+    });
+
+    el.siteHeader.querySelectorAll('.site-nav a, .header-actions a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (mobile.matches) setOpen(false);
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && el.siteHeader.dataset.navOpen === 'true') {
+        setOpen(false);
+        el.navToggle.focus();
+      }
+    });
+
+    const closeOnDesktop = () => {
+      if (!mobile.matches) setOpen(false);
+    };
+    if (typeof mobile.addEventListener === 'function') {
+      mobile.addEventListener('change', closeOnDesktop);
+    } else {
+      mobile.addListener(closeOnDesktop);
+    }
   }
 
   function setupScrollReveals() {
@@ -713,7 +758,13 @@
       });
     });
 
-    el.faqQuestions.forEach((question) => {
+    el.faqQuestions.forEach((question, index) => {
+      const answer = question.nextElementSibling;
+      if (answer && answer.classList.contains('faq-answer')) {
+        const answerId = `faq-answer-${index + 1}`;
+        answer.id = answerId;
+        question.setAttribute('aria-controls', answerId);
+      }
       question.addEventListener('click', () => {
         const expanded = question.getAttribute('aria-expanded') === 'true';
         el.faqQuestions.forEach((item) => item.setAttribute('aria-expanded', 'false'));
@@ -736,6 +787,7 @@
   }
 
   function init() {
+    setupNav();
     setupScrollReveals();
     setupAnimatedCounters();
     loadSavedRundown();
